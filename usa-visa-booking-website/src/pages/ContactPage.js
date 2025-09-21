@@ -14,10 +14,12 @@ import {
   CardContent,
   Link,
   useTheme,
-  useMediaQuery
+  useMediaQuery,
+  CircularProgress
 } from '@mui/material';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import axios from 'axios';
 import Hero from '../components/ui/Hero';
 import SectionTitle from '../components/ui/SectionTitle';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -38,6 +40,9 @@ const visaTypes = [
 
 const ContactPage = () => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
+  const [snackbarSeverity, setSnackbarSeverity] = useState('success');
+  const [loading, setLoading] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -58,11 +63,69 @@ const ContactPage = () => {
       visaType: Yup.string().required('Please select a visa type'),
       message: Yup.string().required('Message is required').min(20, 'Message should be at least 20 characters'),
     }),
-    onSubmit: (values, { resetForm }) => {
-      // In a real app, you would handle form submission here (e.g., send data to a server)
-      console.log('Form values:', values);
-      setOpenSnackbar(true);
-      resetForm();
+    onSubmit: async (values, { resetForm, setSubmitting }) => {
+      setLoading(true);
+      try {
+        // Send data to the server
+        const response = await axios.post('http://localhost:3001/api/send-email', values, {
+          timeout: 5000 // 5 second timeout
+        });
+        
+        // Handle success
+        setSnackbarMessage('Thank you! Your message has been sent successfully. We\'ll get back to you soon.');
+        setSnackbarSeverity('success');
+        setOpenSnackbar(true);
+        resetForm();
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        
+        // Handle different types of errors
+        let errorMessage = 'Sorry, there was an error sending your message. Please try again or email us directly.';
+        let showFallbackLink = false;
+        
+        if (error.response) {
+          // Server responded with an error status code
+          console.log('Error response data:', error.response.data);
+          errorMessage = error.response.data.message || errorMessage;
+          
+          if (error.response.data.error && error.response.data.error.includes('Username and Password not accepted')) {
+            errorMessage = 'Email server configuration error. Please contact the administrator.';
+          }
+        } else if (error.request) {
+          // Request was made but no response received
+          errorMessage = 'Cannot connect to the email server. Please copy your message and send it manually.';
+          showFallbackLink = true;
+        } else if (error.code === 'ECONNABORTED') {
+          errorMessage = 'Server request timed out. Please try again or send your message manually.';
+          showFallbackLink = true;
+        }
+        
+        setSnackbarMessage(errorMessage);
+        setSnackbarSeverity('error');
+        setOpenSnackbar(true);
+        
+        // If server is not reachable, open mailto link
+        if (showFallbackLink) {
+          const { firstName, lastName, email, phone, visaType, message } = values;
+          const subject = `${visaType} Visa Inquiry`;
+          const body = `Name: ${firstName} ${lastName}
+Email: ${email}
+Phone: ${phone}
+Visa Type: ${visaType}
+
+${message}`;
+          
+          const mailtoLink = `mailto:info@ssjsvisaservices.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+          
+          // Ask user if they want to open email client
+          if (window.confirm('Would you like to open your email client to send the message directly?')) {
+            window.open(mailtoLink, '_blank');
+          }
+        }
+      } finally {
+        setLoading(false);
+        setSubmitting(false);
+      }
     },
   });
 
@@ -248,10 +311,11 @@ const ContactPage = () => {
                         variant="contained"
                         color="primary"
                         size="large"
-                        startIcon={<SendIcon />}
+                        startIcon={loading ? <CircularProgress size={20} color="inherit" /> : <SendIcon />}
                         sx={{ mt: 2 }}
+                        disabled={loading}
                       >
-                        Send Message
+                        {loading ? 'Sending...' : 'Send Message'}
                       </Button>
                       <Typography variant="body2" color="text.secondary" sx={{ mt: 2 }}>
                         You can also email us directly at <Link href="mailto:info@ssjsvisaservices.com">info@ssjsvisaservices.com</Link> for faster response.
@@ -376,8 +440,11 @@ const ContactPage = () => {
       </Container>
       
       <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar}>
-        <Alert onClose={handleCloseSnackbar} severity="success" sx={{ width: '100%' }}>
-          Thank you! Your message has been sent successfully. We'll get back to you soon. For immediate assistance, please email us directly at info@ssjsvisaservices.com.
+        <Alert onClose={handleCloseSnackbar} severity={snackbarSeverity} sx={{ width: '100%' }}>
+          {snackbarMessage}
+          {snackbarSeverity === 'success' && (
+            <> For immediate assistance, please email us directly at <Link href="mailto:info@ssjsvisaservices.com" color="inherit">info@ssjsvisaservices.com</Link>.</>
+          )}
         </Alert>
       </Snackbar>
     </Box>

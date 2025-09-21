@@ -29,6 +29,9 @@ This website provides information and services for various US visa types includi
 - Formik for form handling
 - Yup for form validation
 - CSS-in-JS styling with Emotion
+- Express.js for backend server
+- Nodemailer for email functionality
+- Axios for API requests
 
 ## Getting Started
 
@@ -53,13 +56,39 @@ cd usa-visa-booking-website
 npm install
 ```
 
-### `npm start`
+### Running the Application
 
-Runs the app in the development mode.\
+#### Setup Email Functionality
+
+1. Create a `.env` file in the root directory with the following content:
+```
+PORT=3001
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASS=your-app-password
+```
+
+2. For Gmail accounts, you'll need to:
+   - Enable 2-Step Verification in your Google account
+   - Create an App Password: Go to your Google Account > Security > App passwords
+   - Use this App Password in the `.env` file instead of your regular password
+
+#### Development Mode
+
+##### `npm run dev`
+
+This command runs both the frontend and backend servers concurrently:
+- Frontend: [http://localhost:3000](http://localhost:3000)
+- Backend: [http://localhost:3001](http://localhost:3001)
+
+##### `npm start`
+
+Runs only the frontend in development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+##### `npm run server`
+
+Runs only the backend server for email functionality.\
+The server will run on [http://localhost:3001](http://localhost:3001).
 
 ### `npm test`
 
@@ -85,6 +114,56 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Setting Up Email Functionality
+
+The contact form on this website uses a Node.js/Express server with Nodemailer to send emails. Follow these steps to set up email functionality:
+
+1. **Configure Gmail Account**
+   - Set up 2-Step Verification on your Gmail account if not already enabled
+   - Generate an App Password:
+     1. Go to https://myaccount.google.com/apppasswords
+     2. Select "Mail" as the app and "Other" as the device (you can name it "SSJS Website")
+     3. Copy the generated 16-character password
+
+2. **Configure Environment Variables (Simple Setup)**
+   - Create or edit the `.env` file in the root directory
+   - Add the following configuration:
+     ```
+     PORT=3001
+     EMAIL_USER=your-gmail-address@gmail.com
+     EMAIL_PASS=your-16-character-app-password
+     ```
+
+3. **Configure Environment Variables (Secure Setup with Encryption)**
+   - For enhanced security, you can encrypt your email password
+   - Run the password encryption utility:
+     ```
+     node setup-email-encryption.js
+     ```
+   - Follow the prompts to enter your Gmail App Password
+   - The script will automatically:
+     - Generate an encryption key
+     - Encrypt your password
+     - Update the `.env` file with both values
+
+4. **Starting the Email Server**
+   - To start both the React frontend and Express email server:
+     ```
+     npm run dev
+     ```
+   - To start only the email server:
+     ```
+     npm run server
+     ```
+
+5. **Testing Email Functionality**
+   - Fill out the contact form on the website
+   - Check console output for success/error messages
+   - Verify that both notification and confirmation emails are sent
+   - For debugging email issues, visit `http://localhost:3001/api/email-config-check`
+
+**Note:** Make sure you never commit your `.env` file with actual credentials to version control.
 
 ## Learn More
 
