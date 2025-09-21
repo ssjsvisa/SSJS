@@ -29,7 +29,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "node deploy.js"
+    "deploy": "node deploy.js && node github-pages-settings-reminder.js",
+    "reminder": "node github-pages-settings-reminder.js",
+    "fix-404": "cp build/index.html build/404.html"
   },
   "eslintConfig": {
     "extends": [
