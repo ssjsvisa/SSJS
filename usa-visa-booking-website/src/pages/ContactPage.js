@@ -243,16 +243,19 @@ const ContactPage = () => {
                       />
                     </Grid>
                     <Grid item xs={12}>
-                      <Button 
-                        type="submit" 
-                        variant="contained" 
-                        color="primary" 
+                      <Button
+                        type="submit"
+                        variant="contained"
+                        color="primary"
                         size="large"
                         startIcon={<SendIcon />}
                         sx={{ mt: 2 }}
                       >
                         Send Message
                       </Button>
+                      <Typography variant="body2" color="text.secondary" sx={{ mt: 2 }}>
+                        You can also email us directly at <Link href="mailto:info@ssjsvisaservices.com">info@ssjsvisaservices.com</Link> for faster response.
+                      </Typography>
                     </Grid>
                   </Grid>
                 </form>
@@ -294,27 +297,37 @@ const ContactPage = () => {
               
               <Box sx={{ mt: 4 }}>
                 <SectionTitle 
-                  title="Quick Contact" 
-                  subtitle="Reach out to us directly" 
+                  title="Direct Contact Options" 
+                  subtitle="Email us for fastest response" 
                   centered={false} 
                 />
                 
                 <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                   <PhoneIcon color="primary" sx={{ mr: 2 }} />
-                  <Typography variant="body1">
-                    <Link href="tel:+1234567890" color="inherit" underline="hover">
-                      [Insert Mobile Number]
-                    </Link>
-                  </Typography>
+                  <Box>
+                    <Typography variant="body1">
+                      <Link href="tel:+1234567890" color="inherit" underline="hover">
+                        +1 (234) 567-890
+                      </Link>
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
+                      Available Monday-Friday, 9:00 AM - 6:00 PM EST
+                    </Typography>
+                  </Box>
                 </Box>
                 
                 <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                   <EmailIcon color="primary" sx={{ mr: 2 }} />
-                  <Typography variant="body1">
-                    <Link href="mailto:info@ssjsvisaservices.com" color="inherit" underline="hover">
-                      [Insert Email Address]
-                    </Link>
-                  </Typography>
+                  <Box>
+                    <Typography variant="body1">
+                      <Link href="mailto:info@ssjsvisaservices.com" color="inherit" underline="hover">
+                        info@ssjsvisaservices.com
+                      </Link>
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
+                      Please send your inquiries directly to this email address and we'll respond within 24-48 hours.
+                    </Typography>
+                  </Box>
                 </Box>
               </Box>
             </Grid>
@@ -364,7 +377,7 @@ const ContactPage = () => {
       
       <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar}>
         <Alert onClose={handleCloseSnackbar} severity="success" sx={{ width: '100%' }}>
-          Thank you! Your message has been sent successfully. We'll get back to you soon.
+          Thank you! Your message has been sent successfully. We'll get back to you soon. For immediate assistance, please email us directly at info@ssjsvisaservices.com.
         </Alert>
       </Snackbar>
     </Box>
