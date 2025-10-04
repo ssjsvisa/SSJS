@@ -81,7 +81,7 @@ const HomePage = () => {
               variant="contained" 
               color="primary" 
               component={RouterLink}
-              to="/about"
+              to="/About"
               sx={{ mt: 2 }}
             >
               Learn More About Us
@@ -209,7 +209,7 @@ const HomePage = () => {
               color="primary"
               size="large"
               component={RouterLink}
-              to="/services"
+              to="/Services"
             >
               View All Visa Services
             </Button>
@@ -241,7 +241,7 @@ const HomePage = () => {
                 color="secondary" 
                 size="large"
                 component={RouterLink}
-                to="/contact"
+                to="/Contactus"
                 sx={{ px: 4, py: 1.5, fontSize: '1.1rem' }}
               >
                 Contact Us Now

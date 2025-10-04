@@ -9,10 +9,10 @@ import FlagIcon from '../ui/FlagIcon';
 import VisitorCounter from '../ui/VisitorCounter';
 
 const navItems = [
-  { name: 'Home', path: '/' },
-  { name: 'About Us', path: '/about' },
-  { name: 'Visa Services', path: '/services' },
-  { name: 'Contact Us', path: '/contact' },
+  { name: 'Home', path: '/Home' },
+  { name: 'About Us', path: '/About' },
+  { name: 'Visa Services', path: '/Services' },
+  { name: 'Contact Us', path: '/Contactus' },
 ];
 
 const Header = () => {

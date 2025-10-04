@@ -179,7 +179,7 @@ const VisaServicesPage = () => {
                   color="primary" 
                   endIcon={<ArrowForwardIcon />}
                   component={RouterLink}
-                  to="/contact"
+                  to="/Contactus"
                   sx={{ mt: 2 }}
                 >
                   Inquire About This Visa
@@ -255,7 +255,7 @@ const VisaServicesPage = () => {
                   color="primary" 
                   endIcon={<ArrowForwardIcon />}
                   component={RouterLink}
-                  to="/contact"
+                  to="/Contactus"
                   sx={{ mt: 2 }}
                 >
                   Inquire About This Visa
@@ -331,7 +331,7 @@ const VisaServicesPage = () => {
                   color="primary" 
                   endIcon={<ArrowForwardIcon />}
                   component={RouterLink}
-                  to="/contact"
+                  to="/Contactus"
                   sx={{ mt: 2 }}
                 >
                   Inquire About This Visa
@@ -407,7 +407,7 @@ const VisaServicesPage = () => {
                   color="primary" 
                   endIcon={<ArrowForwardIcon />}
                   component={RouterLink}
-                  to="/contact"
+                  to="/Contactus"
                   sx={{ mt: 2 }}
                 >
                   Inquire About This Visa
@@ -438,7 +438,7 @@ const VisaServicesPage = () => {
                 color="primary" 
                 endIcon={<ArrowForwardIcon />}
                 component={RouterLink}
-                to="/contact"
+                to="/Contactus"
                 sx={{ mt: 2 }}
               >
                 Contact Us for Other Visa Types
@@ -612,7 +612,7 @@ const VisaServicesPage = () => {
                   color="primary" 
                   size="large"
                   component={RouterLink}
-                  to="/contact"
+                  to="/Contactus"
                   sx={{ mt: 2 }}
                 >
                   Start Your Journey Today
