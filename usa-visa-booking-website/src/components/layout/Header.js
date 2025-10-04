@@ -6,6 +6,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import LogoPlaceholder from '../ui/LogoPlaceholder';
 import FlagIcon from '../ui/FlagIcon';
+import VisitorCounter from '../ui/VisitorCounter';
 
 const navItems = [
   { name: 'Home', path: '/' },
@@ -58,24 +59,6 @@ const Header = () => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      {/* Top Banner with Flags */}
-      <Box 
-        sx={{ 
-          bgcolor: 'primary.dark', 
-          color: 'white',
-          py: 0.5,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: 2
-        }}
-      >
-        <FlagIcon country="india" height={16} />
-        <Typography variant="caption" fontWeight="medium">
-          Trusted Visa Services Since 2010
-        </Typography>
-        <FlagIcon country="us" height={16} />
-      </Box>
 
       <AppBar position="static" color="default" elevation={2}>
         <Container maxWidth="lg">
@@ -119,7 +102,7 @@ const Header = () => {
 
             {/* Desktop Navigation */}
             {!isMobile && (
-              <Box sx={{ display: 'flex' }}>
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
                 {navItems.map((item) => (
                   <Button
                     key={item.name}
@@ -140,6 +123,11 @@ const Header = () => {
               </Box>
             )}
 
+            {/* Visitor Counter - Always in right corner */}
+            <Box sx={{ ml: 'auto', pl: 2 }}>
+              <VisitorCounter inline={true} />
+            </Box>
+
             {/* Mobile Menu Button */}
             {isMobile && (
               <IconButton
@@ -147,6 +135,7 @@ const Header = () => {
                 aria-label="open drawer"
                 edge="start"
                 onClick={handleDrawerToggle}
+                sx={{ ml: 1 }}
               >
                 <MenuIcon />
               </IconButton>

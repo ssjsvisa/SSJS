@@ -589,7 +589,7 @@ const VisaServicesPage = () => {
             centered={true}
           />
           
-          <Grid container spacing={4} alignItems="center">
+          <Grid container spacing={4} alignItems="center" justifyContent="center">
             <Grid item xs={12} md={6}>
               <Box sx={{ display: 'flex', justifyContent: 'center', mb: 3 }}>
                 <Stack direction="row" spacing={3} alignItems="center">
@@ -621,7 +621,7 @@ const VisaServicesPage = () => {
             </Grid>
             
             <Grid item xs={12} md={6}>
-              <Grid container spacing={2}>
+              <Grid container spacing={2} justifyContent="center">
                 <Grid item xs={6}>
                   <Paper elevation={2} sx={{ p: 2, textAlign: 'center', borderRadius: 2 }}>
                     <Typography variant="h5" fontWeight="bold" color="primary.main">
