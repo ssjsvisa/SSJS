@@ -194,7 +194,7 @@ const AboutPage = () => {
               </Box>
               <CardContent>
                 <Typography variant="h5" component="h3" gutterBottom fontWeight={600}>
-                  10+ Years
+                  2+ Years
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   Over a decade of specialized experience in U.S. visa consulting
@@ -218,7 +218,7 @@ const AboutPage = () => {
               </Box>
               <CardContent>
                 <Typography variant="h5" component="h3" gutterBottom fontWeight={600}>
-                  5,000+
+                  2,000+
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   Successful visa applications across all categories

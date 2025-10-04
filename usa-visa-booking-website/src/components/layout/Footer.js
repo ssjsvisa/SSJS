@@ -79,7 +79,15 @@ const Footer = () => {
               Email: sssj.b1b285@gmail.com
             </Typography>
             <Box sx={{ display: 'flex', gap: 1, mt: 2 }}>
-              <IconButton size="small" color="primary" aria-label="facebook">
+              <IconButton 
+                size="small" 
+                color="primary" 
+                aria-label="facebook"
+                component="a"
+                href="https://www.facebook.com/Susi616969"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FacebookIcon />
               </IconButton>
               <IconButton size="small" color="primary" aria-label="twitter">

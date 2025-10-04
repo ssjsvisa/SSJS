@@ -113,13 +113,13 @@ const HomePage = () => {
                 <Grid container spacing={2} justifyContent="center">
                   <Grid item xs={6}>
                     <Box sx={{ textAlign: 'center', p: 2 }}>
-                      <Typography variant="h3" fontWeight="bold">25K+</Typography>
+                      <Typography variant="h3" fontWeight="bold">2K+</Typography>
                       <Typography variant="body2">Successful Visas</Typography>
                     </Box>
                   </Grid>
                   <Grid item xs={6}>
                     <Box sx={{ textAlign: 'center', p: 2 }}>
-                      <Typography variant="h3" fontWeight="bold">15+</Typography>
+                      <Typography variant="h3" fontWeight="bold">2+</Typography>
                       <Typography variant="body2">Years Experience</Typography>
                     </Box>
                   </Grid>
@@ -129,12 +129,12 @@ const HomePage = () => {
                       <Typography variant="body2">Success Rate</Typography>
                     </Box>
                   </Grid>
-                  <Grid item xs={6}>
+                  {/* <Grid item xs={6}>
                     <Box sx={{ textAlign: 'center', p: 2 }}>
                       <Typography variant="h3" fontWeight="bold">50+</Typography>
                       <Typography variant="body2">Expert Consultants</Typography>
                     </Box>
-                  </Grid>
+                  </Grid> */}
                 </Grid>
               </Paper>
             </Grid>
