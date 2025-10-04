@@ -21,16 +21,15 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Router>
+      <Router basename="/SSJS">
         <AnalyticsInitializer />
         <Layout>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/SSJS" element={<Navigate to="/" replace />} />
-            <Route path="/ssjs" element={<Navigate to="/" replace />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/services" element={<VisaServicesPage />} />
-            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/Home" element={<HomePage />} />
+            <Route path="/About" element={<AboutPage />} />
+            <Route path="/Services" element={<VisaServicesPage />} />
+            <Route path="/Contactus" element={<ContactPage />} />
           </Routes>
         </Layout>
       </Router>

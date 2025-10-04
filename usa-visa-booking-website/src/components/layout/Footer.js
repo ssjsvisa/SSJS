@@ -39,13 +39,13 @@ const Footer = () => {
             <Link component={RouterLink} to="/" color="inherit" display="block" underline="hover" sx={{ mb: 1 }}>
               Home
             </Link>
-            <Link component={RouterLink} to="/about" color="inherit" display="block" underline="hover" sx={{ mb: 1 }}>
+            <Link component={RouterLink} to="/About" color="inherit" display="block" underline="hover" sx={{ mb: 1 }}>
               About Us
             </Link>
-            <Link component={RouterLink} to="/services" color="inherit" display="block" underline="hover" sx={{ mb: 1 }}>
+            <Link component={RouterLink} to="/Services" color="inherit" display="block" underline="hover" sx={{ mb: 1 }}>
               Visa Services
             </Link>
-            <Link component={RouterLink} to="/contact" color="inherit" display="block" underline="hover" sx={{ mb: 1 }}>
+            <Link component={RouterLink} to="/Contactus" color="inherit" display="block" underline="hover" sx={{ mb: 1 }}>
               Contact Us
             </Link>
           </Grid>
@@ -54,16 +54,16 @@ const Footer = () => {
             <Typography variant="h6" color="primary.main" gutterBottom fontWeight="bold">
               Visa Types
             </Typography>
-            <Link component={RouterLink} to="/services#b1b2" color="inherit" display="block" underline="hover" sx={{ mb: 1 }}>
+            <Link component={RouterLink} to="/Services#b1b2" color="inherit" display="block" underline="hover" sx={{ mb: 1 }}>
               B1/B2 Tourist & Business
             </Link>
-            <Link component={RouterLink} to="/services#f1" color="inherit" display="block" underline="hover" sx={{ mb: 1 }}>
+            <Link component={RouterLink} to="/Services#f1" color="inherit" display="block" underline="hover" sx={{ mb: 1 }}>
               F1 Student
             </Link>
-            <Link component={RouterLink} to="/services#h1b" color="inherit" display="block" underline="hover" sx={{ mb: 1 }}>
+            <Link component={RouterLink} to="/Services#h1b" color="inherit" display="block" underline="hover" sx={{ mb: 1 }}>
               H1B Work
             </Link>
-            <Link component={RouterLink} to="/services#l1" color="inherit" display="block" underline="hover" sx={{ mb: 1 }}>
+            <Link component={RouterLink} to="/Services#l1" color="inherit" display="block" underline="hover" sx={{ mb: 1 }}>
               L1 Intra-company Transfer
             </Link>
           </Grid>

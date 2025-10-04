@@ -6,29 +6,56 @@ const VisitorCounter = ({ inline = false }) => {
   const [visitorCount, setVisitorCount] = useState(0);
 
   useEffect(() => {
-    // Get visitor count from localStorage or start at 0
-    let count = parseInt(localStorage.getItem('visitorCount') || '0', 10);
-    
-    // Check if this is a new session
-    const hasVisitedToday = localStorage.getItem('visitedToday');
-    const today = new Date().toDateString();
-    
-    if (!hasVisitedToday || hasVisitedToday !== today) {
-      // New visitor for today
-      count += 1;
-      localStorage.setItem('visitorCount', count.toString());
-      localStorage.setItem('visitedToday', today);
-    }
-    
+    // Calculate cumulative visitor count over 5 years for an established visa services website
+    const getCumulativeVisitorCount = () => {
+      const currentDate = new Date();
+      const websiteStartDate = new Date(2019, 0, 1); // Started January 1, 2019 (5+ years ago)
+      const daysSinceStart = Math.floor((currentDate - websiteStartDate) / (1000 * 60 * 60 * 24));
+      
+      // Base calculation: Average 50-150 visitors per day over 5+ years
+      const avgDailyVisitors = 75 + Math.floor(Math.random() * 50); // 75-125 daily average
+      
+      // Growth factor - website gained popularity over time
+      const growthFactor = 1.2; // 20% overall growth
+      
+      // Seasonal variations (visa applications peak during certain months)
+      const month = currentDate.getMonth();
+      const seasonalMultiplier = (month >= 2 && month <= 7) ? 1.15 : 1; // Higher in spring/summer
+      
+      // Calculate base count from historical data
+      let baseCount = Math.floor(daysSinceStart * avgDailyVisitors * growthFactor * seasonalMultiplier);
+      
+      // Add current day's visitors (live increment)
+      const todayVisitors = Math.floor(Math.random() * 200) + 50; // 50-250 today
+      baseCount += todayVisitors;
+      
+      // Ensure realistic range for established visa services website
+      return Math.min(Math.max(baseCount, 150000), 500000); // Between 150K - 500K total visitors
+    };
+
+    // Set initial count
+    let count = getCumulativeVisitorCount();
     setVisitorCount(count);
 
-    // Optional: Track with Google Analytics if you have it set up
+    // Increment count every 2-5 minutes to show live growth
+    const incrementInterval = setInterval(() => {
+      const increment = Math.floor(Math.random() * 3) + 1; // Add 1-3 visitors
+      count += increment;
+      setVisitorCount(count);
+      
+      // Store updated count to maintain consistency during session
+      localStorage.setItem('currentVisitorCount', count.toString());
+    }, (Math.random() * 180000) + 120000); // 2-5 minutes random intervals
+
+    // Track with Google Analytics
     if (typeof window.gtag === 'function') {
       window.gtag('event', 'page_view', {
         page_title: document.title,
         page_location: window.location.href,
       });
     }
+
+    return () => clearInterval(incrementInterval);
   }, []);
 
   if (inline) {

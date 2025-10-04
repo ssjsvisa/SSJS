@@ -8,7 +8,7 @@ Copy and paste this HTML code into your EmailJS template editor:
 <div style="font-family: system-ui, sans-serif, Arial; font-size: 14px; max-width: 600px; margin: 0 auto;">
   <!-- Header -->
   <div style="background: linear-gradient(45deg, #1976d2, #42a5f5); color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0;">
-    <h2 style="margin: 0; font-size: 24px;">🎯 New Visa Consultation Request / Feedback</h2>
+    <h2 style="margin: 0; font-size: 24px;">🎯 Visa Consultation Request / Feedback</h2>
     <p style="margin: 5px 0 0 0; opacity: 0.9;">A new inquiry / feedback has been received from your website</p>
   </div>
 
@@ -41,12 +41,6 @@ Copy and paste this HTML code into your EmailJS template editor:
       <div style="background: white; padding: 15px; border-radius: 6px; border: 1px solid #ddd; line-height: 1.6; color: #333;">
         {{message}}
       </div>
-    </div>
-
-    <!-- Action Required -->
-    <div style="margin-top: 25px; padding: 15px; background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; text-align: center;">
-      <strong style="color: #856404;">⏰ Action Required</strong>
-      <div style="margin-top: 8px; color: #856404;">Please respond within 24 hours for optimal customer experience</div>
     </div>
 
     <!-- Footer -->
