@@ -46,7 +46,7 @@ Copy and paste this HTML code into your EmailJS template editor:
     <!-- Footer -->
     <div style="margin-top: 30px; padding-top: 20px; border-top: 2px dashed #ddd; text-align: center; color: #888; font-size: 13px;">
       <p style="margin: 0;">This inquiry was submitted through your visa consultation website</p>
-      <p style="margin: 5px 0 0 0;">🌐 <strong><a href="https://svk-sivakumar.github.io/SSJS/" style="color: #1976d2; text-decoration: none;">SSJS USA Visa Booking Service</a></strong> • Contact Form Submission</p>
+      <p style="margin: 5px 0 0 0;">🌐 <strong><a href="https://ssjsvisa.github.io/SSJS/" style="color: #1976d2; text-decoration: none;">SSJS USA Visa Booking Service</a></strong> • Contact Form Submission</p>
     </div>
   </div>
 </div>
