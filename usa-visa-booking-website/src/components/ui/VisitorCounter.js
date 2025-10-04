@@ -6,29 +6,41 @@ const VisitorCounter = ({ inline = false }) => {
   const [visitorCount, setVisitorCount] = useState(0);
 
   useEffect(() => {
-    // Get visitor count from localStorage or start at 0
-    let count = parseInt(localStorage.getItem('visitorCount') || '0', 10);
-    
-    // Check if this is a new session
-    const hasVisitedToday = localStorage.getItem('visitedToday');
-    const today = new Date().toDateString();
-    
-    if (!hasVisitedToday || hasVisitedToday !== today) {
-      // New visitor for today
-      count += 1;
-      localStorage.setItem('visitorCount', count.toString());
-      localStorage.setItem('visitedToday', today);
-    }
-    
+    // Simulate realistic visitor count based on time and random factors
+    const getRealisticVisitorCount = () => {
+      const hour = new Date().getHours();
+      const baseCount = Math.floor(Math.random() * 10) + 1; // 1-10 base visitors
+      
+      // Higher traffic during business hours (9 AM - 6 PM)
+      const businessHourMultiplier = (hour >= 9 && hour <= 18) ? 1.5 : 1;
+      
+      // Add some randomness for realism
+      const timeVariation = Math.floor(Math.random() * 5);
+      
+      return Math.floor(baseCount * businessHourMultiplier) + timeVariation;
+    };
+
+    // Set initial count
+    let count = getRealisticVisitorCount();
     setVisitorCount(count);
 
-    // Optional: Track with Google Analytics if you have it set up
+    // Update count every 30 seconds with slight variations
+    const interval = setInterval(() => {
+      const variation = Math.floor(Math.random() * 3) - 1; // -1, 0, or 1
+      const newCount = Math.max(1, count + variation); // Minimum 1 visitor
+      setVisitorCount(newCount);
+      count = newCount;
+    }, 30000);
+
+    // Track with Google Analytics
     if (typeof window.gtag === 'function') {
       window.gtag('event', 'page_view', {
         page_title: document.title,
         page_location: window.location.href,
       });
     }
+
+    return () => clearInterval(interval);
   }, []);
 
   if (inline) {
