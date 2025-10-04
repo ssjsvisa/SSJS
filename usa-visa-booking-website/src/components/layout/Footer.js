@@ -73,10 +73,10 @@ const Footer = () => {
               Contact Info
             </Typography>
             <Typography variant="body2" color="text.secondary" paragraph>
-              Phone: [Insert Mobile Number]
+              Phone: +91 93616 96954
             </Typography>
             <Typography variant="body2" color="text.secondary" paragraph>
-              Email: [Insert Email Address]
+              Email: sssj.b1b285@gmail.com
             </Typography>
             <Box sx={{ display: 'flex', gap: 1, mt: 2 }}>
               <IconButton size="small" color="primary" aria-label="facebook">

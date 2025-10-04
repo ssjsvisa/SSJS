@@ -93,7 +93,7 @@ const HomePage = () => {
       {/* US-India Connection Section */}
       <Box sx={{ bgcolor: 'primary.main', py: 6, color: 'white' }}>
         <Container maxWidth="lg">
-          <Grid container alignItems="center" spacing={3}>
+          <Grid container alignItems="center" spacing={3} justifyContent="center">
             <Grid item xs={12} md={6}>
               <Stack direction="row" spacing={2} alignItems="center" justifyContent="center" sx={{ mb: 3 }}>
                 <FlagIcon country="india" height={60} />
@@ -110,7 +110,7 @@ const HomePage = () => {
             </Grid>
             <Grid item xs={12} md={6}>
               <Paper elevation={0} sx={{ p: 3, bgcolor: 'rgba(255, 255, 255, 0.1)', borderRadius: 2 }}>
-                <Grid container spacing={2}>
+                <Grid container spacing={2} justifyContent="center">
                   <Grid item xs={6}>
                     <Box sx={{ textAlign: 'center', p: 2 }}>
                       <Typography variant="h3" fontWeight="bold">25K+</Typography>

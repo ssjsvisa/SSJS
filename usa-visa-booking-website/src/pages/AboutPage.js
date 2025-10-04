@@ -178,7 +178,7 @@ const AboutPage = () => {
           centered={true} 
         />
         
-        <Grid container spacing={4}>
+        <Grid container spacing={4} justifyContent="center">
           <Grid item xs={12} sm={6} md={3}>
             <Card sx={{ height: '100%', textAlign: 'center', p: 2 }}>
               <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
