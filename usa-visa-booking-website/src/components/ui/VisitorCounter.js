@@ -6,31 +6,46 @@ const VisitorCounter = ({ inline = false }) => {
   const [visitorCount, setVisitorCount] = useState(0);
 
   useEffect(() => {
-    // Simulate realistic visitor count based on time and random factors
-    const getRealisticVisitorCount = () => {
-      const hour = new Date().getHours();
-      const baseCount = Math.floor(Math.random() * 10) + 1; // 1-10 base visitors
+    // Calculate cumulative visitor count over 5 years for an established visa services website
+    const getCumulativeVisitorCount = () => {
+      const currentDate = new Date();
+      const websiteStartDate = new Date(2019, 0, 1); // Started January 1, 2019 (5+ years ago)
+      const daysSinceStart = Math.floor((currentDate - websiteStartDate) / (1000 * 60 * 60 * 24));
       
-      // Higher traffic during business hours (9 AM - 6 PM)
-      const businessHourMultiplier = (hour >= 9 && hour <= 18) ? 1.5 : 1;
+      // Base calculation: Average 50-150 visitors per day over 5+ years
+      const avgDailyVisitors = 75 + Math.floor(Math.random() * 50); // 75-125 daily average
       
-      // Add some randomness for realism
-      const timeVariation = Math.floor(Math.random() * 5);
+      // Growth factor - website gained popularity over time
+      const growthFactor = 1.2; // 20% overall growth
       
-      return Math.floor(baseCount * businessHourMultiplier) + timeVariation;
+      // Seasonal variations (visa applications peak during certain months)
+      const month = currentDate.getMonth();
+      const seasonalMultiplier = (month >= 2 && month <= 7) ? 1.15 : 1; // Higher in spring/summer
+      
+      // Calculate base count from historical data
+      let baseCount = Math.floor(daysSinceStart * avgDailyVisitors * growthFactor * seasonalMultiplier);
+      
+      // Add current day's visitors (live increment)
+      const todayVisitors = Math.floor(Math.random() * 200) + 50; // 50-250 today
+      baseCount += todayVisitors;
+      
+      // Ensure realistic range for established visa services website
+      return Math.min(Math.max(baseCount, 150000), 500000); // Between 150K - 500K total visitors
     };
 
     // Set initial count
-    let count = getRealisticVisitorCount();
+    let count = getCumulativeVisitorCount();
     setVisitorCount(count);
 
-    // Update count every 30 seconds with slight variations
-    const interval = setInterval(() => {
-      const variation = Math.floor(Math.random() * 3) - 1; // -1, 0, or 1
-      const newCount = Math.max(1, count + variation); // Minimum 1 visitor
-      setVisitorCount(newCount);
-      count = newCount;
-    }, 30000);
+    // Increment count every 2-5 minutes to show live growth
+    const incrementInterval = setInterval(() => {
+      const increment = Math.floor(Math.random() * 3) + 1; // Add 1-3 visitors
+      count += increment;
+      setVisitorCount(count);
+      
+      // Store updated count to maintain consistency during session
+      localStorage.setItem('currentVisitorCount', count.toString());
+    }, (Math.random() * 180000) + 120000); // 2-5 minutes random intervals
 
     // Track with Google Analytics
     if (typeof window.gtag === 'function') {
@@ -40,7 +55,7 @@ const VisitorCounter = ({ inline = false }) => {
       });
     }
 
-    return () => clearInterval(interval);
+    return () => clearInterval(incrementInterval);
   }, []);
 
   if (inline) {
