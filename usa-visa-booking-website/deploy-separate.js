@@ -27,7 +27,7 @@ const deployToSeparateRepo = () => {
     path.join(process.cwd(), 'build'),
     {
       branch: 'main', // or 'gh-pages'
-      repo: 'https://github.com/svk-sivakumar/SSJS-website.git', // New public repo
+      repo: 'https://github.com/ssjsvisa/SSJS-website.git', // New public repo
       message: 'Auto-deployment: Update website content',
     },
     (err) => {
@@ -36,7 +36,7 @@ const deployToSeparateRepo = () => {
         return;
       }
       console.log('Deployment to separate public repository successful!');
-      console.log('Website will be available at: https://svk-sivakumar.github.io/SSJS-website/');
+      console.log('Website will be available at: https://ssjsvisa.github.io/SSJS-website/');
     }
   );
   */
@@ -46,7 +46,7 @@ const deployToSeparateRepo = () => {
     path.join(process.cwd(), 'build'),
     {
       branch: 'gh-pages',
-      repo: 'https://github.com/svk-sivakumar/SSJS.git',
+      repo: 'https://github.com/ssjsvisa/SSJS.git',
       message: 'Auto-deployment: Update site content',
       remove: 'CNAME',
     },

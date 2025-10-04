@@ -15,7 +15,7 @@ ghpages.publish(
   path.join(process.cwd(), 'build'),
   {
     branch: 'gh-pages',
-    repo: 'https://github.com/svk-sivakumar/SSJS.git',
+    repo: 'https://github.com/ssjsvisa/SSJS.git',
     message: 'Auto-deployment: Update site content without CNAME',
     // Add this option to remove the CNAME file if it exists in the gh-pages branch
     remove: 'CNAME',

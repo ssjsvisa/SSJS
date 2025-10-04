@@ -13,7 +13,7 @@ fs.mkdirSync(tempDir, { recursive: true });
 try {
   // Clone only the gh-pages branch to temp directory
   console.log('Cloning gh-pages branch...');
-  execSync(`git clone --branch gh-pages --single-branch https://github.com/svk-sivakumar/SSJS.git ${tempDir}`, {
+  execSync(`git clone --branch gh-pages --single-branch https://github.com/ssjsvisa/SSJS.git ${tempDir}`, {
     stdio: 'inherit'
   });
   
