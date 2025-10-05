@@ -32,11 +32,13 @@ import WorkIcon from '@mui/icons-material/Work';
 import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
 import HandshakeIcon from '@mui/icons-material/Handshake';
 import { images } from '../assets/images/imageUrls';
+import { useTranslation } from 'react-i18next';
 
 const HomePage = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [welcomeModalOpen, setWelcomeModalOpen] = useState(false);
+  const { t } = useTranslation();
 
   // Check if this is the user's first visit
   useEffect(() => {
@@ -61,18 +63,18 @@ const HomePage = () => {
     <Box>
       {/* Hero Section */}
       <Hero
-        title="Your Journey to America Starts Here"
-        subtitle="Professional visa application services to make your American dream a reality"
+        title={t('home.hero.title')}
+        subtitle={t('home.hero.subtitle')}
         backgroundImage={images.heroHome}
-        buttonText="Explore Visa Services"
+        buttonText={t('home.hero.buttonText')}
         buttonLink="/services"
       />
 
       {/* Introduction Section */}
       <Container maxWidth="lg" sx={{ py: 8 }}>
         <SectionTitle
-          title="USA Visa Application Process"
-          subtitle="Navigating the U.S. visa application process can be complex. We're here to guide you every step of the way."
+          title={t('home.introduction.title')}
+          subtitle={t('home.introduction.subtitle')}
           centered
         />
         
@@ -92,16 +94,16 @@ const HomePage = () => {
           </Grid>
           <Grid item xs={12} md={6}>
             <Typography variant="h4" gutterBottom sx={{ fontWeight: 600, color: 'primary.main' }}>
-              Your Trusted Visa Partner
+              {t('home.trustedPartner.title')}
             </Typography>
             <Typography variant="body1" paragraph>
-              The USA visa application process involves several steps, from determining the right visa type for your purpose to preparing documentation and attending the visa interview. At SSJS, we provide expert guidance through each stage.
+              {t('home.trustedPartner.description1')}
             </Typography>
             <Typography variant="body1" paragraph>
-              Our team of experienced professionals will help you understand the requirements, prepare your application, and maximize your chances of approval. We stay current with the latest immigration policies and procedures to provide you with accurate advice.
+              {t('home.trustedPartner.description2')}
             </Typography>
             <Typography variant="body1" paragraph>
-              Whether you're planning to visit the United States for tourism, business, education, or work, we offer specialized services tailored to your specific needs.
+              {t('home.trustedPartner.description3')}
             </Typography>
             <Button 
               variant="contained" 
@@ -110,7 +112,7 @@ const HomePage = () => {
               to="/About"
               sx={{ mt: 2 }}
             >
-              Learn More About Us
+              {t('home.trustedPartner.learnMore')}
             </Button>
           </Grid>
         </Grid>
@@ -127,11 +129,10 @@ const HomePage = () => {
                 <FlagIcon country="us" height={60} />
               </Stack>
               <Typography variant="h4" align="center" gutterBottom fontWeight="bold">
-                Connecting Nations, Building Futures
+                {t('home.connecting.title')}
               </Typography>
               <Typography variant="body1" align="center" paragraph>
-                SSJS Visa Services specializes in strengthening the connection between India and the United States through 
-                professional visa consulting services, cultural exchange programs, and educational opportunities.
+                {t('home.connecting.description')}
               </Typography>
             </Grid>
             <Grid item xs={12} md={6}>
@@ -140,19 +141,19 @@ const HomePage = () => {
                   <Grid item xs={6}>
                     <Box sx={{ textAlign: 'center', p: 2 }}>
                       <Typography variant="h3" fontWeight="bold">2K+</Typography>
-                      <Typography variant="body2">Successful Visas</Typography>
+                      <Typography variant="body2">{t('home.stats.successfulVisas')}</Typography>
                     </Box>
                   </Grid>
                   <Grid item xs={6}>
                     <Box sx={{ textAlign: 'center', p: 2 }}>
                       <Typography variant="h3" fontWeight="bold">2+</Typography>
-                      <Typography variant="body2">Years Experience</Typography>
+                      <Typography variant="body2">{t('home.stats.yearsExperience')}</Typography>
                     </Box>
                   </Grid>
                   <Grid item xs={6}>
                     <Box sx={{ textAlign: 'center', p: 2 }}>
                       <Typography variant="h3" fontWeight="bold">98%</Typography>
-                      <Typography variant="body2">Success Rate</Typography>
+                      <Typography variant="body2">{t('home.stats.successRate')}</Typography>
                     </Box>
                   </Grid>
                   {/* <Grid item xs={6}>
@@ -172,16 +173,16 @@ const HomePage = () => {
       <Box sx={{ bgcolor: 'background.paper', py: 8 }}>
         <Container maxWidth="lg">
           <SectionTitle
-            title="Visa Categories"
-            subtitle="Explore the different types of U.S. visas available for various purposes"
+            title={t('home.services.title')}
+            subtitle={t('home.services.subtitle')}
             centered
           />
           
           <Grid container spacing={4}>
             <Grid item xs={12} sm={6} md={4}>
               <FeatureCard
-                title="Tourist & Business (B1/B2)"
-                description="For temporary visits to the United States for tourism, vacation, visiting family, or business meetings and conferences."
+                title={t('home.services.tourist.title')}
+                description={t('home.services.tourist.description')}
                 icon={<FlightIcon fontSize="large" />}
                 image={images.touristImage}
                 imageAlt="Tourist in the USA"
@@ -190,8 +191,8 @@ const HomePage = () => {
             
             <Grid item xs={12} sm={6} md={4}>
               <FeatureCard
-                title="Student Visa (F1)"
-                description="For academic studies at U.S. colleges, universities, high schools, language training programs, and other academic institutions."
+                title={t('home.services.student.title')}
+                description={t('home.services.student.description')}
                 icon={<SchoolIcon fontSize="large" />}
                 image={images.studentImage}
                 imageAlt="Student studying in the USA"
@@ -200,8 +201,8 @@ const HomePage = () => {
             
             <Grid item xs={12} sm={6} md={4}>
               <FeatureCard
-                title="Work Visa (H1B)"
-                description="For professionals in specialty occupations requiring theoretical and practical application of specialized knowledge."
+                title={t('home.services.work.title')}
+                description={t('home.services.work.description')}
                 icon={<WorkIcon fontSize="large" />}
                 image={images.workImage}
                 imageAlt="Professional working in the USA"
@@ -210,8 +211,8 @@ const HomePage = () => {
             
             <Grid item xs={12} sm={6} md={6}>
               <FeatureCard
-                title="Intra-company Transfer (L1)"
-                description="For employees of international companies transferring to a parent, branch, affiliate, or subsidiary in the United States."
+                title={t('home.services.business.title')}
+                description={t('home.services.business.description')}
                 icon={<BusinessCenterIcon fontSize="large" />}
                 image={images.businessImage}
                 imageAlt="Business meeting in the USA"
@@ -220,8 +221,8 @@ const HomePage = () => {
             
             <Grid item xs={12} sm={12} md={6}>
               <FeatureCard
-                title="Other Visa Categories"
-                description="Dependent visas, immigrant visas, diversity visa lottery, and specialized visas for various purposes including artists, athletes, and religious workers."
+                title={t('home.services.family.title')}
+                description={t('home.services.family.description')}
                 icon={<FamilyRestroomIcon fontSize="large" />}
                 image={images.familyImage}
                 imageAlt="Family in the USA"
@@ -237,7 +238,7 @@ const HomePage = () => {
               component={RouterLink}
               to="/Services"
             >
-              View All Visa Services
+              {t('home.services.viewAll')}
             </Button>
           </Box>
         </Container>
@@ -255,10 +256,10 @@ const HomePage = () => {
           >
             <Grid item xs={12} md={8}>
               <Typography variant="h3" component="h2" gutterBottom fontWeight={600}>
-                Ready to Begin Your U.S. Journey?
+                {t('home.cta.title')}
               </Typography>
               <Typography variant="h6" component="p" sx={{ opacity: 0.9 }}>
-                Contact SSJS today for a consultation and let us help you navigate the visa application process.
+                {t('home.cta.subtitle')}
               </Typography>
             </Grid>
             <Grid item xs={12} md={4} sx={{ textAlign: isMobile ? 'center' : 'right' }}>
@@ -270,7 +271,7 @@ const HomePage = () => {
                 to="/Contactus"
                 sx={{ px: 4, py: 1.5, fontSize: '1.1rem' }}
               >
-                Contact Us Now
+                {t('home.cta.buttonText')}
               </Button>
             </Grid>
           </Grid>
@@ -335,7 +336,7 @@ const HomePage = () => {
                   mb: 2
                 }}
               >
-                Welcome to SSJS Visa Services! 👋
+                {t('home.welcome.title')}
               </Typography>
 
               <Typography 
@@ -347,23 +348,16 @@ const HomePage = () => {
                   fontSize: '1.1rem'
                 }}
               >
-                We're thrilled to have you here! Our expert team is dedicated to making your 
-                American dream a reality with professional visa application services.
+                {t('home.welcome.subtitle')}
               </Typography>
 
               {/* Key Benefits */}
               <Box sx={{ mb: 4, textAlign: 'left' }}>
                 <Typography variant="h6" sx={{ mb: 2, color: 'primary.main', fontWeight: 600 }}>
-                  Why Choose SSJS?
+                  {t('home.welcome.whyChoose')}
                 </Typography>
                 <Stack spacing={1}>
-                  {[
-                    '✈️ Expert guidance for all visa types',
-                    '📄 Complete application assistance',
-                    '⚡ Fast processing times',
-                    '🎯 High success rate',
-                    '💬 24/7 customer support'
-                  ].map((benefit, index) => (
+                  {t('home.welcome.benefits', { returnObjects: true }).map((benefit, index) => (
                     <Typography 
                       key={index} 
                       variant="body2" 
@@ -396,7 +390,7 @@ const HomePage = () => {
                     fontWeight: 600,
                   }}
                 >
-                  Explore Visa Services
+                  {t('home.welcome.exploreServices')}
                 </Button>
                 <Button
                   variant="outlined"
@@ -412,7 +406,7 @@ const HomePage = () => {
                     fontWeight: 600,
                   }}
                 >
-                  Get Free Consultation
+                  {t('home.welcome.freeConsultation')}
                 </Button>
               </Stack>
 
@@ -426,7 +420,7 @@ const HomePage = () => {
                   fontSize: '0.8rem'
                 }}
               >
-                This welcome message appears only on your first visit
+                {t('home.welcome.disclaimer')}
               </Typography>
             </Box>
           </Paper>

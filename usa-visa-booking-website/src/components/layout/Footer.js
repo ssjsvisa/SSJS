@@ -6,10 +6,12 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FlagIcon from '../ui/FlagIcon';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
   const theme = useTheme();
   const currentYear = new Date().getFullYear();
+  const { t } = useTranslation();
 
   return (
     <Box
@@ -24,59 +26,58 @@ const Footer = () => {
         <Grid container spacing={4}>
           <Grid item xs={12} sm={6} md={3}>
             <Typography variant="h6" color="primary.main" gutterBottom fontWeight="bold">
-              SSJS Visa Services
+              {t('footer.companyName')}
             </Typography>
             <Typography variant="body2" color="text.secondary" paragraph>
-              Professional USA visa application services, helping clients navigate the complex 
-              visa process with ease and confidence.
+              {t('footer.description')}
             </Typography>
           </Grid>
           
           <Grid item xs={12} sm={6} md={3}>
             <Typography variant="h6" color="primary.main" gutterBottom fontWeight="bold">
-              Quick Links
+              {t('footer.quickLinks')}
             </Typography>
             <Link component={RouterLink} to="/" color="inherit" display="block" underline="hover" sx={{ mb: 1 }}>
-              Home
+              {t('nav.home')}
             </Link>
             <Link component={RouterLink} to="/About" color="inherit" display="block" underline="hover" sx={{ mb: 1 }}>
-              About Us
+              {t('nav.about')}
             </Link>
             <Link component={RouterLink} to="/Services" color="inherit" display="block" underline="hover" sx={{ mb: 1 }}>
-              Visa Services
+              {t('nav.services')}
             </Link>
             <Link component={RouterLink} to="/Contactus" color="inherit" display="block" underline="hover" sx={{ mb: 1 }}>
-              Contact Us
+              {t('nav.contact')}
             </Link>
           </Grid>
           
           <Grid item xs={12} sm={6} md={3}>
             <Typography variant="h6" color="primary.main" gutterBottom fontWeight="bold">
-              Visa Types
+              {t('footer.visaTypes')}
             </Typography>
             <Link component={RouterLink} to="/Services#b1b2" color="inherit" display="block" underline="hover" sx={{ mb: 1 }}>
-              B1/B2 Tourist & Business
+              {t('footer.visaLinks.b1b2')}
             </Link>
             <Link component={RouterLink} to="/Services#f1" color="inherit" display="block" underline="hover" sx={{ mb: 1 }}>
-              F1 Student
+              {t('footer.visaLinks.f1')}
             </Link>
             <Link component={RouterLink} to="/Services#h1b" color="inherit" display="block" underline="hover" sx={{ mb: 1 }}>
-              H1B Work
+              {t('footer.visaLinks.h1b')}
             </Link>
             <Link component={RouterLink} to="/Services#l1" color="inherit" display="block" underline="hover" sx={{ mb: 1 }}>
-              L1 Intra-company Transfer
+              {t('footer.visaLinks.l1')}
             </Link>
           </Grid>
           
           <Grid item xs={12} sm={6} md={3}>
             <Typography variant="h6" color="primary.main" gutterBottom fontWeight="bold">
-              Contact Info
+              {t('footer.contactInfo')}
             </Typography>
             <Typography variant="body2" color="text.secondary" paragraph>
-              Phone: +91 93616 96954
+              {t('footer.phone')} +91 93616 96954
             </Typography>
             <Typography variant="body2" color="text.secondary" paragraph>
-              Email: sssj.b1b285@gmail.com
+              {t('footer.email')} sssj.b1b285@gmail.com
             </Typography>
             <Box sx={{ display: 'flex', gap: 1, mt: 2 }}>
               <IconButton 
@@ -112,18 +113,18 @@ const Footer = () => {
         <Box sx={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', alignItems: 'center' }}>
           <Stack direction="row" alignItems="center" spacing={1}>
             <Typography variant="body2" color="text.secondary">
-              © {currentYear} SSJS Visa Services. All rights reserved.
+              © {currentYear} {t('footer.copyright')}
             </Typography>
             <Typography variant="body2" color="primary.main" fontWeight="medium">
-              India-USA Visa Experts
+              {t('footer.tagline')}
             </Typography>
           </Stack>
           <Box>
             <Link href="#" color="inherit" underline="hover" sx={{ mx: 1 }}>
-              Privacy Policy
+              {t('footer.privacyPolicy')}
             </Link>
             <Link href="#" color="inherit" underline="hover" sx={{ mx: 1 }}>
-              Terms of Service
+              {t('footer.termsOfService')}
             </Link>
           </Box>
         </Box>

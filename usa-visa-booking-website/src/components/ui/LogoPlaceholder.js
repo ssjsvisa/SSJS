@@ -1,7 +1,11 @@
 import React from 'react';
 import { Box } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
-const LogoPlaceholder = ({ compact = false }) => (
+const LogoPlaceholder = ({ compact = false }) => {
+  const { t } = useTranslation();
+  
+  return (
   <Box sx={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
     <svg
       width="100%"
@@ -62,12 +66,13 @@ const LogoPlaceholder = ({ compact = false }) => (
             fontSize="12"
             fontFamily="'Arial', sans-serif"
           >
-            Visa Services
+            {t('nav.services')}
           </text>
         </>
       )}
     </svg>
   </Box>
-);
+  );
+};
 
 export default LogoPlaceholder;

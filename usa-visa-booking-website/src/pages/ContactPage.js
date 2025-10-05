@@ -26,14 +26,9 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import SendIcon from '@mui/icons-material/Send';
 import { images } from '../assets/images/imageUrls';
+import { useTranslation } from 'react-i18next';
 
-const visaTypes = [
-  { value: 'B1/B2', label: 'B1/B2 Tourist & Business Visa' },
-  { value: 'F1', label: 'F1 Student Visa' },
-  { value: 'H1B', label: 'H1B Work Visa' },
-  { value: 'L1', label: 'L1 Intra-company Transfer Visa' },
-  { value: 'Other', label: 'Other Visa Types' },
-];
+
 
 // Email sending functions
 const sendEmailWithEmailJS = async (formData) => {
@@ -103,6 +98,17 @@ const ContactPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const { t } = useTranslation();
+
+  const visaTypes = [
+    { value: 'tourist', label: t('contact.form.visaTypes.tourist') },
+    { value: 'business', label: t('contact.form.visaTypes.business') },
+    { value: 'student', label: t('contact.form.visaTypes.student') },
+    { value: 'work', label: t('contact.form.visaTypes.work') },
+    { value: 'family', label: t('contact.form.visaTypes.family') },
+    { value: 'investment', label: t('contact.form.visaTypes.investment') },
+    { value: 'other', label: t('contact.form.visaTypes.other') },
+  ];
 
   const formik = useFormik({
     initialValues: {
@@ -113,11 +119,11 @@ const ContactPage = () => {
       message: '',
     },
     validationSchema: Yup.object({
-      firstName: Yup.string().required('First name is required'),
-      lastName: Yup.string().required('Last name is required'),
-      email: Yup.string().email('Invalid email address').required('Email is required'),
-      visaType: Yup.string().required('Please select a visa type'),
-      message: Yup.string().required('Message is required').min(20, 'Message should be at least 20 characters'),
+      firstName: Yup.string().required(t('contact.form.required')),
+      lastName: Yup.string().required(t('contact.form.required')),
+      email: Yup.string().email(t('contact.form.invalidEmail')).required(t('contact.form.required')),
+      visaType: Yup.string().required(t('contact.form.required')),
+      message: Yup.string().required(t('contact.form.required')).min(20, t('contact.form.message') + ' should be at least 20 characters'),
     }),
     onSubmit: async (values, { resetForm }) => {
       setIsSubmitting(true);
@@ -129,13 +135,13 @@ const ContactPage = () => {
         // Method 2: Using your own backend API (uncomment if you have a backend)
         // await sendEmailWithBackend(values);
         
-        setSnackbarMessage('Thank you! Your message has been sent successfully. We\'ll get back to you soon.');
+        setSnackbarMessage(t('contact.success'));
         setSnackbarSeverity('success');
         setOpenSnackbar(true);
         resetForm();
       } catch (error) {
         console.error('Error sending email:', error);
-        setSnackbarMessage('Sorry, there was an error sending your message. Please try again or contact us directly.');
+        setSnackbarMessage(t('contact.error'));
         setSnackbarSeverity('error');
         setOpenSnackbar(true);
       } finally {
@@ -155,8 +161,8 @@ const ContactPage = () => {
     <Box>
       {/* Hero Section */}
       <Hero
-        title="Contact Our Visa Experts"
-        subtitle="Get personalized guidance for your visa application journey"
+        title={t('contact.title')}
+        subtitle={t('contact.subtitle')}
         backgroundImage={images.heroContact}
         height="65vh"
       />
@@ -168,8 +174,8 @@ const ContactPage = () => {
             <Grid item xs={12} md={6}>
               <Box>
                 <SectionTitle 
-                  title="Quick Contact" 
-                  subtitle="Reach out to us directly" 
+                  title={t('contact.quickContact')} 
+                  subtitle={t('contact.contactInfo')} 
                   centered={false} 
                 />
                 
@@ -195,8 +201,8 @@ const ContactPage = () => {
             
             <Grid item xs={12} md={6}>
               <SectionTitle 
-                title="Send Us Requirement or Feedback" 
-                subtitle="Fill out the form below, and we'll get back to you soon" 
+                title={t('contact.sendUsRequirement')} 
+                subtitle={t('contact.fillOutForm')} 
                 centered={false} 
               />
               
@@ -223,17 +229,17 @@ const ContactPage = () => {
                       WebkitTextFillColor: 'transparent'
                     }}
                   >
-                    Get Started Today
+                    {t('contact.getStartedToday')}
                   </Typography>
                   <Typography variant="body1" color="text.secondary">
-                    Fill out the form below and our visa experts will contact you within 24 hours
+                    {t('contact.subtitle')}
                   </Typography>
                 </Box>
 
                 <form onSubmit={formik.handleSubmit}>
                   <Box sx={{ mb: 4 }}>
                     <Typography variant="h6" sx={{ mb: 3, fontWeight: 600, color: 'text.primary' }}>
-                      Personal Information
+                      {t('contact.personalInfo')}
                     </Typography>
                     <Grid container spacing={3}>
                       <Grid item xs={12} sm={8}>
@@ -241,8 +247,8 @@ const ContactPage = () => {
                           fullWidth
                           id="firstName"
                           name="firstName"
-                          label="First Name"
-                          placeholder="Enter your first name"
+                          label={t('contact.form.firstName')}
+                          placeholder={t('contact.form.firstNamePlaceholder')}
                           value={formik.values.firstName}
                           onChange={formik.handleChange}
                           onBlur={formik.handleBlur}
@@ -284,8 +290,8 @@ const ContactPage = () => {
                           fullWidth
                           id="lastName"
                           name="lastName"
-                          label="Last Name"
-                          placeholder="Enter your last name"
+                          label={t('contact.form.lastName')}
+                          placeholder={t('contact.form.lastNamePlaceholder')}
                           value={formik.values.lastName}
                           onChange={formik.handleChange}
                           onBlur={formik.handleBlur}
@@ -327,8 +333,8 @@ const ContactPage = () => {
                           fullWidth
                           id="email"
                           name="email"
-                          label="Email Address"
-                          placeholder="Enter your email address"
+                          label={t('contact.form.email')}
+                          placeholder={t('contact.form.emailPlaceholder')}
                           value={formik.values.email}
                           onChange={formik.handleChange}
                           onBlur={formik.handleBlur}
@@ -375,7 +381,7 @@ const ContactPage = () => {
                   <Grid container spacing={4}>
                     <Grid item xs={12} md={6}>
                       <Typography variant="h6" sx={{ mb: 3, fontWeight: 600, color: 'text.primary' }}>
-                        Visa Service Type
+                        {t('contact.visaServiceType')}
                       </Typography>
                       <Box sx={{ display: 'grid', gap: 2 }}>
                         {visaTypes.map((option) => (
@@ -453,14 +459,14 @@ const ContactPage = () => {
 
                     <Grid item xs={12} md={6}>
                       <Typography variant="h6" sx={{ mb: 3, fontWeight: 600, color: 'text.primary' }}>
-                        Tell Us About Your Requirements or Feedback
+                        {t('contact.tellUs')}
                       </Typography>
                       <TextField
                         fullWidth
                         id="message"
                         name="message"
-                        label="Your Message"
-                        placeholder="Please share your feedback about our services, suggestions for improvement, questions about our visa assistance process, or any other comments you'd like us to know. Your feedback helps us serve you better."
+                        label={t('contact.form.message')}
+                        placeholder={t('contact.form.messagePlaceholder')}
                         multiline
                         rows={14}
                         value={formik.values.message}
@@ -514,7 +520,7 @@ const ContactPage = () => {
                           transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
                         }}
                       >
-                        {isSubmitting ? 'Sending...' : 'Submit'}
+                        {isSubmitting ? t('contact.form.sending') : t('contact.form.submit')}
                       </Button>
                     </Grid>
                   </Grid>
@@ -528,39 +534,29 @@ const ContactPage = () => {
       {/* FAQ Section */}
       <Container maxWidth="lg" sx={{ py: 8 }}>
         <SectionTitle 
-          title="Frequently Asked Questions" 
-          subtitle="Common questions about contacting us" 
+          title={t('contact.faq.title')} 
+          subtitle={t('contact.faq.subtitle')} 
           centered={true} 
         />
         
         <Grid container spacing={4}>
           <Grid item xs={12} md={6}>
-            <FAQItem 
-              question="What information should I prepare before the consultation?" 
-              answer="Before your consultation, it's helpful to have details about your travel plans, purpose of visit, personal information, employment history, and any previous U.S. visa applications or denials."
-            />
-            <FAQItem 
-              question="How long does it take to get a response after submitting the contact form?" 
-              answer="We typically respond to all inquiries within 24-48 business hours. For urgent matters, we recommend calling us directly."
-            />
-            <FAQItem 
-              question="Do you offer remote consultations?" 
-              answer="Yes, we offer consultations via phone, video call, or email for clients who cannot visit our office in person."
-            />
+            {t('contact.faq.items', { returnObjects: true }).slice(0, 3).map((item, index) => (
+              <FAQItem 
+                key={index}
+                question={item.question} 
+                answer={item.answer}
+              />
+            ))}
           </Grid>
           <Grid item xs={12} md={6}>
-            <FAQItem 
-              question="Is there a fee for initial consultations?" 
-              answer="We offer a complimentary 15-minute initial assessment. For more detailed consultations, there is a nominal fee that can be applied toward future services if you decide to proceed with us."
-            />
-            <FAQItem 
-              question="What languages do your consultants speak?" 
-              answer="Our consultants are fluent in English, Spanish, Mandarin, Hindi, and Arabic to better serve our diverse clientele."
-            />
-            <FAQItem 
-              question="Can you help with urgent visa applications?" 
-              answer="Yes, we offer expedited services for urgent cases, though additional fees may apply. Please contact us directly to discuss your specific timeline and needs."
-            />
+            {t('contact.faq.items', { returnObjects: true }).slice(3, 6).map((item, index) => (
+              <FAQItem 
+                key={index}
+                question={item.question} 
+                answer={item.answer}
+              />
+            ))}
           </Grid>
         </Grid>
       </Container>

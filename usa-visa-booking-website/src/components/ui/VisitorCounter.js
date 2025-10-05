@@ -4,10 +4,12 @@ import CloseIcon from '@mui/icons-material/Close';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import FiberNewIcon from '@mui/icons-material/FiberNew';
 import FacebookIcon from '@mui/icons-material/Facebook';
+import { useTranslation } from 'react-i18next';
 
 const VisitorCounter = ({ inline = false }) => {
   const [visitorCount, setVisitorCount] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     // Calculate cumulative visitor count over 5 years for an established visa services website
@@ -67,7 +69,7 @@ const VisitorCounter = ({ inline = false }) => {
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
         <Chip
           icon={<VisibilityIcon sx={{ color: 'primary.main !important', fontSize: 16 }} />}
-          label={`Visitors: ${visitorCount.toLocaleString()}`}
+          label={`${t('visitor.visitors')}: ${visitorCount.toLocaleString()}`}
           variant="outlined"
           size="small"
           sx={{
@@ -126,7 +128,7 @@ const VisitorCounter = ({ inline = false }) => {
               },
             }}
           >
-            🎯 Latest Appointment
+            🎯 {t('visitor.latestAppointments')}
           </Typography>
         </Box>
         
@@ -227,7 +229,7 @@ const VisitorCounter = ({ inline = false }) => {
               }}
             />
             <Tooltip 
-              title="Want to see more success stories and evidence?" 
+              title={t('visitor.facebookPrompt')} 
               placement="top"
               arrow
             >
@@ -256,7 +258,7 @@ const VisitorCounter = ({ inline = false }) => {
                   py: 1,
                 }}
               >
-                Visit Our Facebook Page
+                {t('visitor.visitFacebook')}
               </Button>
             </Tooltip>
           </Paper>
@@ -283,7 +285,7 @@ const VisitorCounter = ({ inline = false }) => {
     >
       <Chip
         icon={<VisibilityIcon sx={{ color: 'white !important' }} />}
-        label={`Visitors: ${visitorCount.toLocaleString()}`}
+        label={`${t('visitor.visitors')}: ${visitorCount.toLocaleString()}`}
         variant="outlined"
         sx={{
           color: 'white',
@@ -425,7 +427,7 @@ const VisitorCounter = ({ inline = false }) => {
             }}
           />
           <Tooltip 
-            title="Want to see more success stories and evidence?" 
+            title={t('visitor.facebookPrompt')} 
             placement="top"
             arrow
           >
@@ -454,7 +456,7 @@ const VisitorCounter = ({ inline = false }) => {
                 py: 1,
               }}
             >
-              Visit Our Facebook Page
+              {t('visitor.visitFacebook')}
             </Button>
           </Tooltip>
         </Paper>

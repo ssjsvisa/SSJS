@@ -7,18 +7,21 @@ import CloseIcon from '@mui/icons-material/Close';
 import LogoPlaceholder from '../ui/LogoPlaceholder';
 import FlagIcon from '../ui/FlagIcon';
 import VisitorCounter from '../ui/VisitorCounter';
-
-const navItems = [
-  { name: 'Home', path: '/Home' },
-  { name: 'About Us', path: '/About' },
-  { name: 'Visa Services', path: '/Services' },
-  { name: 'Contact Us', path: '/Contactus' },
-];
+import LanguageSwitcher from '../ui/LanguageSwitcher';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const { t } = useTranslation();
+
+  const navItems = [
+    { name: t('nav.home'), path: '/Home' },
+    { name: t('nav.about'), path: '/About' },
+    { name: t('nav.services'), path: '/Services' },
+    { name: t('nav.contact'), path: '/Contactus' },
+  ];
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -96,7 +99,7 @@ const Header = () => {
                   display: { xs: 'none', sm: 'block' }
                 }}
               >
-                SSJS Visa Services
+                {t('footer.companyName')}
               </Typography>
             </Box>
 
@@ -123,8 +126,9 @@ const Header = () => {
               </Box>
             )}
 
-            {/* Visitor Counter - Always in right corner */}
-            <Box sx={{ ml: 'auto', pl: 2 }}>
+            {/* Language Switcher & Visitor Counter - Always in right corner */}
+            <Box sx={{ ml: 'auto', pl: 2, display: 'flex', alignItems: 'center', gap: 1 }}>
+              <LanguageSwitcher size="small" />
               <VisitorCounter inline={true} />
             </Box>
 

@@ -33,9 +33,11 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import EventNoteIcon from '@mui/icons-material/EventNote';
 import PersonIcon from '@mui/icons-material/Person';
 import { images } from '../assets/images/imageUrls';
+import { useTranslation } from 'react-i18next';
 
 const VisaServicesPage = () => {
   const [tabValue, setTabValue] = useState(0);
+  const { t } = useTranslation();
 
   const handleTabChange = (event, newValue) => {
     setTabValue(newValue);
@@ -45,8 +47,8 @@ const VisaServicesPage = () => {
     <Box>
       {/* Hero Section */}
       <Hero
-        title="USA Visa Services"
-        subtitle="Expert guidance for all types of U.S. visas with comprehensive application support"
+        title={t('services.title')}
+        subtitle={t('services.subtitle')}
         backgroundImage={images.heroServices}
         height="65vh"
         buttonText="Apply Now"
@@ -56,13 +58,13 @@ const VisaServicesPage = () => {
       {/* Introduction Section */}
       <Container maxWidth="lg" sx={{ py: 8 }}>
         <SectionTitle 
-          title="Our Visa Services" 
-          subtitle="Expert Guidance for Every Visa Category" 
+          title={t('services.intro.title')} 
+          subtitle={t('services.intro.subtitle')} 
           centered={true}
         />
 
         <Typography variant="body1" paragraph sx={{ maxWidth: '900px', mx: 'auto', textAlign: 'center', mb: 5 }}>
-          At SSJS, we offer specialized consulting services for all U.S. visa categories. Our team of experienced professionals will guide you through the entire application process, from initial assessment to final submission and interview preparation.
+          {t('services.intro.description')}
         </Typography>
 
         {/* Visa Types Tabs with US Flag */}
@@ -86,27 +88,27 @@ const VisaServicesPage = () => {
             }}
           >
             <Tab 
-              label="B1/B2 VISA" 
+              label={t('services.tabs.b1b2')} 
               id="tab-0" 
               aria-controls="tabpanel-0"
             />
             <Tab 
-              label="F1 VISA" 
+              label={t('services.tabs.f1')} 
               id="tab-1" 
               aria-controls="tabpanel-1"
             />
             <Tab 
-              label="H1B VISA" 
+              label={t('services.tabs.h1b')} 
               id="tab-2" 
               aria-controls="tabpanel-2"
             />
             <Tab 
-              label="L1 VISA" 
+              label={t('services.tabs.l1')} 
               id="tab-3" 
               aria-controls="tabpanel-3"
             />
             <Tab 
-              label="OTHER VISAS" 
+              label={t('services.tabs.other')} 
               id="tab-4" 
               aria-controls="tabpanel-4"
             />
@@ -120,24 +122,24 @@ const VisaServicesPage = () => {
               <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 2 }}>
                 <FlagIcon country="us" height={30} />
                 <Typography variant="h4" gutterBottom sx={{ fontWeight: 600, color: 'primary.main', mb: 0 }}>
-                  B1/B2 Business & Tourist Visa
+                  {t('services.visaTypes.b1b2.title')}
                 </Typography>
               </Stack>
               <Typography variant="body1" paragraph>
-                The B1/B2 visa is a non-immigrant visa for people who want to enter the United States temporarily for business (B1), tourism, pleasure, or visiting (B2). The B1 visa is specifically for business travelers, while the B2 visa is for tourists.
+                {t('services.visaTypes.b1b2.description')}
               </Typography>
               <Typography variant="body1" paragraph>
-                These visas are typically issued for up to 10 years and allow for multiple entries, with each stay generally limited to six months. B1/B2 visas are ideal for tourists, family visits, business meetings, conferences, or seeking medical treatment in the U.S.
+                {t('services.visaTypes.b1b2.details')}
               </Typography>
               <Box sx={{ mt: 3 }}>
                 <Chip 
-                  label="Processing time: 2-4 weeks" 
+                  label={t('services.visaTypes.b1b2.processing')} 
                   color="primary" 
                   variant="outlined" 
                   sx={{ mr: 1, mb: 1 }} 
                 />
                 <Chip 
-                  label="Duration: Up to 6 months per visit" 
+                  label={t('services.visaTypes.b1b2.duration')} 
                   color="primary" 
                   variant="outlined" 
                   sx={{ mr: 1, mb: 1 }} 
@@ -148,41 +150,33 @@ const VisaServicesPage = () => {
               <Paper elevation={2} sx={{ p: 3, borderRadius: 2, mb: 4 }}>
                 <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, display: 'flex', alignItems: 'center' }}>
                   <AssignmentIcon sx={{ mr: 1, color: 'primary.main' }} />
-                  Requirements
+                  {t('services.visaTypes.b1b2.documents.title')}
                 </Typography>
                 <List>
-                  <RequirementItem text="Valid passport with at least 6 months validity beyond your planned stay" />
-                  <RequirementItem text="Completed DS-160 visa application form" />
-                  <RequirementItem text="Application fee payment receipt" />
-                  <RequirementItem text="Recent photo meeting US visa requirements" />
-                  <RequirementItem text="Proof of ties to your home country" />
-                  <RequirementItem text="Proof of sufficient funds to cover your stay" />
-                  <RequirementItem text="Travel itinerary (if available)" />
-                  <RequirementItem text="For B1: Business-related documents like invitation letters, conference details, etc." />
+                  {t('services.visaTypes.b1b2.documents.items', { returnObjects: true }).map((item, index) => (
+                    <RequirementItem key={index} text={item} />
+                  ))}
                 </List>
               </Paper>
               <Paper elevation={2} sx={{ p: 3, borderRadius: 2 }}>
                 <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, display: 'flex', alignItems: 'center' }}>
                   <EventNoteIcon sx={{ mr: 1, color: 'primary.main' }} />
-                  Application Process
+                  {t('services.visaTypes.b1b2.eligibility.title')}
                 </Typography>
                 <List>
-                  <ProcessItem number={1} text="Complete the DS-160 online visa application form" />
-                  <ProcessItem number={2} text="Pay the visa application fee" />
-                  <ProcessItem number={3} text="Schedule a visa interview at your local U.S. embassy or consulate" />
-                  <ProcessItem number={4} text="Prepare all required documents" />
-                  <ProcessItem number={5} text="Attend the visa interview" />
-                  <ProcessItem number={6} text="Wait for visa processing" />
+                  {t('services.visaTypes.b1b2.eligibility.items', { returnObjects: true }).map((item, index) => (
+                    <ProcessItem key={index} number={index + 1} text={item} />
+                  ))}
                 </List>
                 <Button 
                   variant="contained" 
                   color="primary" 
                   endIcon={<ArrowForwardIcon />}
                   component={RouterLink}
-                  to="/Contactus"
+                  to="/contact"
                   sx={{ mt: 2 }}
                 >
-                  Inquire About This Visa
+                  {t('services.learnMore')}
                 </Button>
               </Paper>
             </Grid>
@@ -196,24 +190,24 @@ const VisaServicesPage = () => {
               <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 2 }}>
                 <FlagIcon country="us" height={30} />
                 <Typography variant="h4" gutterBottom sx={{ fontWeight: 600, color: 'primary.main', mb: 0 }}>
-                  F1 Student Visa
+                  {t('services.visaTypes.f1.title')}
                 </Typography>
               </Stack>
               <Typography variant="body1" paragraph>
-                The F1 visa is a non-immigrant visa for international students attending an academic institution or language training program in the United States. This visa allows foreign nationals to enter the U.S. as full-time students at accredited colleges, universities, seminaries, conservatories, or language training programs.
+                {t('services.visaTypes.f1.description')}
               </Typography>
               <Typography variant="body1" paragraph>
-                F1 visa holders must maintain a full course load and make progress toward completing their academic program. They may also be eligible for Optional Practical Training (OPT) to gain practical work experience related to their field of study after completing their academic program.
+                {t('services.visaTypes.f1.details')}
               </Typography>
               <Box sx={{ mt: 3 }}>
                 <Chip 
-                  label="Processing time: 2-5 weeks" 
+                  label={t('services.visaTypes.f1.processing')} 
                   color="primary" 
                   variant="outlined" 
                   sx={{ mr: 1, mb: 1 }} 
                 />
                 <Chip 
-                  label="Duration: For length of academic program" 
+                  label={t('services.visaTypes.f1.duration')} 
                   color="primary" 
                   variant="outlined" 
                   sx={{ mr: 1, mb: 1 }} 
@@ -224,41 +218,33 @@ const VisaServicesPage = () => {
               <Paper elevation={2} sx={{ p: 3, borderRadius: 2, mb: 4 }}>
                 <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, display: 'flex', alignItems: 'center' }}>
                   <AssignmentIcon sx={{ mr: 1, color: 'primary.main' }} />
-                  Requirements
+                  {t('services.visaTypes.f1.documents.title')}
                 </Typography>
                 <List>
-                  <RequirementItem text="Valid passport with at least 6 months validity beyond your planned stay" />
-                  <RequirementItem text="Completed DS-160 visa application form" />
-                  <RequirementItem text="SEVIS fee payment receipt" />
-                  <RequirementItem text="Form I-20 from your U.S. educational institution" />
-                  <RequirementItem text="Proof of financial resources to cover tuition and living expenses" />
-                  <RequirementItem text="Academic records and test scores (TOEFL, SAT, etc.)" />
-                  <RequirementItem text="Proof of ties to your home country" />
-                  <RequirementItem text="Application fee payment receipt" />
+                  {t('services.visaTypes.f1.documents.items', { returnObjects: true }).map((item, index) => (
+                    <RequirementItem key={index} text={item} />
+                  ))}
                 </List>
               </Paper>
               <Paper elevation={2} sx={{ p: 3, borderRadius: 2 }}>
                 <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, display: 'flex', alignItems: 'center' }}>
                   <EventNoteIcon sx={{ mr: 1, color: 'primary.main' }} />
-                  Application Process
+                  {t('services.visaTypes.f1.eligibility.title')}
                 </Typography>
                 <List>
-                  <ProcessItem number={1} text="Receive acceptance from a SEVP-approved U.S. school" />
-                  <ProcessItem number={2} text="Receive Form I-20 from the school" />
-                  <ProcessItem number={3} text="Pay the SEVIS I-901 fee" />
-                  <ProcessItem number={4} text="Complete the DS-160 online visa application form" />
-                  <ProcessItem number={5} text="Schedule a visa interview at your local U.S. embassy or consulate" />
-                  <ProcessItem number={6} text="Attend the visa interview with all required documents" />
+                  {t('services.visaTypes.f1.eligibility.items', { returnObjects: true }).map((item, index) => (
+                    <ProcessItem key={index} number={index + 1} text={item} />
+                  ))}
                 </List>
                 <Button 
                   variant="contained" 
                   color="primary" 
                   endIcon={<ArrowForwardIcon />}
                   component={RouterLink}
-                  to="/Contactus"
+                  to="/contact"
                   sx={{ mt: 2 }}
                 >
-                  Inquire About This Visa
+                  {t('services.learnMore')}
                 </Button>
               </Paper>
             </Grid>
@@ -272,24 +258,24 @@ const VisaServicesPage = () => {
               <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 2 }}>
                 <FlagIcon country="us" height={30} />
                 <Typography variant="h4" gutterBottom sx={{ fontWeight: 600, color: 'primary.main', mb: 0 }}>
-                  H1B Work Visa
+                  {t('services.visaTypes.h1b.title')}
                 </Typography>
               </Stack>
               <Typography variant="body1" paragraph>
-                The H1B visa is a non-immigrant visa that allows U.S. companies to employ foreign workers in specialty occupations that require theoretical or technical expertise. Specialty occupations typically require a bachelor's degree or higher in a specific specialty (or its equivalent).
+                {t('services.visaTypes.h1b.description')}
               </Typography>
               <Typography variant="body1" paragraph>
-                H1B visas are subject to an annual cap and are initially granted for up to three years, with possible extensions. This visa is popular among professionals in fields like IT, engineering, mathematics, science, medicine, and business specialties. H1B visa holders can bring their spouse and children under the H4 dependent visa.
+                {t('services.visaTypes.h1b.details')}
               </Typography>
               <Box sx={{ mt: 3 }}>
                 <Chip 
-                  label="Processing time: 3-6 months (standard) or 15 days (premium)" 
+                  label={t('services.visaTypes.h1b.processing')} 
                   color="primary" 
                   variant="outlined" 
                   sx={{ mr: 1, mb: 1 }} 
                 />
                 <Chip 
-                  label="Duration: Up to 6 years" 
+                  label={t('services.visaTypes.h1b.duration')} 
                   color="primary" 
                   variant="outlined" 
                   sx={{ mr: 1, mb: 1 }} 
@@ -300,41 +286,33 @@ const VisaServicesPage = () => {
               <Paper elevation={2} sx={{ p: 3, borderRadius: 2, mb: 4 }}>
                 <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, display: 'flex', alignItems: 'center' }}>
                   <AssignmentIcon sx={{ mr: 1, color: 'primary.main' }} />
-                  Requirements
+                  {t('services.visaTypes.h1b.documents.title')}
                 </Typography>
                 <List>
-                  <RequirementItem text="Job offer from a U.S. employer in a specialty occupation" />
-                  <RequirementItem text="Bachelor's degree or higher in the specific specialty" />
-                  <RequirementItem text="LCA (Labor Condition Application) approved by the Department of Labor" />
-                  <RequirementItem text="Form I-129 petition approved by USCIS" />
-                  <RequirementItem text="Valid passport" />
-                  <RequirementItem text="Resume/CV demonstrating relevant work experience" />
-                  <RequirementItem text="Educational credentials and evaluations" />
-                  <RequirementItem text="Application fee payment receipts" />
+                  {t('services.visaTypes.h1b.documents.items', { returnObjects: true }).map((item, index) => (
+                    <RequirementItem key={index} text={item} />
+                  ))}
                 </List>
               </Paper>
               <Paper elevation={2} sx={{ p: 3, borderRadius: 2 }}>
                 <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, display: 'flex', alignItems: 'center' }}>
                   <EventNoteIcon sx={{ mr: 1, color: 'primary.main' }} />
-                  Application Process
+                  {t('services.visaTypes.h1b.eligibility.title')}
                 </Typography>
                 <List>
-                  <ProcessItem number={1} text="U.S. employer files LCA with the Department of Labor" />
-                  <ProcessItem number={2} text="Employer files Form I-129 petition with USCIS" />
-                  <ProcessItem number={3} text="Upon approval, applicant completes DS-160 form (if outside U.S.)" />
-                  <ProcessItem number={4} text="Pay visa application fees" />
-                  <ProcessItem number={5} text="Schedule and attend visa interview at U.S. embassy/consulate" />
-                  <ProcessItem number={6} text="If approved, receive visa and travel to the U.S." />
+                  {t('services.visaTypes.h1b.eligibility.items', { returnObjects: true }).map((item, index) => (
+                    <ProcessItem key={index} number={index + 1} text={item} />
+                  ))}
                 </List>
                 <Button 
                   variant="contained" 
                   color="primary" 
                   endIcon={<ArrowForwardIcon />}
                   component={RouterLink}
-                  to="/Contactus"
+                  to="/contact"
                   sx={{ mt: 2 }}
                 >
-                  Inquire About This Visa
+                  {t('services.learnMore')}
                 </Button>
               </Paper>
             </Grid>
@@ -348,24 +326,24 @@ const VisaServicesPage = () => {
               <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 2 }}>
                 <FlagIcon country="us" height={30} />
                 <Typography variant="h4" gutterBottom sx={{ fontWeight: 600, color: 'primary.main', mb: 0 }}>
-                  L1 Intra-company Transfer Visa
+                  {t('services.visaTypes.l1.title')}
                 </Typography>
               </Stack>
               <Typography variant="body1" paragraph>
-                The L1 visa is designed for intra-company transferees who are being transferred to a parent, branch, affiliate, or subsidiary of the same company in the U.S. There are two types: L1A for managers and executives, and L1B for employees with specialized knowledge.
+                {t('services.visaTypes.l1.description')}
               </Typography>
               <Typography variant="body1" paragraph>
-                L1A visas can be granted for up to 7 years, while L1B visas are limited to 5 years. This visa is ideal for multinational companies expanding their operations to the U.S. or transferring key personnel. L1 visa holders can bring their spouse and dependent children under the L2 visa category.
+                {t('services.visaTypes.l1.details')}
               </Typography>
               <Box sx={{ mt: 3 }}>
                 <Chip 
-                  label="Processing time: 2-3 months (standard) or 15 days (premium)" 
+                  label={t('services.visaTypes.l1.processing')} 
                   color="primary" 
                   variant="outlined" 
                   sx={{ mr: 1, mb: 1 }} 
                 />
                 <Chip 
-                  label="Duration: Up to 5-7 years" 
+                  label={t('services.visaTypes.l1.duration')} 
                   color="primary" 
                   variant="outlined" 
                   sx={{ mr: 1, mb: 1 }} 
@@ -376,41 +354,33 @@ const VisaServicesPage = () => {
               <Paper elevation={2} sx={{ p: 3, borderRadius: 2, mb: 4 }}>
                 <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, display: 'flex', alignItems: 'center' }}>
                   <AssignmentIcon sx={{ mr: 1, color: 'primary.main' }} />
-                  Requirements
+                  {t('services.visaTypes.l1.documents.title')}
                 </Typography>
                 <List>
-                  <RequirementItem text="Employment with overseas company for at least 1 continuous year within the last 3 years" />
-                  <RequirementItem text="Position in U.S. must be as a manager, executive, or specialized knowledge professional" />
-                  <RequirementItem text="Qualifying relationship between the U.S. and foreign employer" />
-                  <RequirementItem text="Form I-129 petition approved by USCIS" />
-                  <RequirementItem text="Valid passport" />
-                  <RequirementItem text="Evidence of qualifying employment abroad" />
-                  <RequirementItem text="Letter from employer detailing duties and qualifications" />
-                  <RequirementItem text="Documentation proving relationship between the companies" />
+                  {t('services.visaTypes.l1.documents.items', { returnObjects: true }).map((item, index) => (
+                    <RequirementItem key={index} text={item} />
+                  ))}
                 </List>
               </Paper>
               <Paper elevation={2} sx={{ p: 3, borderRadius: 2 }}>
                 <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, display: 'flex', alignItems: 'center' }}>
                   <EventNoteIcon sx={{ mr: 1, color: 'primary.main' }} />
-                  Application Process
+                  {t('services.visaTypes.l1.eligibility.title')}
                 </Typography>
                 <List>
-                  <ProcessItem number={1} text="U.S. employer files Form I-129 petition with USCIS" />
-                  <ProcessItem number={2} text="Upon approval, applicant completes DS-160 form (if outside U.S.)" />
-                  <ProcessItem number={3} text="Pay visa application fees" />
-                  <ProcessItem number={4} text="Schedule and attend visa interview at U.S. embassy/consulate" />
-                  <ProcessItem number={5} text="If approved, receive visa and travel to the U.S." />
-                  <ProcessItem number={6} text="For blanket petitions: apply directly at U.S. consulate with Form I-129S" />
+                  {t('services.visaTypes.l1.eligibility.items', { returnObjects: true }).map((item, index) => (
+                    <ProcessItem key={index} number={index + 1} text={item} />
+                  ))}
                 </List>
                 <Button 
                   variant="contained" 
                   color="primary" 
                   endIcon={<ArrowForwardIcon />}
                   component={RouterLink}
-                  to="/Contactus"
+                  to="/contact"
                   sx={{ mt: 2 }}
                 >
-                  Inquire About This Visa
+                  {t('services.learnMore')}
                 </Button>
               </Paper>
             </Grid>
@@ -424,24 +394,24 @@ const VisaServicesPage = () => {
               <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 2 }}>
                 <FlagIcon country="us" height={30} />
                 <Typography variant="h4" gutterBottom sx={{ fontWeight: 600, color: 'primary.main', mb: 0 }}>
-                  Other Visa Categories
+                  {t('services.visaTypes.other.title')}
                 </Typography>
               </Stack>
               <Typography variant="body1" paragraph>
-                In addition to the main visa categories, SSJS provides comprehensive consulting services for various other U.S. visa types designed for specific purposes and situations. Each visa category has its own specific requirements and application procedures.
+                {t('services.visaTypes.other.description')}
               </Typography>
               <Typography variant="body1" paragraph>
-                Our experts are well-versed in the nuances of all U.S. visa categories and can help you determine the most appropriate visa for your specific circumstances. We provide customized guidance for each visa type, ensuring that your application meets all the necessary requirements.
+                {t('services.visaTypes.other.secondDescription')}
               </Typography>
               <Button 
                 variant="contained" 
                 color="primary" 
                 endIcon={<ArrowForwardIcon />}
                 component={RouterLink}
-                to="/Contactus"
+                to="/contact"
                 sx={{ mt: 2 }}
               >
-                Contact Us for Other Visa Types
+                {t('services.visaTypes.other.buttonText')}
               </Button>
             </Grid>
             <Grid item xs={12} md={6}>
@@ -449,90 +419,34 @@ const VisaServicesPage = () => {
                 <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 2 }}>
                   <InfoIcon sx={{ color: 'primary.main' }} />
                   <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, mb: 0 }}>
-                    Additional Visa Categories We Handle
+                    {t('services.visaTypes.other.additionalTitle')}
                   </Typography>
                   <FlagIcon country="us" height={20} />
                 </Stack>
 
-                <Accordion>
-                  <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                    <Typography fontWeight={600}>J-1 Exchange Visitor</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography variant="body2">
-                      For educational and cultural exchange programs, including students, scholars, teachers, professors, research assistants, and trainees.
-                    </Typography>
-                  </AccordionDetails>
-                </Accordion>
-
-                <Accordion>
-                  <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                    <Typography fontWeight={600}>O-1 Extraordinary Ability</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography variant="body2">
-                      For individuals with extraordinary ability or achievement in sciences, arts, education, business, athletics, motion picture or television industry.
-                    </Typography>
-                  </AccordionDetails>
-                </Accordion>
-
-                <Accordion>
-                  <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                    <Typography fontWeight={600}>E-1/E-2 Treaty Trader/Investor</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography variant="body2">
-                      For individuals from countries with commerce and navigation treaties with the U.S. who are engaging in substantial trade or investing significantly in a U.S. business.
-                    </Typography>
-                  </AccordionDetails>
-                </Accordion>
-
-                <Accordion>
-                  <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                    <Typography fontWeight={600}>K-1 Fiancé(e)</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography variant="body2">
-                      For fiancé(e)s of U.S. citizens, allowing them to travel to the U.S. to marry their U.S. citizen petitioner within 90 days of arrival.
-                    </Typography>
-                  </AccordionDetails>
-                </Accordion>
-
-                <Accordion>
-                  <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                    <Typography fontWeight={600}>R-1 Religious Worker</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography variant="body2">
-                      For ministers and religious workers coming temporarily to the U.S. to work in a religious capacity.
-                    </Typography>
-                  </AccordionDetails>
-                </Accordion>
-
-                <Accordion>
-                  <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                    <Typography fontWeight={600}>EB-5 Immigrant Investor</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography variant="body2">
-                      For investors who make a substantial investment in a new commercial enterprise in the U.S. that creates jobs for U.S. workers.
-                    </Typography>
-                  </AccordionDetails>
-                </Accordion>
+                {t('services.visaTypes.other.categories', { returnObjects: true }).map((category, index) => (
+                  <Accordion key={index}>
+                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                      <Typography fontWeight={600}>{category.name}</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Typography variant="body2">
+                        {category.description}
+                      </Typography>
+                    </AccordionDetails>
+                  </Accordion>
+                ))}
               </Paper>
 
               <Paper elevation={2} sx={{ p: 3, borderRadius: 2 }}>
                 <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, display: 'flex', alignItems: 'center' }}>
                   <PersonIcon sx={{ mr: 1, color: 'primary.main' }} />
-                  Our Services for All Visa Types
+                  {t('services.visaTypes.other.servicesTitle')}
                 </Typography>
                 <List>
-                  <RequirementItem text="Visa eligibility assessment" />
-                  <RequirementItem text="Documentation preparation and review" />
-                  <RequirementItem text="Form filling assistance" />
-                  <RequirementItem text="Interview preparation" />
-                  <RequirementItem text="Application status tracking" />
-                  <RequirementItem text="Post-approval guidance" />
+                  {t('services.visaTypes.other.servicesItems', { returnObjects: true }).map((item, index) => (
+                    <RequirementItem key={index} text={item} />
+                  ))}
                 </List>
               </Paper>
             </Grid>
@@ -542,8 +456,8 @@ const VisaServicesPage = () => {
         {/* Application Process Overview */}
         <Box sx={{ mt: 8 }}>
           <SectionTitle 
-            title="General Application Process" 
-            subtitle="Our Streamlined Approach to U.S. Visa Applications" 
+            title={t('services.processSteps.title')} 
+            subtitle={t('services.processSteps.subtitle')} 
             centered={true} 
           />
           
@@ -551,29 +465,29 @@ const VisaServicesPage = () => {
             <Grid item xs={12} sm={6} md={3}>
               <ProcessStep
                 number="01"
-                title="Initial Consultation"
-                description="We begin with a comprehensive assessment of your situation to determine the most appropriate visa category and approach."
+                title={t('services.processSteps.step1.title')}
+                description={t('services.processSteps.step1.description')}
               />
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
               <ProcessStep
                 number="02"
-                title="Documentation"
-                description="We help you gather and prepare all necessary documents according to the specific requirements of your visa type."
+                title={t('services.processSteps.step2.title')}
+                description={t('services.processSteps.step2.description')}
               />
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
               <ProcessStep
                 number="03"
-                title="Application Filing"
-                description="We assist with completing forms accurately and submitting your application properly to maximize chances of approval."
+                title={t('services.processSteps.step3.title')}
+                description={t('services.processSteps.step3.description')}
               />
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
               <ProcessStep
                 number="04"
-                title="Interview Preparation"
-                description="We thoroughly prepare you for the visa interview with practice sessions and strategic guidance."
+                title={t('services.processSteps.step4.title')}
+                description={t('services.processSteps.step4.description')}
               />
             </Grid>
           </Grid>
@@ -584,8 +498,8 @@ const VisaServicesPage = () => {
       <Box sx={{ bgcolor: '#f8f8f8', py: 6 }}>
         <Container maxWidth="lg">
           <SectionTitle 
-            title="India-US Visa Partnership" 
-            subtitle="Building Bridges Between Two Great Nations" 
+            title={t('services.indiaUsPartnership.title')} 
+            subtitle={t('services.indiaUsPartnership.subtitle')} 
             centered={true}
           />
           
@@ -602,8 +516,7 @@ const VisaServicesPage = () => {
               </Box>
               
               <Typography variant="body1" paragraph align="center" sx={{ mb: 3 }}>
-                SSJS Visa Services is proud to facilitate cultural and professional exchanges between India and the United States. 
-                Our expertise helps build stronger connections between these two dynamic nations.
+                {t('services.indiaUsPartnership.description')}
               </Typography>
               
               <Box sx={{ textAlign: 'center' }}>
@@ -612,10 +525,10 @@ const VisaServicesPage = () => {
                   color="primary" 
                   size="large"
                   component={RouterLink}
-                  to="/Contactus"
+                  to="/contact"
                   sx={{ mt: 2 }}
                 >
-                  Start Your Journey Today
+                  {t('services.indiaUsPartnership.buttonText')}
                 </Button>
               </Box>
             </Grid>
@@ -625,40 +538,40 @@ const VisaServicesPage = () => {
                 <Grid item xs={6}>
                   <Paper elevation={2} sx={{ p: 2, textAlign: 'center', borderRadius: 2 }}>
                     <Typography variant="h5" fontWeight="bold" color="primary.main">
-                      150,000+
+                      {t('services.indiaUsPartnership.stats.students.value')}
                     </Typography>
                     <Typography variant="body2">
-                      Indian students in the US annually
+                      {t('services.indiaUsPartnership.stats.students.label')}
                     </Typography>
                   </Paper>
                 </Grid>
                 <Grid item xs={6}>
                   <Paper elevation={2} sx={{ p: 2, textAlign: 'center', borderRadius: 2 }}>
                     <Typography variant="h5" fontWeight="bold" color="primary.main">
-                      $160 Billion
+                      {t('services.indiaUsPartnership.stats.trade.value')}
                     </Typography>
                     <Typography variant="body2">
-                      In bilateral trade
+                      {t('services.indiaUsPartnership.stats.trade.label')}
                     </Typography>
                   </Paper>
                 </Grid>
                 <Grid item xs={6}>
                   <Paper elevation={2} sx={{ p: 2, textAlign: 'center', borderRadius: 2 }}>
                     <Typography variant="h5" fontWeight="bold" color="primary.main">
-                      4.8 Million
+                      {t('services.indiaUsPartnership.stats.diaspora.value')}
                     </Typography>
                     <Typography variant="body2">
-                      Indian Americans in the US
+                      {t('services.indiaUsPartnership.stats.diaspora.label')}
                     </Typography>
                   </Paper>
                 </Grid>
                 <Grid item xs={6}>
                   <Paper elevation={2} sx={{ p: 2, textAlign: 'center', borderRadius: 2 }}>
                     <Typography variant="h5" fontWeight="bold" color="primary.main">
-                      85,000+
+                      {t('services.indiaUsPartnership.stats.h1bVisas.value')}
                     </Typography>
                     <Typography variant="body2">
-                      H1B visas issued annually
+                      {t('services.indiaUsPartnership.stats.h1bVisas.label')}
                     </Typography>
                   </Paper>
                 </Grid>

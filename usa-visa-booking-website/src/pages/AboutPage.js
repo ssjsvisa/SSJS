@@ -22,14 +22,16 @@ import SecurityIcon from '@mui/icons-material/Security';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import { images } from '../assets/images/imageUrls';
+import { useTranslation } from 'react-i18next';
 
 const AboutPage = () => {
+  const { t } = useTranslation();
   return (
     <Box>
       {/* Hero Section */}
       <Hero
-        title="About SSJS Visa Services"
-        subtitle="Your trusted partner in navigating the U.S. visa application process with expertise"
+        title={t('about.title')}
+        subtitle={t('about.subtitle')}
         backgroundImage={images.heroAbout}
         height="65vh"
       />
@@ -39,18 +41,18 @@ const AboutPage = () => {
         <Grid container spacing={5} alignItems="center">
           <Grid item xs={12} md={6}>
             <SectionTitle 
-              title="Who We Are" 
-              subtitle="SSJS - Your Bridge to America" 
+              title={t('about.whoWeAre.title')} 
+              subtitle={t('about.whoWeAre.mainTitle')} 
               centered={false} 
             />
             <Typography variant="body1" paragraph>
-              SSJS Visa Services is a premier consulting agency specializing in U.S. visa applications and immigration services. We understand that each client's situation is unique, and we pride ourselves on providing personalized guidance tailored to your specific needs.
+              {t('about.whoWeAre.description')}
             </Typography>
             <Typography variant="body1" paragraph>
-              Founded with the mission to simplify the complex U.S. immigration system, our team of experienced professionals combines deep knowledge of visa regulations with a commitment to exceptional client service.
+              {t('about.whoWeAre.secondParagraph')}
             </Typography>
             <Typography variant="body1" paragraph>
-              We've helped thousands of clients successfully navigate the visa application process, whether for tourism, business, education, or employment opportunities in the United States.
+              {t('about.whoWeAre.thirdParagraph')}
             </Typography>
           </Grid>
           <Grid item xs={12} md={6}>
@@ -72,8 +74,8 @@ const AboutPage = () => {
       <Box sx={{ bgcolor: 'background.paper', py: 8 }}>
         <Container maxWidth="lg">
           <SectionTitle 
-            title="Our Mission" 
-            subtitle="Helping You Achieve Your American Dream" 
+            title={t('about.mission.title')} 
+            subtitle={t('about.mission.mainTitle')} 
             centered={true} 
           />
           
@@ -89,7 +91,7 @@ const AboutPage = () => {
             }}
           >
             <Typography variant="h5" component="p" sx={{ fontStyle: 'italic', lineHeight: 1.7 }}>
-              "Our mission is to empower individuals and businesses by providing expert guidance through the U.S. visa application process, ensuring a smooth journey from application to approval."
+              "{t('about.mission.description')}"
             </Typography>
           </Paper>
           
@@ -101,8 +103,8 @@ const AboutPage = () => {
                     <CheckCircleOutlineIcon color="primary" />
                   </ListItemIcon>
                   <ListItemText 
-                    primary="Expert Guidance" 
-                    secondary="We provide professional advice based on the latest immigration policies and procedures." 
+                    primary={t('about.mission.services.expertGuidance.title')} 
+                    secondary={t('about.mission.services.expertGuidance.description')} 
                     primaryTypographyProps={{ fontWeight: 600 }}
                   />
                 </ListItem>
@@ -112,8 +114,8 @@ const AboutPage = () => {
                     <CheckCircleOutlineIcon color="primary" />
                   </ListItemIcon>
                   <ListItemText 
-                    primary="Personalized Service" 
-                    secondary="We tailor our approach to each client's unique situation and requirements." 
+                    primary={t('about.mission.services.personalizedService.title')} 
+                    secondary={t('about.mission.services.personalizedService.description')} 
                     primaryTypographyProps={{ fontWeight: 600 }}
                   />
                 </ListItem>
@@ -123,8 +125,8 @@ const AboutPage = () => {
                     <CheckCircleOutlineIcon color="primary" />
                   </ListItemIcon>
                   <ListItemText 
-                    primary="Simplified Process" 
-                    secondary="We break down complex procedures into manageable steps for our clients." 
+                    primary={t('about.mission.services.simplifiedProcess.title')} 
+                    secondary={t('about.mission.services.simplifiedProcess.description')} 
                     primaryTypographyProps={{ fontWeight: 600 }}
                   />
                 </ListItem>
@@ -137,8 +139,8 @@ const AboutPage = () => {
                     <CheckCircleOutlineIcon color="primary" />
                   </ListItemIcon>
                   <ListItemText 
-                    primary="Comprehensive Support" 
-                    secondary="We assist with every aspect of the application process from start to finish." 
+                    primary={t('about.mission.services.comprehensiveSupport.title')} 
+                    secondary={t('about.mission.services.comprehensiveSupport.description')} 
                     primaryTypographyProps={{ fontWeight: 600 }}
                   />
                 </ListItem>
@@ -148,8 +150,8 @@ const AboutPage = () => {
                     <CheckCircleOutlineIcon color="primary" />
                   </ListItemIcon>
                   <ListItemText 
-                    primary="Transparency" 
-                    secondary="We maintain clear communication and set realistic expectations about the process." 
+                    primary={t('about.mission.services.transparency.title')} 
+                    secondary={t('about.mission.services.transparency.description')} 
                     primaryTypographyProps={{ fontWeight: 600 }}
                   />
                 </ListItem>
@@ -159,8 +161,8 @@ const AboutPage = () => {
                     <CheckCircleOutlineIcon color="primary" />
                   </ListItemIcon>
                   <ListItemText 
-                    primary="Client Success" 
-                    secondary="We measure our success by the successful outcomes of our clients." 
+                    primary={t('about.mission.services.clientSuccess.title')} 
+                    secondary={t('about.mission.services.clientSuccess.description')} 
                     primaryTypographyProps={{ fontWeight: 600 }}
                   />
                 </ListItem>
@@ -173,8 +175,8 @@ const AboutPage = () => {
       {/* Experience & Trust Section */}
       <Container maxWidth="lg" sx={{ py: 8 }}>
         <SectionTitle 
-          title="Why Choose SSJS" 
-          subtitle="Industry Experience & Trust Highlights" 
+          title={t('about.whyChoose.title')} 
+          subtitle={t('about.whyChoose.subtitle')} 
           centered={true} 
         />
         
@@ -194,10 +196,10 @@ const AboutPage = () => {
               </Box>
               <CardContent>
                 <Typography variant="h5" component="h3" gutterBottom fontWeight={600}>
-                  2+ Years
+                  {t('about.whyChoose.stats.experience.value')}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Over a decade of specialized experience in U.S. visa consulting
+                  {t('about.whyChoose.stats.experience.description')}
                 </Typography>
               </CardContent>
             </Card>
@@ -218,10 +220,10 @@ const AboutPage = () => {
               </Box>
               <CardContent>
                 <Typography variant="h5" component="h3" gutterBottom fontWeight={600}>
-                  2,000+
+                  {t('about.whyChoose.stats.applications.value')}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Successful visa applications across all categories
+                  {t('about.whyChoose.stats.applications.description')}
                 </Typography>
               </CardContent>
             </Card>
@@ -242,10 +244,10 @@ const AboutPage = () => {
               </Box>
               <CardContent>
                 <Typography variant="h5" component="h3" gutterBottom fontWeight={600}>
-                  24/7
+                  {t('about.whyChoose.stats.support.value')}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Round-the-clock client support throughout the application process
+                  {t('about.whyChoose.stats.support.description')}
                 </Typography>
               </CardContent>
             </Card>
@@ -266,10 +268,10 @@ const AboutPage = () => {
               </Box>
               <CardContent>
                 <Typography variant="h5" component="h3" gutterBottom fontWeight={600}>
-                  100%
+                  {t('about.whyChoose.stats.security.value')}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Confidentiality and security for all client information
+                  {t('about.whyChoose.stats.security.description')}
                 </Typography>
               </CardContent>
             </Card>
@@ -279,8 +281,8 @@ const AboutPage = () => {
         {/* Testimonials */}
         <Box sx={{ mt: 8 }}>
           <SectionTitle 
-            title="Client Testimonials" 
-            subtitle="What Our Clients Say About Us" 
+            title={t('about.testimonials.title')} 
+            subtitle={t('about.testimonials.subtitle')} 
             centered={true} 
           />
           
@@ -309,13 +311,13 @@ const AboutPage = () => {
                   "
                 </Typography>
                 <Typography variant="body1" paragraph sx={{ pt: 4, fontStyle: 'italic' }}>
-                  SSJS Visa Services made the entire process seamless and stress-free. Their expertise and attention to detail were invaluable in securing my business visa. I highly recommend their services!
+                  {t('about.testimonials.clients.johnDoe.quote')}
                 </Typography>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                   <Avatar sx={{ mr: 2 }}>JD</Avatar>
                   <Box>
-                    <Typography variant="subtitle1" fontWeight={600}>John Doe</Typography>
-                    <Typography variant="body2" color="text.secondary">Business Visa Applicant</Typography>
+                    <Typography variant="subtitle1" fontWeight={600}>{t('about.testimonials.clients.johnDoe.name')}</Typography>
+                    <Typography variant="body2" color="text.secondary">{t('about.testimonials.clients.johnDoe.title')}</Typography>
                   </Box>
                 </Box>
               </Paper>
@@ -345,13 +347,13 @@ const AboutPage = () => {
                   "
                 </Typography>
                 <Typography variant="body1" paragraph sx={{ pt: 4, fontStyle: 'italic' }}>
-                  As an international student, I was overwhelmed by the visa application process. SSJS guided me through every step, answering all my questions promptly. Thanks to them, I'm now studying at my dream university!
+                  {t('about.testimonials.clients.janeSmith.quote')}
                 </Typography>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                   <Avatar sx={{ mr: 2 }}>JS</Avatar>
                   <Box>
-                    <Typography variant="subtitle1" fontWeight={600}>Jane Smith</Typography>
-                    <Typography variant="body2" color="text.secondary">F1 Student Visa Holder</Typography>
+                    <Typography variant="subtitle1" fontWeight={600}>{t('about.testimonials.clients.janeSmith.name')}</Typography>
+                    <Typography variant="body2" color="text.secondary">{t('about.testimonials.clients.janeSmith.title')}</Typography>
                   </Box>
                 </Box>
               </Paper>
@@ -381,13 +383,13 @@ const AboutPage = () => {
                   "
                 </Typography>
                 <Typography variant="body1" paragraph sx={{ pt: 4, fontStyle: 'italic' }}>
-                  Our company regularly transfers employees to our U.S. office, and SSJS has been our trusted partner for years. Their knowledge of L1 visa requirements is exceptional, and their service is always professional and efficient.
+                  {t('about.testimonials.clients.robertMiller.quote')}
                 </Typography>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                   <Avatar sx={{ mr: 2 }}>RM</Avatar>
                   <Box>
-                    <Typography variant="subtitle1" fontWeight={600}>Robert Miller</Typography>
-                    <Typography variant="body2" color="text.secondary">HR Director, Global Tech Inc.</Typography>
+                    <Typography variant="subtitle1" fontWeight={600}>{t('about.testimonials.clients.robertMiller.name')}</Typography>
+                    <Typography variant="body2" color="text.secondary">{t('about.testimonials.clients.robertMiller.title')}</Typography>
                   </Box>
                 </Box>
               </Paper>
