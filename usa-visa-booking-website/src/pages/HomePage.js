@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Box, 
   Container, 
@@ -12,9 +12,15 @@ import {
   useMediaQuery,
   Paper,
   Stack,
-  Divider
+  Divider,
+  Modal,
+  IconButton,
+  Fade
 } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
+import CloseIcon from '@mui/icons-material/Close';
+import CelebrationIcon from '@mui/icons-material/Celebration';
+import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 import Hero from '../components/ui/Hero';
 import SectionTitle from '../components/ui/SectionTitle';
 import FeatureCard from '../components/ui/FeatureCard';
@@ -30,6 +36,26 @@ import { images } from '../assets/images/imageUrls';
 const HomePage = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const [welcomeModalOpen, setWelcomeModalOpen] = useState(false);
+
+  // Check if this is the user's first visit
+  useEffect(() => {
+    const hasVisitedBefore = localStorage.getItem('hasVisitedHomepage');
+    if (!hasVisitedBefore) {
+      // Show welcome modal after a short delay for better UX
+      const timer = setTimeout(() => {
+        setWelcomeModalOpen(true);
+      }, 1500); // 1.5 second delay
+      
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  const handleCloseWelcomeModal = () => {
+    setWelcomeModalOpen(false);
+    // Mark that user has visited the homepage
+    localStorage.setItem('hasVisitedHomepage', 'true');
+  };
   
   return (
     <Box>
@@ -250,6 +276,162 @@ const HomePage = () => {
           </Grid>
         </Container>
       </Box>
+
+      {/* Welcome Modal for First-Time Visitors */}
+      <Modal
+        open={welcomeModalOpen}
+        onClose={handleCloseWelcomeModal}
+        closeAfterTransition
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Fade in={welcomeModalOpen}>
+          <Paper
+            sx={{
+              position: 'relative',
+              width: { xs: '90%', sm: 500 },
+              maxHeight: '90vh',
+              overflow: 'auto',
+              p: 4,
+              borderRadius: 3,
+              boxShadow: '0 20px 40px rgba(0,0,0,0.2)',
+              background: 'linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%)',
+            }}
+          >
+            {/* Close Button */}
+            <IconButton
+              onClick={handleCloseWelcomeModal}
+              sx={{
+                position: 'absolute',
+                right: 16,
+                top: 16,
+                color: 'grey.500',
+                '&:hover': {
+                  backgroundColor: 'grey.100',
+                }
+              }}
+            >
+              <CloseIcon />
+            </IconButton>
+
+            {/* Modal Content */}
+            <Box sx={{ textAlign: 'center', pt: 1 }}>
+              {/* Welcome Icon */}
+              <Box sx={{ mb: 2 }}>
+                <CelebrationIcon sx={{ fontSize: 60, color: 'primary.main', mb: 1 }} />
+              </Box>
+
+              {/* Welcome Message */}
+              <Typography 
+                variant="h4" 
+                component="h2" 
+                gutterBottom 
+                sx={{ 
+                  fontWeight: 700, 
+                  color: 'primary.main',
+                  mb: 2
+                }}
+              >
+                Welcome to SSJS Visa Services! 👋
+              </Typography>
+
+              <Typography 
+                variant="body1" 
+                sx={{ 
+                  mb: 3, 
+                  color: 'text.secondary',
+                  lineHeight: 1.6,
+                  fontSize: '1.1rem'
+                }}
+              >
+                We're thrilled to have you here! Our expert team is dedicated to making your 
+                American dream a reality with professional visa application services.
+              </Typography>
+
+              {/* Key Benefits */}
+              <Box sx={{ mb: 4, textAlign: 'left' }}>
+                <Typography variant="h6" sx={{ mb: 2, color: 'primary.main', fontWeight: 600 }}>
+                  Why Choose SSJS?
+                </Typography>
+                <Stack spacing={1}>
+                  {[
+                    '✈️ Expert guidance for all visa types',
+                    '📄 Complete application assistance',
+                    '⚡ Fast processing times',
+                    '🎯 High success rate',
+                    '💬 24/7 customer support'
+                  ].map((benefit, index) => (
+                    <Typography 
+                      key={index} 
+                      variant="body2" 
+                      sx={{ color: 'text.secondary', fontSize: '0.95rem' }}
+                    >
+                      {benefit}
+                    </Typography>
+                  ))}
+                </Stack>
+              </Box>
+
+              {/* Action Buttons */}
+              <Stack 
+                direction={{ xs: 'column', sm: 'row' }} 
+                spacing={2} 
+                sx={{ justifyContent: 'center' }}
+              >
+                <Button
+                  variant="contained"
+                  component={RouterLink}
+                  to="/services"
+                  startIcon={<FlightTakeoffIcon />}
+                  onClick={handleCloseWelcomeModal}
+                  sx={{
+                    px: 3,
+                    py: 1.5,
+                    borderRadius: 2,
+                    textTransform: 'none',
+                    fontSize: '1rem',
+                    fontWeight: 600,
+                  }}
+                >
+                  Explore Visa Services
+                </Button>
+                <Button
+                  variant="outlined"
+                  component={RouterLink}
+                  to="/Contactus"
+                  onClick={handleCloseWelcomeModal}
+                  sx={{
+                    px: 3,
+                    py: 1.5,
+                    borderRadius: 2,
+                    textTransform: 'none',
+                    fontSize: '1rem',
+                    fontWeight: 600,
+                  }}
+                >
+                  Get Free Consultation
+                </Button>
+              </Stack>
+
+              {/* Disclaimer */}
+              <Typography 
+                variant="caption" 
+                sx={{ 
+                  mt: 3, 
+                  display: 'block',
+                  color: 'text.disabled',
+                  fontSize: '0.8rem'
+                }}
+              >
+                This welcome message appears only on your first visit
+              </Typography>
+            </Box>
+          </Paper>
+        </Fade>
+      </Modal>
     </Box>
   );
 };
