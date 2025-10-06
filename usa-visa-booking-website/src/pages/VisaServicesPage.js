@@ -34,10 +34,12 @@ import EventNoteIcon from '@mui/icons-material/EventNote';
 import PersonIcon from '@mui/icons-material/Person';
 import { images } from '../assets/images/imageUrls';
 import { useTranslation } from 'react-i18next';
+import { useLanguageStyles, applyLanguageStyles } from '../styles/LanguageStyles';
 
 const VisaServicesPage = () => {
   const [tabValue, setTabValue] = useState(0);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const languageStyles = useLanguageStyles(i18n.language);
 
   const handleTabChange = (event, newValue) => {
     setTabValue(newValue);
@@ -52,7 +54,7 @@ const VisaServicesPage = () => {
         backgroundImage={images.heroServices}
         height="65vh"
         buttonText="Apply Now"
-        buttonLink="/contact"
+        buttonLink="/Contactus"
       />
 
       {/* Introduction Section */}
@@ -173,7 +175,7 @@ const VisaServicesPage = () => {
                   color="primary" 
                   endIcon={<ArrowForwardIcon />}
                   component={RouterLink}
-                  to="/contact"
+                  to="/Contactus"
                   sx={{ mt: 2 }}
                 >
                   {t('services.learnMore')}
@@ -241,7 +243,7 @@ const VisaServicesPage = () => {
                   color="primary" 
                   endIcon={<ArrowForwardIcon />}
                   component={RouterLink}
-                  to="/contact"
+                  to="/Contactus"
                   sx={{ mt: 2 }}
                 >
                   {t('services.learnMore')}
@@ -309,7 +311,7 @@ const VisaServicesPage = () => {
                   color="primary" 
                   endIcon={<ArrowForwardIcon />}
                   component={RouterLink}
-                  to="/contact"
+                  to="/Contactus"
                   sx={{ mt: 2 }}
                 >
                   {t('services.learnMore')}
@@ -377,7 +379,7 @@ const VisaServicesPage = () => {
                   color="primary" 
                   endIcon={<ArrowForwardIcon />}
                   component={RouterLink}
-                  to="/contact"
+                  to="/Contactus"
                   sx={{ mt: 2 }}
                 >
                   {t('services.learnMore')}
@@ -408,7 +410,7 @@ const VisaServicesPage = () => {
                 color="primary" 
                 endIcon={<ArrowForwardIcon />}
                 component={RouterLink}
-                to="/contact"
+                to="/Contactus"
                 sx={{ mt: 2 }}
               >
                 {t('services.visaTypes.other.buttonText')}
@@ -525,7 +527,7 @@ const VisaServicesPage = () => {
                   color="primary" 
                   size="large"
                   component={RouterLink}
-                  to="/contact"
+                  to="/Contactus"
                   sx={{ mt: 2 }}
                 >
                   {t('services.indiaUsPartnership.buttonText')}

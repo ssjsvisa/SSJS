@@ -33,15 +33,21 @@ import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
 import HandshakeIcon from '@mui/icons-material/Handshake';
 import { images } from '../assets/images/imageUrls';
 import { useTranslation } from 'react-i18next';
+import { useLanguageStyles, applyLanguageStyles } from '../styles/LanguageStyles';
+import { testBusinessImage } from '../utils/imageLoader';
 
 const HomePage = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [welcomeModalOpen, setWelcomeModalOpen] = useState(false);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const languageStyles = useLanguageStyles(i18n.language);
 
   // Check if this is the user's first visit
   useEffect(() => {
+    // Test business image loading
+    testBusinessImage();
+    
     const hasVisitedBefore = localStorage.getItem('hasVisitedHomepage');
     if (!hasVisitedBefore) {
       // Show welcome modal after a short delay for better UX
@@ -178,7 +184,7 @@ const HomePage = () => {
             centered
           />
           
-          <Grid container spacing={4}>
+          <Grid container spacing={4} justifyContent="center" alignItems="stretch">
             <Grid item xs={12} sm={6} md={4}>
               <FeatureCard
                 title={t('home.services.tourist.title')}

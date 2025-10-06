@@ -53,6 +53,7 @@ function App() {
             <Route path="/About" element={<AboutPage />} />
             <Route path="/Services" element={<VisaServicesPage />} />
             <Route path="/Contactus" element={<ContactPage />} />
+            <Route path="/SSJS" element={<Navigate to="/" replace />} />
           </Routes>
         </Layout>
         

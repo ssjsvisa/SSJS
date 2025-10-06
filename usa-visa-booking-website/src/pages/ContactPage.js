@@ -27,6 +27,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import SendIcon from '@mui/icons-material/Send';
 import { images } from '../assets/images/imageUrls';
 import { useTranslation } from 'react-i18next';
+import { useLanguageStyles, applyLanguageStyles } from '../styles/LanguageStyles';
 
 
 
@@ -98,7 +99,10 @@ const ContactPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language;
+
+  const languageStyles = useLanguageStyles(currentLanguage);
 
   const visaTypes = [
     { value: 'tourist', label: t('contact.form.visaTypes.tourist') },
@@ -170,18 +174,28 @@ const ContactPage = () => {
       {/* Contact Form Section */}
       <Box sx={{ bgcolor: 'background.paper', py: 8 }}>
         <Container maxWidth="lg">
-          <Grid container spacing={12}>
-            <Grid item xs={12} md={6}>
+          <Grid container spacing={{ xs: 4, sm: 6, md: 8, lg: 12 }} sx={{ alignItems: 'flex-start' }}>
+            <Grid item xs={12} md={6} sx={{ minHeight: { md: '300px' } }}>
               <Box>
                 <SectionTitle 
                   title={t('contact.quickContact')} 
                   subtitle={t('contact.contactInfo')} 
-                  centered={false} 
+                  centered={false}
+                  sx={{
+                    '& .MuiTypography-h2': applyLanguageStyles('h2', languageStyles),
+                    '& .MuiTypography-body1': applyLanguageStyles('subtitle', languageStyles)
+                  }}
                 />
                 
                 <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                   <PhoneIcon color="primary" sx={{ mr: 2 }} />
-                  <Typography variant="body1">
+                  <Typography 
+                    variant="body1"
+                    sx={{
+                      ...languageStyles.typography,
+                      ...languageStyles.body
+                    }}
+                  >
                     <Link href="tel:+919361696954" color="inherit" underline="hover">
                       +91 93616 96954
                     </Link>
@@ -190,7 +204,13 @@ const ContactPage = () => {
                 
                 <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                   <EmailIcon color="primary" sx={{ mr: 2 }} />
-                  <Typography variant="body1">
+                  <Typography 
+                    variant="body1"
+                    sx={{
+                      ...languageStyles.typography,
+                      ...languageStyles.body
+                    }}
+                  >
                     <Link href="mailto:sssj.b1b285@gmail.com" color="inherit" underline="hover">
                       sssj.b1b285@gmail.com
                     </Link>
@@ -199,11 +219,15 @@ const ContactPage = () => {
               </Box>
             </Grid>
             
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md={6} sx={{ minHeight: { md: '300px' } }}>
               <SectionTitle 
                 title={t('contact.sendUsRequirement')} 
                 subtitle={t('contact.fillOutForm')} 
-                centered={false} 
+                centered={false}
+                sx={{
+                  '& .MuiTypography-h2': applyLanguageStyles('h2', languageStyles),
+                  '& .MuiTypography-body1': applyLanguageStyles('subtitle', languageStyles)
+                }}
               />
               
               <Paper 
@@ -226,19 +250,35 @@ const ContactPage = () => {
                       background: 'linear-gradient(45deg, #1976d2, #42a5f5)',
                       backgroundClip: 'text',
                       WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent'
+                      WebkitTextFillColor: 'transparent',
+                      ...applyLanguageStyles('h4', languageStyles)
                     }}
                   >
                     {t('contact.getStartedToday')}
                   </Typography>
-                  <Typography variant="body1" color="text.secondary">
+                  <Typography 
+                    variant="body1" 
+                    color="text.secondary"
+                    sx={{
+                      ...applyLanguageStyles('body1', languageStyles),
+                      mb: 2
+                    }}
+                  >
                     {t('contact.subtitle')}
                   </Typography>
                 </Box>
 
                 <form onSubmit={formik.handleSubmit}>
                   <Box sx={{ mb: 4 }}>
-                    <Typography variant="h6" sx={{ mb: 3, fontWeight: 600, color: 'text.primary' }}>
+                    <Typography 
+                      variant="h6" 
+                      sx={{ 
+                        mb: 3, 
+                        fontWeight: 600, 
+                        color: 'text.primary',
+                        ...applyLanguageStyles('h6', languageStyles)
+                      }}
+                    >
                       {t('contact.personalInfo')}
                     </Typography>
                     <Grid container spacing={3}>
@@ -342,14 +382,14 @@ const ContactPage = () => {
                           helperText={formik.touched.email && formik.errors.email}
                           variant="outlined"
                           sx={{
-                            width: '120%',
-                            maxWidth: 'calc(100% + 80px)',
+                            pr: 3,
+                            mr: 0,
+                            width: 'calc(100% - 24px)',
                             '& .MuiOutlinedInput-root': {
                               borderRadius: 3,
                               backgroundColor: '#fff',
                               height: '48px',
                               fontSize: '1rem',
-                              width: '100%',
                               display: 'flex',
                               alignItems: 'center',
                               '& input': {
@@ -378,12 +418,20 @@ const ContactPage = () => {
                     </Grid>
                   </Box>
 
-                  <Grid container spacing={4}>
-                    <Grid item xs={12} md={6}>
-                      <Typography variant="h6" sx={{ mb: 3, fontWeight: 600, color: 'text.primary' }}>
+                  <Grid container spacing={4} sx={{ alignItems: 'flex-start' }}>
+                    <Grid item xs={12} md={6} sx={{ minHeight: { md: '500px' } }}>
+                      <Typography 
+                        variant="h6" 
+                        sx={{ 
+                          mb: 3, 
+                          fontWeight: 600, 
+                          color: 'text.primary',
+                          ...applyLanguageStyles('h6', languageStyles)
+                        }}
+                      >
                         {t('contact.visaServiceType')}
                       </Typography>
-                      <Box sx={{ display: 'grid', gap: 2 }}>
+                      <Box sx={{ display: 'grid', gap: 1.5 }}>
                         {visaTypes.map((option) => (
                           <Card
                             key={option.value}
@@ -405,14 +453,14 @@ const ContactPage = () => {
                               }
                             }}
                           >
-                            <CardContent sx={{ p: 3, '&:last-child': { pb: 3 } }}>
+                            <CardContent sx={{ p: 1.5, '&:last-child': { pb: 1.5 } }}>
                               <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                                 <Typography 
                                   variant="body1" 
                                   sx={{ 
                                     fontWeight: formik.values.visaType === option.value ? 600 : 500,
                                     color: formik.values.visaType === option.value ? 'primary.dark' : 'text.primary',
-                                    fontSize: '1rem'
+                                    fontSize: '0.95rem'
                                   }}
                                 >
                                   {option.label}
@@ -457,8 +505,16 @@ const ContactPage = () => {
                       </Box>
                     </Grid>
 
-                    <Grid item xs={12} md={6}>
-                      <Typography variant="h6" sx={{ mb: 3, fontWeight: 600, color: 'text.primary' }}>
+                    <Grid item xs={12} md={6} sx={{ minHeight: { md: '500px' } }}>
+                      <Typography 
+                        variant="h6" 
+                        sx={{ 
+                          mb: 3, 
+                          fontWeight: 600, 
+                          color: 'text.primary',
+                          ...applyLanguageStyles('h6', languageStyles)
+                        }}
+                      >
                         {t('contact.tellUs')}
                       </Typography>
                       <TextField
@@ -476,6 +532,9 @@ const ContactPage = () => {
                         helperText={formik.touched.message && formik.errors.message}
                         variant="outlined"
                         sx={{
+                          pr: 3,
+                          mr: 0,
+                          width: 'calc(100% + 60px)',
                           '& .MuiOutlinedInput-root': {
                             borderRadius: 3,
                             backgroundColor: '#fff',
@@ -490,7 +549,8 @@ const ContactPage = () => {
                               }
                             }
                           },
-                          mb: 3
+                          mb: 3,
+                          ...languageStyles.textField
                         }}
                       />
                       <Button 
@@ -536,25 +596,31 @@ const ContactPage = () => {
         <SectionTitle 
           title={t('contact.faq.title')} 
           subtitle={t('contact.faq.subtitle')} 
-          centered={true} 
+          centered={true}
+          sx={{
+            '& .MuiTypography-h2': applyLanguageStyles('h2', languageStyles),
+            '& .MuiTypography-body1': applyLanguageStyles('subtitle', languageStyles)
+          }}
         />
         
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={6}>
+        <Grid container spacing={4} sx={{ alignItems: 'flex-start' }}>
+          <Grid item xs={12} md={6} sx={{ minHeight: { md: '400px' } }}>
             {t('contact.faq.items', { returnObjects: true }).slice(0, 3).map((item, index) => (
               <FAQItem 
                 key={index}
                 question={item.question} 
                 answer={item.answer}
+                languageStyles={languageStyles}
               />
             ))}
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={6} sx={{ minHeight: { md: '400px' } }}>
             {t('contact.faq.items', { returnObjects: true }).slice(3, 6).map((item, index) => (
               <FAQItem 
                 key={index}
                 question={item.question} 
                 answer={item.answer}
+                languageStyles={languageStyles}
               />
             ))}
           </Grid>
@@ -571,7 +637,7 @@ const ContactPage = () => {
 };
 
 // Helper Components
-const ContactCard = ({ icon, title, content, bgColor }) => (
+const ContactCard = ({ icon, title, content, bgColor, languageStyles = {} }) => (
   <Card 
     sx={{ 
       height: '100%',
@@ -603,7 +669,13 @@ const ContactCard = ({ icon, title, content, bgColor }) => (
       {icon}
     </Box>
     <CardContent sx={{ pt: 3 }}>
-      <Typography variant="h5" component="h3" gutterBottom fontWeight={600}>
+      <Typography 
+        variant="h5" 
+        component="h3" 
+        gutterBottom 
+        fontWeight={600}
+        sx={{ fontSize: { xs: '0.8rem', sm: '0.9rem', md: '1rem' } }}
+      >
         {title}
       </Typography>
       {content.map((line, index) => (
@@ -615,12 +687,22 @@ const ContactCard = ({ icon, title, content, bgColor }) => (
   </Card>
 );
 
-const FAQItem = ({ question, answer }) => (
+const FAQItem = ({ question, answer, languageStyles = {} }) => (
   <Box sx={{ mb: 3 }}>
-    <Typography variant="h6" gutterBottom fontWeight={600} color="primary.main">
+    <Typography 
+      variant="h6" 
+      gutterBottom 
+      fontWeight={600} 
+      color="primary.main"
+      sx={applyLanguageStyles('h6', languageStyles)}
+    >
       {question}
     </Typography>
-    <Typography variant="body1" color="text.secondary">
+    <Typography 
+      variant="body1" 
+      color="text.secondary"
+      sx={applyLanguageStyles('body1', languageStyles)}
+    >
       {answer}
     </Typography>
   </Box>

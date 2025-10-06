@@ -23,9 +23,11 @@ import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import { images } from '../assets/images/imageUrls';
 import { useTranslation } from 'react-i18next';
+import { useLanguageStyles, applyLanguageStyles } from '../styles/LanguageStyles';
 
 const AboutPage = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const languageStyles = useLanguageStyles(i18n.language);
   return (
     <Box>
       {/* Hero Section */}
