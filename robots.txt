@@ -1,5 +1,21 @@
 User-agent: *
 Allow: /
 Disallow: /static/
+Disallow: /build/
+Disallow: /*.map$
 
+# Search engine specific crawling
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# Sitemap location
 Sitemap: https://ssjsus.web.app/sitemap.xml
+
+# Site information
+# SSJS Visa Services - Professional USA Visa Consultancy
+# Specializing in B1/B2, F1, H1B, and L1 visa services
