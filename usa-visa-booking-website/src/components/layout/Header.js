@@ -43,8 +43,9 @@ const Header = () => {
               to={item.path}
               onClick={handleDrawerToggle}
               sx={{
-                textAlign: 'center',
+                textAlign: 'left',
                 py: 2,
+                pl: 3,
                 '&:hover': {
                   backgroundColor: 'rgba(26, 75, 140, 0.1)',
                 },
@@ -67,6 +68,19 @@ const Header = () => {
       <AppBar position="static" color="default" elevation={2}>
         <Container maxWidth="xl">
           <Toolbar disableGutters sx={{ py: 1 }}>
+            {/* Mobile Menu Button - Left side */}
+            {isMobile && (
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="start"
+                onClick={handleDrawerToggle}
+                sx={{ mr: 1 }}
+              >
+                <MenuIcon />
+              </IconButton>
+            )}
+
             {/* Logo */}
             <Box
               component={RouterLink}
@@ -132,26 +146,13 @@ const Header = () => {
               <LanguageSwitcher size="small" />
               <VisitorCounter inline={true} />
             </Box>
-
-            {/* Mobile Menu Button */}
-            {isMobile && (
-              <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                edge="start"
-                onClick={handleDrawerToggle}
-                sx={{ ml: 1 }}
-              >
-                <MenuIcon />
-              </IconButton>
-            )}
           </Toolbar>
         </Container>
       </AppBar>
 
       {/* Mobile Navigation Drawer */}
       <Drawer
-        anchor="right"
+        anchor="left"
         open={mobileOpen}
         onClose={handleDrawerToggle}
         ModalProps={{ keepMounted: true }}
