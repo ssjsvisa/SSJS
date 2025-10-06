@@ -1,24 +1,5 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
-Disallow: /static/js/
-Disallow: /static/css/
+Disallow: /static/
 
-# Specific bot instructions
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Slurp
-Allow: /
-Crawl-delay: 2
-
-# Sitemap location
 Sitemap: https://ssjsus.web.app/sitemap.xml
-
-# Host directive
-Host: https://ssjsus.web.app
