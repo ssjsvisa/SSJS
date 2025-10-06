@@ -38,7 +38,8 @@ const customLanguageDetector = {
       // Check geolocation permission
       if ('permissions' in navigator) {
         navigator.permissions.query({ name: 'geolocation' }).then((result) => {
-          if (result.state === 'granted' || result.state === 'prompt') {
+          if (result.state === 'granted') {
+            // Only use location if already granted, don't prompt user
             navigator.geolocation.getCurrentPosition(
               (position) => {
                 const { latitude, longitude } = position.coords;
@@ -52,25 +53,15 @@ const customLanguageDetector = {
               { timeout: 5000, enableHighAccuracy: false }
             );
           } else {
-            callback('en'); // fallback to English if permission denied
+            // Default to English if permission not granted or denied
+            callback('en');
           }
         }).catch(() => {
           callback('en'); // fallback to English if permissions API not available
         });
       } else {
-        // Permissions API not available, try geolocation directly
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            const { latitude, longitude } = position.coords;
-            const detectedLanguage = detectLanguageFromLocation(latitude, longitude);
-            callback(detectedLanguage);
-          },
-          (error) => {
-            console.log('Geolocation error:', error);
-            callback('en'); // fallback to English
-          },
-          { timeout: 5000, enableHighAccuracy: false }
-        );
+        // Permissions API not available, default to English to avoid forcing location prompt
+        callback('en');
       }
     } else {
       callback('en'); // fallback to English if geolocation not available
