@@ -22,7 +22,7 @@ const Footer = () => {
         mt: 'auto',
       }}
     >
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4, lg: 6 } }}>
         <Grid container spacing={4}>
           <Grid item xs={12} sm={6} md={3}>
             <Typography variant="h6" color="primary.main" gutterBottom fontWeight="bold">

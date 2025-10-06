@@ -89,7 +89,7 @@ const HomePage = () => {
       />
 
       {/* Introduction Section */}
-      <Container maxWidth="xl" sx={{ py: 8 }}>
+      <Container maxWidth="xl" sx={{ py: 8, px: { xs: 2, sm: 3, md: 4, lg: 6 } }}>
         <SectionTitle
           title={t('home.introduction.title')}
           subtitle={t('home.introduction.subtitle')}
@@ -138,7 +138,7 @@ const HomePage = () => {
 
       {/* US-India Connection Section */}
       <Box sx={{ bgcolor: 'primary.main', py: 6, color: 'white' }}>
-        <Container maxWidth="xl">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4, lg: 6 } }}>
           <Grid container alignItems="center" spacing={3} justifyContent="center">
             <Grid item xs={12} md={6}>
               <Stack direction="row" spacing={2} alignItems="center" justifyContent="center" sx={{ mb: 3 }}>
@@ -189,7 +189,7 @@ const HomePage = () => {
 
       {/* SEO Content Section - Multilingual with SEO Benefits */}
       <Box sx={{ bgcolor: 'grey.50', py: 6 }}>
-        <Container maxWidth="xl">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4, lg: 6 } }}>
           <Grid container spacing={4}>
             <Grid item xs={12} md={8}>
               {/* Display translated content for non-English languages */}
@@ -264,7 +264,7 @@ const HomePage = () => {
 
       {/* Visa Categories Section */}
       <Box sx={{ bgcolor: 'background.paper', py: 8 }}>
-        <Container maxWidth="xl">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4, lg: 6 } }}>
           <SectionTitle
             title={t('home.services.title')}
             subtitle={t('home.services.subtitle')}
@@ -339,7 +339,7 @@ const HomePage = () => {
 
       {/* Call to Action Section */}
       <Box sx={{ bgcolor: 'primary.main', color: 'white', py: 8 }}>
-        <Container maxWidth="xl">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4, lg: 6 } }}>
           <Grid 
             container 
             spacing={4} 
@@ -373,7 +373,7 @@ const HomePage = () => {
 
       {/* Google My Business Section */}
       <Box sx={{ bgcolor: 'grey.50', py: 6 }}>
-        <Container maxWidth="xl">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4, lg: 6 } }}>
           <SectionTitle
             title="Find Us on Google Maps & Read Reviews"
             subtitle="Connect with us on Google My Business and see what our satisfied customers say"

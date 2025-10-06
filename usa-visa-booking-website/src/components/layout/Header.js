@@ -66,7 +66,7 @@ const Header = () => {
     <Box sx={{ flexGrow: 1 }}>
 
       <AppBar position="static" color="default" elevation={2}>
-        <Container maxWidth="xl">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4, lg: 6 } }}>
           <Toolbar disableGutters sx={{ py: 1 }}>
             {/* Mobile Menu Button - Left side */}
             {isMobile && (

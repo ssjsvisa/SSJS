@@ -174,14 +174,14 @@ const ReviewsPage = () => {
 
       {/* Google Business Section */}
       <Box sx={{ bgcolor: 'background.paper', py: 6 }}>
-        <Container maxWidth="xl">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4, lg: 6 } }}>
           <GoogleBusiness showReviews={false} showMap={true} />
         </Container>
       </Box>
 
       {/* Review Statistics */}
       <Box sx={{ bgcolor: 'grey.50', py: 6 }}>
-        <Container maxWidth="xl">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4, lg: 6 } }}>
           <Box sx={{ display: 'flex', justifyContent: 'center', mb: 4 }}>
             <Typography variant="h4" component="h2" fontWeight="bold" color="primary.main" textAlign="center">
               Customer Reviews & Ratings
@@ -271,7 +271,7 @@ const ReviewsPage = () => {
 
       {/* All Reviews Section */}
       <Box id="reviews" sx={{ bgcolor: 'background.paper', py: 6 }}>
-        <Container maxWidth="xl">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4, lg: 6 } }}>
           <SectionTitle
             title="All Customer Reviews"
             subtitle="Read detailed experiences from our clients across different visa categories"
@@ -405,7 +405,7 @@ const ReviewsPage = () => {
 
       {/* Google Reviews Widget */}
       <Box sx={{ bgcolor: 'grey.50', py: 6 }}>
-        <Container maxWidth="xl">
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4, lg: 6 } }}>
           <SectionTitle
             title="Latest Google Reviews"
             subtitle="Live feed from our Google My Business profile"
