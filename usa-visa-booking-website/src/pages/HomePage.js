@@ -35,6 +35,8 @@ import { images } from '../assets/images/imageUrls';
 import { useTranslation } from 'react-i18next';
 import { useLanguageStyles, applyLanguageStyles } from '../styles/LanguageStyles';
 import { testBusinessImage } from '../utils/imageLoader';
+import SEOHelmet, { useSEO } from '../components/seo/SEOHelmet';
+import SEOBlogSection from '../components/seo/SEOBlogSection';
 
 const HomePage = () => {
   const theme = useTheme();
@@ -42,6 +44,7 @@ const HomePage = () => {
   const [welcomeModalOpen, setWelcomeModalOpen] = useState(false);
   const { t, i18n } = useTranslation();
   const languageStyles = useLanguageStyles(i18n.language);
+  const seoData = useSEO('home');
 
   // Check if this is the user's first visit
   useEffect(() => {
@@ -67,6 +70,14 @@ const HomePage = () => {
   
   return (
     <Box>
+      {/* SEO Meta Tags */}
+      <SEOHelmet 
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        canonical={seoData.canonical}
+      />
+      
       {/* Hero Section */}
       <Hero
         title={t('home.hero.title')}
@@ -169,6 +180,51 @@ const HomePage = () => {
                     </Box>
                   </Grid> */}
                 </Grid>
+              </Paper>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+
+      {/* SEO Content Section - Keyword Rich */}
+      <Box sx={{ bgcolor: 'grey.50', py: 6 }}>
+        <Container maxWidth="lg">
+          <Grid container spacing={4}>
+            <Grid item xs={12} md={8}>
+              <Typography variant="h3" gutterBottom sx={{ fontWeight: 600, color: 'primary.main' }}>
+                Leading USA Visa Services in India - Expert US Visa Consultancy
+              </Typography>
+              <Typography variant="body1" paragraph sx={{ fontSize: '1.1rem', lineHeight: 1.7 }}>
+                SSJS Visa Services is India's premier <strong>USA visa consultancy</strong> providing expert guidance for 
+                <strong> B1/B2 tourist visa</strong>, <strong>F1 student visa</strong>, <strong>H1B work visa</strong>, and 
+                <strong> L1 business visa</strong> applications. Our experienced team of <strong>US visa experts</strong> has 
+                successfully assisted over 2,000+ clients with their <strong>America visa applications</strong>.
+              </Typography>
+              <Typography variant="body1" paragraph sx={{ fontSize: '1.1rem', lineHeight: 1.7 }}>
+                From <strong>USA visa document preparation</strong> to <strong>US visa interview coaching</strong>, we provide 
+                comprehensive <strong>American visa services</strong> across major cities in India including Mumbai, Delhi, 
+                Bangalore, Chennai, Pune, and Hyderabad. Our <strong>USA visa consultation services</strong> ensure 99% success 
+                rate for our clients.
+              </Typography>
+              <Typography variant="body1" paragraph sx={{ fontSize: '1.1rem', lineHeight: 1.7 }}>
+                Whether you need <strong>US tourist visa guidance</strong>, <strong>America student visa assistance</strong>, or 
+                <strong>USA work visa consultancy</strong>, our multilingual support team provides personalized 
+                <strong> US visa services</strong> in Hindi, Tamil, Telugu, Gujarati, Punjabi, and Malayalam.
+              </Typography>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Paper elevation={3} sx={{ p: 3, borderRadius: 2 }}>
+                <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, color: 'primary.main' }}>
+                  Why Choose Our USA Visa Services?
+                </Typography>
+                <Box component="ul" sx={{ pl: 2, '& li': { mb: 1 } }}>
+                  <li><strong>Expert US visa consultancy</strong> with 99% success rate</li>
+                  <li><strong>Complete USA visa guidance</strong> for all visa types</li>
+                  <li><strong>Professional visa interview preparation</strong></li>
+                  <li><strong>Document verification & application review</strong></li>
+                  <li><strong>Multilingual support</strong> across India</li>
+                  <li><strong>Fast USA visa processing assistance</strong></li>
+                </Box>
               </Paper>
             </Grid>
           </Grid>
@@ -283,6 +339,9 @@ const HomePage = () => {
           </Grid>
         </Container>
       </Box>
+
+      {/* SEO Blog Section */}
+      <SEOBlogSection />
 
       {/* Welcome Modal for First-Time Visitors */}
       <Modal
