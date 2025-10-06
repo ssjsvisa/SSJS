@@ -88,27 +88,6 @@ const HomePage = () => {
         buttonLink="/services"
       />
 
-      {/* Business Clarification Notice */}
-      <Box sx={{ backgroundColor: '#f5f5f5', py: 2 }}>
-        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4, lg: 6 } }}>
-          <Box 
-            sx={{
-              backgroundColor: '#e3f2fd',
-              border: '2px solid #2196f3',
-              borderRadius: 2,
-              p: 2,
-              textAlign: 'center'
-            }}
-          >
-            <Typography variant="body1" sx={{ fontWeight: 600, color: '#1565c0' }}>
-              📢 <strong>Important Notice:</strong> SSJS Visa Services is an independent professional visa consultancy service. 
-              We are <strong>NOT affiliated with San Jose State University (SJSU)</strong> or any educational institution. 
-              We specialize in USA visa application services for Indian citizens.
-            </Typography>
-          </Box>
-        </Container>
-      </Box>
-
       {/* Introduction Section */}
       <Container maxWidth="xl" sx={{ py: 8, px: { xs: 2, sm: 3, md: 4, lg: 6 } }}>
         <SectionTitle
