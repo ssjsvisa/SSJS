@@ -5,6 +5,7 @@ const en = {
       home: "Home",
       services: "Visa Services",
       about: "About Us",
+      reviews: "Reviews",
       contact: "Contact Us",
       analytics: "Analytics"
     },
@@ -84,6 +85,21 @@ const en = {
         successfulVisas: "Successful Visas",
         yearsExperience: "Years Experience",
         successRate: "Success Rate"
+      },
+      seoContent: {
+        title: "Leading USA Visa Services in India - Expert US Visa Consultancy",
+        description1: "SSJS Visa Services is India's premier USA visa consultancy providing expert guidance for B1/B2 tourist visa, F1 student visa, H1B work visa, and L1 business visa applications. Our experienced team of US visa experts has successfully assisted over 2,000+ clients with their America visa applications.",
+        description2: "From USA visa document preparation to US visa interview coaching, we provide comprehensive American visa services from our Chennai office serving clients across Tamil Nadu, Mumbai, Delhi, Bangalore, Pune, and Hyderabad. Our USA visa consultation services Chennai ensure 99% success rate for our clients.",
+        description3: "Whether you need US tourist visa guidance Chennai, America student visa assistance, or USA work visa consultancy, our multilingual support team in Chennai provides personalized US visa services in Hindi, Tamil, Telugu, Gujarati, Punjabi, and Malayalam with special expertise in Tamil language support.",
+        whyChooseTitle: "Why Choose Our USA Visa Services?",
+        whyChoosePoints: [
+          "Expert US visa consultancy with 99% success rate",
+          "Complete USA visa guidance for all visa types",
+          "Professional visa interview preparation",
+          "Document verification & application review",
+          "Multilingual support across India",
+          "Fast USA visa processing assistance"
+        ]
       }
     },
 

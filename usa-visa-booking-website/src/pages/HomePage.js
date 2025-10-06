@@ -37,6 +37,7 @@ import { useLanguageStyles, applyLanguageStyles } from '../styles/LanguageStyles
 import { testBusinessImage } from '../utils/imageLoader';
 import SEOHelmet, { useSEO } from '../components/seo/SEOHelmet';
 import SEOBlogSection from '../components/seo/SEOBlogSection';
+import GoogleBusiness from '../components/business/GoogleBusiness';
 
 const HomePage = () => {
   const theme = useTheme();
@@ -88,7 +89,7 @@ const HomePage = () => {
       />
 
       {/* Introduction Section */}
-      <Container maxWidth="lg" sx={{ py: 8 }}>
+      <Container maxWidth="xl" sx={{ py: 8 }}>
         <SectionTitle
           title={t('home.introduction.title')}
           subtitle={t('home.introduction.subtitle')}
@@ -137,7 +138,7 @@ const HomePage = () => {
 
       {/* US-India Connection Section */}
       <Box sx={{ bgcolor: 'primary.main', py: 6, color: 'white' }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Grid container alignItems="center" spacing={3} justifyContent="center">
             <Grid item xs={12} md={6}>
               <Stack direction="row" spacing={2} alignItems="center" justifyContent="center" sx={{ mb: 3 }}>
@@ -186,44 +187,74 @@ const HomePage = () => {
         </Container>
       </Box>
 
-      {/* SEO Content Section - Keyword Rich */}
+      {/* SEO Content Section - Multilingual with SEO Benefits */}
       <Box sx={{ bgcolor: 'grey.50', py: 6 }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Grid container spacing={4}>
             <Grid item xs={12} md={8}>
-              <Typography variant="h3" gutterBottom sx={{ fontWeight: 600, color: 'primary.main' }}>
-                Leading USA Visa Services in India - Expert US Visa Consultancy
-              </Typography>
-              <Typography variant="body1" paragraph sx={{ fontSize: '1.1rem', lineHeight: 1.7 }}>
-                SSJS Visa Services is India's premier <strong>USA visa consultancy</strong> providing expert guidance for 
-                <strong> B1/B2 tourist visa</strong>, <strong>F1 student visa</strong>, <strong>H1B work visa</strong>, and 
-                <strong> L1 business visa</strong> applications. Our experienced team of <strong>US visa experts</strong> has 
-                successfully assisted over 2,000+ clients with their <strong>America visa applications</strong>.
-              </Typography>
-              <Typography variant="body1" paragraph sx={{ fontSize: '1.1rem', lineHeight: 1.7 }}>
-                From <strong>USA visa document preparation</strong> to <strong>US visa interview coaching</strong>, we provide 
-                comprehensive <strong>American visa services</strong> across major cities in India including Mumbai, Delhi, 
-                Bangalore, Chennai, Pune, and Hyderabad. Our <strong>USA visa consultation services</strong> ensure 99% success 
-                rate for our clients.
-              </Typography>
-              <Typography variant="body1" paragraph sx={{ fontSize: '1.1rem', lineHeight: 1.7 }}>
-                Whether you need <strong>US tourist visa guidance</strong>, <strong>America student visa assistance</strong>, or 
-                <strong>USA work visa consultancy</strong>, our multilingual support team provides personalized 
-                <strong> US visa services</strong> in Hindi, Tamil, Telugu, Gujarati, Punjabi, and Malayalam.
-              </Typography>
+              {/* Display translated content for non-English languages */}
+              {i18n.language !== 'en' ? (
+                <>
+                  <Typography variant="h3" gutterBottom sx={{ fontWeight: 600, color: 'primary.main' }}>
+                    {t('home.seoContent.title')}
+                  </Typography>
+                  <Typography variant="body1" paragraph sx={{ fontSize: '1.1rem', lineHeight: 1.7 }}>
+                    {t('home.seoContent.description1')}
+                  </Typography>
+                  <Typography variant="body1" paragraph sx={{ fontSize: '1.1rem', lineHeight: 1.7 }}>
+                    {t('home.seoContent.description2')}
+                  </Typography>
+                  <Typography variant="body1" paragraph sx={{ fontSize: '1.1rem', lineHeight: 1.7 }}>
+                    {t('home.seoContent.description3')}
+                  </Typography>
+                </>
+              ) : (
+                /* SEO-optimized English content with keywords for search rankings */
+                <>
+                  <Typography variant="h3" gutterBottom sx={{ fontWeight: 600, color: 'primary.main' }}>
+                    Leading USA Visa Services in India - Expert US Visa Consultancy
+                  </Typography>
+                  <Typography variant="body1" paragraph sx={{ fontSize: '1.1rem', lineHeight: 1.7 }}>
+                    SSJS Visa Services is India's premier <strong>USA visa consultancy</strong> providing expert guidance for 
+                    <strong> B1/B2 tourist visa</strong>, <strong>F1 student visa</strong>, <strong>H1B work visa</strong>, and 
+                    <strong> L1 business visa</strong> applications. Our experienced team of <strong>US visa experts</strong> has 
+                    successfully assisted over 2,000+ clients with their <strong>America visa applications</strong>.
+                  </Typography>
+                  <Typography variant="body1" paragraph sx={{ fontSize: '1.1rem', lineHeight: 1.7 }}>
+                    From <strong>USA visa document preparation</strong> to <strong>US visa interview coaching</strong>, we provide 
+                    comprehensive <strong>American visa services</strong> from our Chennai office serving clients across Tamil Nadu, 
+                    Mumbai, Delhi, Bangalore, Pune, and Hyderabad. Our <strong>USA visa consultation services Chennai</strong> ensure 99% success 
+                    rate for our clients.
+                  </Typography>
+                  <Typography variant="body1" paragraph sx={{ fontSize: '1.1rem', lineHeight: 1.7 }}>
+                    Whether you need <strong>US tourist visa guidance Chennai</strong>, <strong>America student visa assistance</strong>, or 
+                    <strong>USA work visa consultancy</strong>, our multilingual support team in Chennai provides personalized 
+                    <strong> US visa services</strong> in Hindi, Tamil, Telugu, Gujarati, Punjabi, and Malayalam with special expertise in Tamil language support.
+                  </Typography>
+                </>
+              )}
             </Grid>
             <Grid item xs={12} md={4}>
               <Paper elevation={3} sx={{ p: 3, borderRadius: 2 }}>
                 <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, color: 'primary.main' }}>
-                  Why Choose Our USA Visa Services?
+                  {i18n.language !== 'en' ? t('home.seoContent.whyChooseTitle') : 'Why Choose Our USA Visa Services?'}
                 </Typography>
                 <Box component="ul" sx={{ pl: 2, '& li': { mb: 1 } }}>
-                  <li><strong>Expert US visa consultancy</strong> with 99% success rate</li>
-                  <li><strong>Complete USA visa guidance</strong> for all visa types</li>
-                  <li><strong>Professional visa interview preparation</strong></li>
-                  <li><strong>Document verification & application review</strong></li>
-                  <li><strong>Multilingual support</strong> across India</li>
-                  <li><strong>Fast USA visa processing assistance</strong></li>
+                  {i18n.language !== 'en' ? (
+                    t('home.seoContent.whyChoosePoints', { returnObjects: true }).map((point, index) => (
+                      <li key={index}>{point}</li>
+                    ))
+                  ) : (
+                    /* SEO-optimized English points with keywords */
+                    <>
+                      <li><strong>Expert US visa consultancy</strong> with 99% success rate</li>
+                      <li><strong>Complete USA visa guidance</strong> for all visa types</li>
+                      <li><strong>Professional visa interview preparation</strong></li>
+                      <li><strong>Document verification & application review</strong></li>
+                      <li><strong>Multilingual support</strong> across India</li>
+                      <li><strong>Fast USA visa processing assistance</strong></li>
+                    </>
+                  )}
                 </Box>
               </Paper>
             </Grid>
@@ -233,7 +264,7 @@ const HomePage = () => {
 
       {/* Visa Categories Section */}
       <Box sx={{ bgcolor: 'background.paper', py: 8 }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <SectionTitle
             title={t('home.services.title')}
             subtitle={t('home.services.subtitle')}
@@ -308,7 +339,7 @@ const HomePage = () => {
 
       {/* Call to Action Section */}
       <Box sx={{ bgcolor: 'primary.main', color: 'white', py: 8 }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Grid 
             container 
             spacing={4} 
@@ -337,6 +368,18 @@ const HomePage = () => {
               </Button>
             </Grid>
           </Grid>
+        </Container>
+      </Box>
+
+      {/* Google My Business Section */}
+      <Box sx={{ bgcolor: 'grey.50', py: 6 }}>
+        <Container maxWidth="xl">
+          <SectionTitle
+            title="Find Us on Google Maps & Read Reviews"
+            subtitle="Connect with us on Google My Business and see what our satisfied customers say"
+            centered
+          />
+          <GoogleBusiness showReviews={true} showMap={true} />
         </Container>
       </Box>
 

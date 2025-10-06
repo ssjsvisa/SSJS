@@ -20,6 +20,7 @@ const Header = () => {
     { name: t('nav.home'), path: '/Home' },
     { name: t('nav.about'), path: '/About' },
     { name: t('nav.services'), path: '/Services' },
+    { name: t('nav.reviews'), path: '/Reviews' },
     { name: t('nav.contact'), path: '/Contactus' },
   ];
 
@@ -64,7 +65,7 @@ const Header = () => {
     <Box sx={{ flexGrow: 1 }}>
 
       <AppBar position="static" color="default" elevation={2}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Toolbar disableGutters sx={{ py: 1 }}>
             {/* Logo */}
             <Box

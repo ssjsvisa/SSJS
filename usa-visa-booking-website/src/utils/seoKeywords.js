@@ -61,14 +61,19 @@ export const seoKeywords = {
 
   // Location-Based Keywords
   locations: [
+    'USA visa services Chennai',
+    'US visa consultancy Chennai Tamil Nadu', 
+    'America visa guidance Chennai',
     'USA visa services Mumbai',
-    'US visa consultancy Delhi', 
+    'US visa consultancy Delhi',
     'America visa guidance Pune',
     'USA visa services Bangalore',
-    'US visa consultancy Chennai',
     'America visa guidance Hyderabad',
     'USA visa services Ahmedabad',
-    'US visa consultancy Kolkata'
+    'US visa consultancy Kolkata',
+    'SSJS visa services Chennai',
+    'Chennai USA visa consultancy',
+    'Tamil Nadu US visa services'
   ],
 
   // Long-tail Keywords (Easier to rank)
