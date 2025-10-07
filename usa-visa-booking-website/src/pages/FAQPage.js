@@ -272,7 +272,7 @@ const FAQPage = () => {
               alignItems="center"
             >
               <Chip 
-                label="📞 Free 15-minute Consultation" 
+                label="📞 Free Consultation" 
                 variant="outlined" 
                 sx={{ 
                   color: 'white', 
@@ -282,13 +282,18 @@ const FAQPage = () => {
                 }} 
               />
               <Chip 
+                component="a"
+                href="/Contactus"
+                clickable
                 label="📧 Email Support Within 24 Hours" 
                 variant="outlined" 
                 sx={{ 
                   color: 'white', 
                   borderColor: 'white',
                   fontSize: '1rem',
-                  py: 1
+                  py: 1,
+                  textDecoration: 'none',
+                  '&:hover': { backgroundColor: 'rgba(255,255,255,0.08)' }
                 }} 
               />
               <Chip 

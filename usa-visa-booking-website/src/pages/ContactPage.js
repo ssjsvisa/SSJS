@@ -102,6 +102,14 @@ const ContactPage = () => {
   const { t, i18n } = useTranslation();
   const currentLanguage = i18n.language;
 
+  // Ref for first name textbox
+  const firstNameRef = React.useRef(null);
+  React.useEffect(() => {
+    if (firstNameRef.current) {
+      firstNameRef.current.focus();
+    }
+  }, []);
+
   const languageStyles = useLanguageStyles(currentLanguage);
 
   const visaTypes = [
@@ -295,6 +303,7 @@ const ContactPage = () => {
                           error={formik.touched.firstName && Boolean(formik.errors.firstName)}
                           helperText={formik.touched.firstName && formik.errors.firstName}
                           variant="outlined"
+                          inputRef={firstNameRef}
                           sx={{
                             '& .MuiOutlinedInput-root': {
                               borderRadius: 3,

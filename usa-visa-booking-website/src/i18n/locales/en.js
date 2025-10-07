@@ -156,6 +156,66 @@ const en = {
         subtitle: "Comprehensive guide to US visa applications with latest 2025 updates - 50+ Essential Questions",
         items: [
           {
+            question: "Who qualifies for the US visa interview waiver in 2025?",
+            answer: "Interview waivers are available for certain nonimmigrant visa applicants renewing in the same category within 48 months of prior expiration. Eligibility varies by consulate and visa type. Check current rules at travel.state.gov."
+          },
+          {
+            question: "What is the process for applying under the interview waiver program?",
+            answer: "Complete DS-160, pay the visa fee, and schedule a drop-box appointment if eligible. Submit required documents at designated centers. Consular officers may still request an in-person interview if needed."
+          },
+          {
+            question: "What are the latest changes to the Diversity Visa (DV) program for 2025 and 2026?",
+            answer: "Recent updates include changes to country eligibility, annual caps, and application procedures. If the cap for your country is reached, further applications may be refused for that year. Always check the latest instructions on travel.state.gov."
+          },
+          {
+            question: "What happens if the annual country cap is reached for DV applicants?",
+            answer: "If the 7% country cap is reached, no further visas will be issued to applicants from that country for the current fiscal year. You may apply again in the next cycle."
+          },
+          {
+            question: "Have US visa application fees changed recently, and how do I pay them?",
+            answer: "Visa fees increased in June 2023 for most categories. Pay via NEFT, cash at designated banks, or online portal. Always confirm the latest fee and payment methods before applying."
+          },
+          {
+            question: "What is the validity period for visa fee receipts after payment?",
+            answer: "Visa fee receipts are valid for 365 days from the date of payment. You must schedule your interview or submit your application within this period. Expired receipts require a new payment."
+          },
+          {
+            question: "What should I do if routine visa services are suspended in my country?",
+            answer: "Monitor official consulate and embassy announcements. Emergency services may be available for urgent cases. You may need to wait until services resume or apply in another country if permitted."
+          },
+          {
+            question: "Is COVID-19 vaccination still required for US visa applicants in 2025?",
+            answer: "As of March 2025, the CDC has removed the COVID-19 vaccination requirement for immigrant visa applicants. Nonimmigrant applicants should check for any local health requirements before travel."
+          },
+          {
+            question: "What are the current health requirements for US visa applications?",
+            answer: "Health requirements may include routine vaccinations and medical exams for certain immigrant categories. COVID-19 vaccination is no longer mandatory, but requirements can change. Check travel.state.gov for updates."
+          },
+          {
+            question: "What does it mean if the annual limit for my employment-based visa category is reached?",
+            answer: "If the annual quota for your category (EB-1, EB-2, EB-3, EB-4, EB-5) is reached, no further visas will be issued until the next fiscal year. You may need to wait or consider alternative visa options."
+          },
+          {
+            question: "Can I still apply if my category (EB-1, EB-2, EB-3, EB-4, EB-5) is full for the year?",
+            answer: "Applications can be submitted, but processing may be delayed until the next quota opens. Check current status and updates on travel.state.gov."
+          },
+          {
+            question: "What is Digital Visa Authorization (DVA) and is it available for my visa type?",
+            answer: "Digital Visa Authorization (DVA) is a pilot program for electronic visa issuance. Availability is limited and not all visa types are eligible. Monitor official updates for expansion of DVA."
+          },
+          {
+            question: "Which countries are subject to US visa bonds and what does this mean for applicants?",
+            answer: "Certain countries may be required to post a visa bond as a condition of entry. This is a financial guarantee to ensure compliance with visa terms. Check the current list and requirements before applying."
+          },
+          {
+            question: "Can I apply for a US visa in a country other than my country of residence?",
+            answer: "Generally, you should apply in your country of residence. Exceptions may be made for urgent cases or if services are suspended locally. Always check with the consulate before applying elsewhere."
+          },
+          {
+            question: "What are the public charge rules for US visa applicants in 2025?",
+            answer: "Applicants must demonstrate they will not become a public charge in the US. This means showing sufficient financial resources and support. The rules are subject to change, so review the latest guidance before applying."
+          },
+          {
             question: "What are the current US visa application fees for all visa types in 2025?",
             answer: "B1/B2 Tourist/Business: $185, F1 Student: $185 + $350 SEVIS fee, H1B Work: $190, L1 Business: $190, O1 Extraordinary Ability: $190, TN NAFTA: $50, E1/E2 Treaty: $315, K1 Fiancé: $265. Premium processing adds $2,805 for eligible categories. Source: travel.state.gov/content/travel/en/us-visas/visa-information-resources/fees.html"
           },
