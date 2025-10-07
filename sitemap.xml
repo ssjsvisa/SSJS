@@ -31,6 +31,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://ssjsus.web.app/FAQ</loc>
+    <lastmod>2025-10-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://ssjsus.web.app/Contactus</loc>
     <lastmod>2025-10-06T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
