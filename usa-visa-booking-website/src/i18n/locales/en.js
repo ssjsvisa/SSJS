@@ -6,6 +6,7 @@ const en = {
       services: "Visa Services",
       about: "About Us",
       reviews: "Reviews",
+      faq: "FAQ",
       contact: "Contact Us",
       analytics: "Analytics"
     },
@@ -152,33 +153,437 @@ const en = {
       },
       faq: {
         title: "Frequently Asked Questions",
-        subtitle: "Common questions about contacting us",
+        subtitle: "Comprehensive guide to US visa applications with latest 2025 updates - 50+ Essential Questions",
         items: [
           {
-            question: "What information should I prepare before the consultation?",
-            answer: "Before your consultation, it's helpful to have details about your travel plans, purpose of visit, personal information, employment history, and any previous U.S. visa applications or denials."
+            question: "What are the current US visa application fees for all visa types in 2025?",
+            answer: "B1/B2 Tourist/Business: $185, F1 Student: $185 + $350 SEVIS fee, H1B Work: $190, L1 Business: $190, O1 Extraordinary Ability: $190, TN NAFTA: $50, E1/E2 Treaty: $315, K1 Fiancé: $265. Premium processing adds $2,805 for eligible categories. Source: travel.state.gov/content/travel/en/us-visas/visa-information-resources/fees.html"
           },
           {
-            question: "How long does it take to get a response after submitting the contact form?",
-            answer: "We typically respond to all inquiries within 24-48 business hours. For urgent matters, we recommend calling us directly."
+            question: "What biometric data is collected for US visa applications?",
+            answer: "All applicants aged 14-79 must provide: 10-finger digital fingerprints, digital photograph, and signature capture. Biometrics are collected at Visa Application Centers (VACs) or US Consulates. Data is stored for 15 years and shared with US immigration databases. Source: travel.state.gov/content/travel/en/us-visas/apply/biometrics.html"
           },
           {
-            question: "Do you offer remote consultations?",
-            answer: "Yes, we offer consultations via phone, video call, or email for clients who cannot visit our office in person."
+            question: "Where can I give biometrics for US visa in India?",
+            answer: "Biometric data collection is available at VACs in Mumbai, New Delhi, Chennai, Kolkata, and Hyderabad. Some smaller cities have mobile biometric units. You must schedule biometrics appointment through ustraveldocs.com after DS-160 submission. Walk-ins are not accepted."
           },
           {
-            question: "Is there a fee for initial consultations?",
-            answer: "We offer a complimentary 15-minute initial assessment. For more detailed consultations, there is a nominal fee that can be applied toward future services if you decide to proceed with us."
+            question: "How many times can I attempt biometric enrollment if it fails?",
+            answer: "If biometric capture fails due to technical issues, you can reattempt immediately at the same appointment. For quality issues (scars, bandages), you may reschedule up to 3 times within 30 days. Medical waiver available for permanent disabilities affecting fingerprints."
           },
           {
-            question: "What languages do your consultants speak?",
-            answer: "Our consultants are fluent in English, Spanish, Mandarin, Hindi, and Arabic to better serve our diverse clientele."
+            question: "What documents do I need for B1/B2 biometric appointment?",
+            answer: "Required: Valid passport, DS-160 confirmation page, appointment confirmation letter, one 2x2 inch photo (if not uploaded in DS-160). Optional but recommended: Previous US visa (if any), travel itinerary. Photocopies not required at biometric centers."
           },
           {
-            question: "Can you help with urgent visa applications?",
-            answer: "Yes, we offer expedited services for urgent cases, though additional fees may apply. Please contact us directly to discuss your specific timeline and needs."
+            question: "What documents are needed for F1 student visa biometric collection?",
+            answer: "Mandatory: Valid passport, DS-160 confirmation, I-20 form, SEVIS fee receipt, appointment letter, 2x2 inch photo. Additional: Academic transcripts, financial documents, standardized test scores. Keep originals - photocopies accepted for supporting documents only."
+          },
+          {
+            question: "What is the recommended photo size for US visa applications?",
+            answer: "Standard requirement: 2x2 inches (51mm x 51mm), taken within 6 months, white background, head covering 50-69% of frame, no glasses, neutral expression. High resolution (600x600 pixels minimum for digital upload). Source: travel.state.gov/content/travel/en/us-visas/visa-information-resources/photos.html"
+          },
+          {
+            question: "Can I use photocopies of documents for US visa interview?",
+            answer: "Originals are mandatory at interviews. Photocopies acceptable only for: bank statements (certified copies), academic transcripts (sealed envelopes), employment letters (company letterhead). Self-attested photocopies not accepted. Bring originals + one copy set for consular retention."
+          },
+          {
+            question: "What is the current B1/B2 visa interview wait time in India?",
+            answer: "As of 2025: Mumbai 45-60 days, Delhi 50-65 days, Chennai 40-55 days, Kolkata 35-50 days, Hyderabad 30-45 days. Emergency appointments available for urgent medical/business travel with additional documentation. Check real-time: ustraveldocs.com/in/in-niv-waittimeinfo.asp"
+          },
+          {
+            question: "How many times can I be denied a US visa before permanent rejection?",
+            answer: "No legal limit on visa applications, but each denial creates negative history. After 3+ denials, applications face increased scrutiny. Must address previous denial reasons with substantial new evidence. Frivolous applications may result in extended review periods or interview restrictions."
+          },
+          {
+            question: "What financial documents are required for B1/B2 visa interview?",
+            answer: "Mandatory: 6 months bank statements (original), salary slips (3 months), income tax returns (3 years), employment letter. Assets: Property documents, fixed deposits, mutual funds, insurance policies. Minimum recommended balance: ₹12-15 lakhs for tourist visa."
+          },
+          {
+            question: "What are the H1B visa interview document requirements?",
+            answer: "Essential: Approved I-129 petition, LCA copy, employment offer letter, educational credentials (original + transcripts), experience letters, pay stubs (if currently in US). Company documents: Registration, tax returns, client letters. Personal: Bank statements, property documents."
+          },
+          {
+            question: "Do L1 visa applicants need to attend interviews?",
+            answer: "L1A (Executive/Manager): Interview waiver possible for extensions. L1B (Specialized Knowledge): Interview generally required for first-time applicants. Blanket L1: May qualify for interview waiver. Individual L1: Interview mandatory unless qualifying for renewal waiver program."
+          },
+          {
+            question: "What biometric requirements apply to F1 student visa renewals?",
+            answer: "Students applying for visa renewal in same classification within 12 months may qualify for interview waiver but must still provide biometrics if previous data expired. New biometrics required if traveling after 12+ months or changing visa categories."
+          },
+          {
+            question: "Can family members give biometrics together for US visa?",
+            answer: "Yes, family applications can be scheduled together at VACs. Each applicant needs individual appointment but can be consecutive slots. Children under 14 accompanied by parents, elderly over 79 may have abbreviated biometric collection (photo + signature only)."
+          },
+          {
+            question: "What happens if I miss my US visa biometric appointment?",
+            answer: "Must reschedule through ustraveldocs.com within 30 days of original appointment. Late fees may apply after grace period. Three consecutive missed appointments may require restarting entire application process including new DS-160 and fees."
+          },
+          {
+            question: "Are there medical exemptions for US visa biometric collection?",
+            answer: "Available for: Missing fingers, severe bandages/injuries, certain skin conditions. Submit medical certificate from licensed physician. Alternative procedures include partial fingerprinting or complete medical waiver. Process through consular officer during interview."
+          },
+          {
+            question: "What interview questions are common for B1/B2 tourist visas?",
+            answer: "Standard questions: Purpose of visit, duration of stay, financial support, employment status, previous travel history, family ties in US/India, return plans. Be prepared with specific itinerary, hotel bookings, and clear explanations of ties to home country."
+          },
+          {
+            question: "How should I prepare for F1 student visa interview?",
+            answer: "Key areas: Why this university/program, funding sources, post-graduation plans (return to India), academic background, English proficiency demonstration. Carry: I-20, financial documents, academic transcripts, standardized test scores, university correspondence."
+          },
+          {
+            question: "What documents prove strong ties to India for B1/B2 applications?",
+            answer: "Employment: Job letter with leave approval, business ownership documents. Family: Marriage certificate, children's birth certificates, dependent parents. Assets: Property deeds, bank accounts, investments. Social: Community involvement, club memberships, volunteer work certificates."
+          },
+          {
+            question: "Can I bring electronics or bags to US visa biometric centers?",
+            answer: "Prohibited items: Mobile phones, cameras, USB devices, large bags, food items, liquids. Allowed: Small purse, documents folder, required paperwork, car keys, glasses. Security lockers available at some centers for fee. Check specific VAC rules before appointment."
+          },
+          {
+            question: "What is Administrative Processing (221g) for US visas?",
+            answer: "Additional security clearance required for certain applicants. Common for: STEM fields, previous military service, certain countries of birth, advanced technology experience. Duration: 30 days to 12+ months. Cannot be expedited. Status check: ceac.state.gov/CEACStatTracker"
+          },
+          {
+            question: "How do I check US visa application status after biometrics?",
+            answer: "Methods: Online at ustraveldocs.com/in using passport number and application ID, email notifications (if opted), SMS updates, call center (+91-20-67207200). Status updates: Biometrics collected, Interview scheduled, Administrative Processing, Approved, Refused."
+          },
+          {
+            question: "What are the dress code requirements for US visa interviews?",
+            answer: "Professional business attire required. Men: Formal shirt, trousers, closed shoes. Women: Formal dress/blouse with pants/skirt, closed shoes. Avoid: Casual wear, religious head coverings (unless for religious reasons), excessive jewelry, strong fragrances."
+          },
+          {
+            question: "Can I reschedule my US visa interview appointment?",
+            answer: "Yes, through ustraveldocs.com up to 2 times without penalty. Third reschedule requires new application. Emergency rescheduling available for medical emergencies with documentation. Reschedule at least 2 business days before appointment to avoid no-show penalties."
+          },
+          {
+            question: "What supporting documents are needed for H1B visa interviews?",
+            answer: "Petitioner documents: I-129 approval notice, LCA, company registration, tax returns, client contracts. Personal: Educational credentials (original degrees + transcripts), experience letters, current employment proof, bank statements, property documents."
+          },
+          {
+            question: "Do children need separate biometric appointments for US visas?",
+            answer: "Children 14+: Full biometrics required (fingerprints + photo). Ages 0-13: Photo and signature only, no fingerprints. Must be accompanied by parent/guardian. Separate appointments required but can be scheduled consecutively. Guardian consent forms needed."
+          },
+          {
+            question: "What is the validity period of biometric data for US visas?",
+            answer: "Biometric data valid for 15 years from collection date. Reuse possible for multiple applications within validity period. New collection required after expiry or if data quality issues arise. Children's biometrics may need recollection due to growth changes."
+          },
+          {
+            question: "Can I apply for multiple US visa types simultaneously?",
+            answer: "No, only one non-immigrant visa application allowed at a time. Must wait for decision before applying for different category. Exception: Dual intent visas (H1B, L1) where immigrant intent doesn't disqualify non-immigrant applications."
+          },
+          {
+            question: "What are the document requirements for TN visa interviews?",
+            answer: "NAFTA professionals need: University degree (original), employment offer letter specifying TN category, professional license (if required), citizenship proof (Canadian/Mexican passport). Processing at border or consulate. No petition required unlike H1B."
+          },
+          {
+            question: "How long before interview should I collect biometrics?",
+            answer: "Biometrics must be completed before interview scheduling. Recommended timeline: Submit DS-160 → Schedule biometrics within 5 days → Complete biometrics → Interview scheduling available 2-3 business days after biometric completion."
+          },
+          {
+            question: "What happens during US visa biometric data collection process?",
+            answer: "Process: Check-in with documents → Security screening → Photo capture → Fingerprint scanning (all 10 fingers individually, then both hands) → Signature capture → Receipt issued. Duration: 15-30 minutes. No interview or questioning during biometrics."
+          },
+          {
+            question: "Are there premium services for US visa biometric appointments?",
+            answer: "No premium/expedited biometric services available. All appointments processed on first-come, first-served basis. Emergency appointments possible for medical/humanitarian reasons with documentation. Some VACs offer premium lounges for comfort (separate fee)."
+          },
+          {
+            question: "What financial proof is required for F1 student visa applications?",
+            answer: "Required amount: Full tuition + living expenses for first year (typically $60,000-$80,000). Documents: Bank statements (6 months), fixed deposits, education loans sanction letter, scholarship letters, sponsor affidavits with financial proof. Assets must be liquid/readily available."
+          },
+          {
+            question: "Can I attend US visa interview without biometric completion?",
+            answer: "No, biometric data collection is mandatory prerequisite for interview scheduling. System will not allow interview appointment booking until biometrics status shows 'Complete'. Technical failures require rescheduling biometrics before interview remains possible."
+          },
+          {
+            question: "What are the common B1/B2 visa denial reasons and how to overcome them?",
+            answer: "Section 214(b) - Insufficient ties: Strengthen employment, family, property connections. Insufficient funds: Increase bank balance, show stable income. Previous overstay: Provide compelling reasons for rule violations. Poor interview: Practice with mock interviews, organize documents clearly."
+          },
+          {
+            question: "Do I need original degree certificates for H1B visa interviews?",
+            answer: "Yes, original degree certificates and complete transcripts required. Photocopies not acceptable for educational credentials. If originals lost, obtain official duplicates from university. Degree evaluation may be needed for foreign degrees not in English."
+          },
+          {
+            question: "What is the procedure for US visa interview arrival and check-in?",
+            answer: "Timeline: Arrive 15 minutes early → Security check → Document verification → Token number → Wait for interview → Consular officer interaction → Decision notification. Bring only required documents. Mobile phones and electronics prohibited inside consulate premises."
+          },
+          {
+            question: "How do biometric requirements differ for different US visa categories?",
+            answer: "Standard for all: Ages 14-79 need fingerprints + photo. Exceptions: Diplomatic visas (photo only), certain government officials (reduced requirements), children under 14 (photo + signature only). Waivers available for medical conditions affecting fingerprint quality."
+          },
+          {
+            question: "What are the requirements for accompanying spouse/children for work visas?",
+            answer: "H4 (H1B dependents): Marriage certificate, children's birth certificates, financial support proof. L2 (L1 dependents): Same requirements plus spouse work authorization application possible. All dependents need separate biometrics and may need interviews."
+          },
+          {
+            question: "Can I use express passport services for urgent US visa applications?",
+            answer: "Expedited passport processing available through Passport Seva Kendra for urgent visa needs. However, US visa processing cannot be expedited beyond emergency appointment availability. Plan applications well in advance of travel dates."
+          },
+          {
+            question: "What photocopying specifications are recommended for US visa documents?",
+            answer: "Format: A4 size paper, clear black and white copies, single-sided preferred. Quality: All text clearly readable, no blurred sections. Organization: Separate sets for each applicant, chronological order. Certification: Bank statements and transcripts should be certified copies when originals unavailable."
+          },
+          {
+            question: "How does previous US visa denial affect biometric and interview process?",
+            answer: "Previous denial triggers enhanced scrutiny but doesn't change biometric requirements. Interview questions focus on addressing denial reasons. Bring: Previous denial letter, substantial new evidence, clear explanations for changed circumstances. Honesty about denial history mandatory."
+          },
+          {
+            question: "What are the specific document requirements for E1/E2 treaty investor visas?",
+            answer: "Investment proof: Bank statements, property purchase documents, business registration, financial projections. Company documents: Incorporation papers, tax returns, employee records. Personal: Educational credentials, management experience, travel history. Investment threshold varies by treaty country."
+          },
+          {
+            question: "Are there different biometric standards for elderly applicants over 79?",
+            answer: "Applicants 80+ years exempt from fingerprinting but require photo and signature capture. Those 79 and under follow standard biometric procedures regardless of physical condition unless medical waiver obtained. Assistance available for mobility-impaired applicants."
+          },
+          {
+            question: "What happens if my US visa is approved after interview?",
+            answer: "Process: Visa approved → Passport retained by consulate → Visa printing (2-3 business days) → Passport delivery via courier → Check visa details for accuracy → Travel planning can begin. Track delivery status through ustraveldocs.com portal."
+          },
+          {
+            question: "Can I travel to other countries while my US visa application is in administrative processing?",
+            answer: "Yes, you can travel to other countries but cannot travel to US until visa is approved. Passport may be retained during administrative processing, so apply for second passport if international travel needed. Inform consulate of travel plans during processing."
+          },
+          {
+            question: "What are the latest updates for US visa fee payment methods in India?",
+            answer: "Accepted methods: NEFT/RTGS bank transfer, cash payment at Axis Bank branches, online payment through visa fee portal. Credit/debit cards not accepted. Fee must be paid before DS-160 submission. Payment receipt valid for 365 days from payment date."
+          },
+          {
+            question: "Do I need to submit additional documents after US visa interview?",
+            answer: "Depends on consular officer request. Common requests: Updated bank statements, additional employment proof, travel itinerary details, medical reports. Submit through designated drop-box locations or online portal as instructed. Failure to submit requested documents may result in visa denial."
+          },
+          {
+            question: "What are the consequences of providing false information during biometric collection or interview?",
+            answer: "Severe penalties: Permanent visa ineligibility under INA Section 212(a)(6)(C), lifetime ban from US entry, criminal prosecution possible. False information includes: Fake documents, misrepresented facts, omitted material information. All applications undergo extensive background verification."
           }
-        ]
+        ],
+        // Visa-specific FAQ sections
+        visaSpecific: {
+          b1b2: {
+            title: "B1/B2 Tourist & Business Visa - Top 10 Questions",
+            items: [
+              {
+                question: "What is the difference between B1 and B2 visa categories?",
+                answer: "B1 visa is for business activities: meetings, conferences, consultations, negotiations. B2 visa is for tourism: sightseeing, visiting family/friends, medical treatment, recreational activities. Most applicants receive a combined B1/B2 visa allowing both purposes."
+              },
+              {
+                question: "How much bank balance is required for B1/B2 visa from India?",
+                answer: "Recommended minimum: ₹12-15 lakhs ($15,000-$20,000 USD) with 6 months consistent banking history. Amount varies based on trip duration, destinations, and number of travelers. Higher balance strengthens your application."
+              },
+              {
+                question: "Can I apply for B1/B2 visa without a sponsor in the US?",
+                answer: "Yes, sponsorship is not mandatory. However, invitation letters from US contacts can strengthen your application. You must still demonstrate your own financial capacity and strong ties to India regardless of US connections."
+              },
+              {
+                question: "What is the maximum stay allowed on B1/B2 visa?",
+                answer: "Typically 6 months per entry, but CBP officer at port of entry determines actual authorized stay. Check your I-94 record online for exact departure date. Extensions possible through USCIS in exceptional circumstances."
+              },
+              {
+                question: "Can I work or study on a B1/B2 visa?",
+                answer: "Absolutely prohibited. No employment, business operations, or formal education allowed. Violations result in deportation and permanent entry bans. B1 allows unpaid business activities only. Short recreational courses under 18 hours/week permitted on B2."
+              },
+              {
+                question: "How early can I apply for B1/B2 visa before travel?",
+                answer: "Apply 2-3 months before intended travel. Visa interviews can be scheduled up to 12 months in advance. During peak seasons (summer, winter holidays), apply earlier due to longer wait times."
+              },
+              {
+                question: "What are common B1/B2 visa denial reasons?",
+                answer: "Primary reasons: Section 214(b) - insufficient ties to home country, inadequate financial proof, unclear travel purpose, previous immigration violations, inconsistent documentation. Address these areas to strengthen reapplication."
+              },
+              {
+                question: "Can I travel to multiple countries on B1/B2 visa?",
+                answer: "B1/B2 visa is only for US entry. For other countries, you need separate visas. However, having a US visa may facilitate visa applications to other countries like Canada, UK, or Schengen area."
+              },
+              {
+                question: "What documents prove strong ties to India for B1/B2 applications?",
+                answer: "Employment: job letter with leave approval, business ownership. Family: marriage certificate, children's birth certificates, elderly parent dependency. Assets: property deeds, investments, bank accounts. Social ties: community involvement certificates."
+              },
+              {
+                question: "Can I extend my B1/B2 stay beyond 6 months?",
+                answer: "Extensions possible through USCIS Form I-539, filed before current stay expires. Valid reasons: medical emergencies, unexpected business needs, family emergencies. Approval not guaranteed. File 45 days before current authorized stay ends."
+              }
+            ]
+          },
+          f1: {
+            title: "F1 Student Visa - Top 10 Questions",
+            items: [
+              {
+                question: "What are the financial requirements for F1 visa in 2025?",
+                answer: "Must demonstrate funding for full program duration: tuition + living expenses (typically $60,000-$80,000 annually). Acceptable sources: personal/family savings, education loans, scholarships, assistantships. Funds must be readily available and verifiable."
+              },
+              {
+                question: "Can F1 students work while studying in the US?",
+                answer: "On-campus work: Up to 20 hours/week during studies, full-time during breaks. Off-campus work requires authorization: CPT (internships/practical training), OPT (post-graduation work). Unauthorized work leads to visa termination."
+              },
+              {
+                question: "How early can I enter the US before my program starts?",
+                answer: "F1 students may enter up to 30 days before program start date on Form I-20. Earlier entry requires special permission from school's DSO (Designated School Official). Late arrival may jeopardize student status."
+              },
+              {
+                question: "What is SEVIS and why do I need to pay the fee?",
+                answer: "SEVIS (Student and Exchange Visitor Information System) tracks F1 students. SEVIS fee: $350 (paid before visa interview). Required for all F1 applicants. Fee receipt must be presented at interview and port of entry."
+              },
+              {
+                question: "Can I change my major or transfer schools on F1 visa?",
+                answer: "Major changes within same school: Usually permitted with DSO approval. School transfers: Requires new I-20, SEVIS record transfer, and maintaining full-time enrollment. Some changes may require new visa application."
+              },
+              {
+                question: "What happens if I fail to maintain full-time enrollment?",
+                answer: "Consequences: Loss of F1 status, potential deportation proceedings. Exceptions: Medical reasons, final semester with fewer credits, approved reduced course load. Must report to DSO immediately if unable to maintain full-time status."
+              },
+              {
+                question: "Can F1 students bring dependents (spouse/children) to the US?",
+                answer: "Yes, through F2 dependent visas for spouse and unmarried children under 21. F2 dependents cannot work but may attend school. Must demonstrate financial support for all family members throughout study period."
+              },
+              {
+                question: "What is OPT and how does it work for F1 students?",
+                answer: "OPT (Optional Practical Training): Work authorization in your field of study. Pre-completion OPT: During studies (part-time). Post-completion OPT: After graduation (12 months, 36 months for STEM fields). Must apply through USCIS."
+              },
+              {
+                question: "Can I travel outside the US on F1 visa?",
+                answer: "Yes, with valid F1 visa, I-20 endorsed by DSO (within 12 months), and valid passport. Travel signature required if I-20 endorsement expired. Automatic revalidation possible for short trips to Canada/Mexico."
+              },
+              {
+                question: "What documents do I need for F1 visa interview?",
+                answer: "Essential: I-20 form, SEVIS fee receipt, DS-160, financial documents, academic transcripts, standardized test scores. Additional: University acceptance letter, study plan, ties to home country proof."
+              }
+            ]
+          },
+          h1b: {
+            title: "H1B Work Visa - Top 10 Questions",
+            items: [
+              {
+                question: "What is the H1B visa cap and lottery system?",
+                answer: "Annual cap: 85,000 (65,000 regular + 20,000 advanced degree). Registration period: March, lottery selection if oversubscribed. Cap-exempt employers: universities, non-profits, government research organizations. Premium processing available for $2,805."
+              },
+              {
+                question: "What qualifications are required for H1B specialty occupation?",
+                answer: "Minimum: Bachelor's degree or equivalent in specific field related to job. Employer must prove: Position requires specialized knowledge, prevailing wage compliance, legitimate business need. Alternative: 12 years relevant experience can substitute degree."
+              },
+              {
+                question: "Can I work for the petitioning employer before H1B is approved?",
+                answer: "No, cannot begin H1B employment until petition approved and status becomes effective (usually October 1st). Exception: Cap-exempt positions may start immediately upon approval. Unauthorized work violates status."
+              },
+              {
+                question: "How long can I stay on H1B visa?",
+                answer: "Initial period: 3 years, extendable for additional 3 years (6 years total). Extensions beyond 6 years possible if: Green card process initiated (I-140 approved or PERM pending 365+ days), or time recapture for time spent outside US."
+              },
+              {
+                question: "Can H1B holders bring family members to the US?",
+                answer: "Yes, H4 dependent visas for spouse and unmarried children under 21. H4 spouses may apply for work authorization (EAD) if H1B holder has approved I-140 or is in 6th year of H1B status."
+              },
+              {
+                question: "Can I change employers on H1B visa?",
+                answer: "Yes, through H1B transfer (new I-129 petition by new employer). Can start working when new petition filed (portability rule), but must maintain valid status. Previous H1B time counts toward 6-year maximum."
+              },
+              {
+                question: "What happens if I'm laid off while on H1B?",
+                answer: "Grace period: 60 days or until I-94 expires (whichever is shorter) to find new employer, change status, or depart US. Must maintain valid status throughout. New employer must file transfer petition within grace period."
+              },
+              {
+                question: "Can H1B holders travel outside the US?",
+                answer: "Yes, with valid H1B visa stamp and approval notice. If visa stamp expired, must renew at US consulate abroad. Automatic revalidation available for short trips to Canada/Mexico with expired stamps under certain conditions."
+              },
+              {
+                question: "What is H1B premium processing?",
+                answer: "Expedited processing service: 15 calendar days guaranteed review for additional $2,805 fee. Available for initial petitions, extensions, amendments, transfers. USCIS may suspend premium processing during high-volume periods."
+              },
+              {
+                question: "How does H1B dual intent work for green card applications?",
+                answer: "H1B allows dual intent: Can pursue permanent residence while maintaining non-immigrant status. Green card process doesn't affect H1B renewals. However, must demonstrate non-immigrant intent if applying for H1B visa stamp abroad."
+              }
+            ]
+          },
+          l1: {
+            title: "L1 Intracompany Transfer Visa - Top 10 Questions",
+            items: [
+              {
+                question: "What is the difference between L1A and L1B visas?",
+                answer: "L1A: Executives/Managers, maximum 7 years stay, faster green card process (EB-1C category). L1B: Specialized knowledge employees, maximum 5 years stay, slower green card path. Different eligibility criteria and benefits."
+              },
+              {
+                question: "What employment history is required for L1 visa?",
+                answer: "Must work for qualifying related company outside US for at least 1 year in past 3 years in executive, managerial, or specialized knowledge capacity. Employment must be continuous and in qualifying position."
+              },
+              {
+                question: "What constitutes a qualifying relationship between companies?",
+                answer: "Qualifying relationships: Parent-subsidiary, branch-affiliate, subsidiary-parent. Companies must have qualifying business relationship with common ownership/control. Joint ventures and franchises typically don't qualify."
+              },
+              {
+                question: "Can L1 holders work for other employers in the US?",
+                answer: "No, L1 visa is employer-specific. Can only work for petitioning employer or qualifying subsidiaries/affiliates specifically listed in petition. Additional work requires separate work authorization."
+              },
+              {
+                question: "What is L1 Blanket Petition and how does it differ from individual L1?",
+                answer: "Blanket L1: Pre-approved petition for qualifying large companies, faster processing for individual employees. Individual L1: Case-by-case petition for specific employee. Blanket requires: $25M sales, 1000+ employees, or previous L1 approvals."
+              },
+              {
+                question: "Can L1 visa holders bring dependents to the US?",
+                answer: "Yes, L2 visas for spouse and unmarried children under 21. L2 spouses eligible for work authorization (no restrictions on employer). L2 children may attend school but cannot work until obtaining proper authorization."
+              },
+              {
+                question: "How long does L1 visa processing take?",
+                answer: "Individual L1: 2-4 months regular processing, 15 days with premium processing ($2,805). Blanket L1: Consular processing typically 2-4 weeks after document submission. Processing times vary by service center and season."
+              },
+              {
+                question: "Can L1 visa be used for new office setup in the US?",
+                answer: "Yes, New Office L1 allows transfer to establish new US operations. Initial approval: 1 year maximum. Extension requires proof of business viability: physical premises, business plan execution, staff hiring."
+              },
+              {
+                question: "What is specialized knowledge for L1B visa?",
+                answer: "Advanced knowledge of company's products, services, research, techniques, or management specific to the company. Must be more than ordinary knowledge possessed by others in the industry. Examples: proprietary technology, unique processes, advanced systems."
+              },
+              {
+                question: "Can L1 holders apply for green card?",
+                answer: "Yes, L1 allows dual intent. L1A holders eligible for EB-1C (multinational executive/manager) - faster green card path. L1B holders typically use EB-2/EB-3 categories. L1 time doesn't count against green card eligibility."
+              }
+            ]
+          },
+          other: {
+            title: "Other Visa Types - Top 10 Questions",
+            items: [
+              {
+                question: "What is O1 visa and who qualifies for extraordinary ability?",
+                answer: "O1 visa for individuals with extraordinary ability in sciences, arts, education, business, athletics. Requires national/international recognition, sustained acclaim. Evidence: awards, published material, high salary, expert opinions. No annual cap."
+              },
+              {
+                question: "How does TN visa work for NAFTA professionals?",
+                answer: "TN visa for Canadian/Mexican citizens in specific professional occupations. Requirements: University degree, job offer in TN category, citizenship proof. Application at border or consulate. No annual cap, 3-year validity, unlimited renewals."
+              },
+              {
+                question: "What are E1/E2 treaty investor/trader visas?",
+                answer: "E1 (Treaty Trader): Substantial trade between US and treaty country. E2 (Treaty Investor): Substantial investment in US business. Both require treaty country citizenship, renewable indefinitely while maintaining investment/trade."
+              },
+              {
+                question: "How do K1 fiancé visas work?",
+                answer: "K1 visa for foreign fiancé(e) of US citizen. Must marry within 90 days of entry, then adjust status to permanent resident. Requirements: Intention to marry, legal capacity to marry, met in person within 2 years."
+              },
+              {
+                question: "What is J1 exchange visitor visa?",
+                answer: "J1 for approved exchange programs: students, researchers, teachers, trainees. Requires DS-2019 from designated sponsor. Some categories subject to 2-year home residency requirement before applying for immigrant/certain non-immigrant visas."
+              },
+              {
+                question: "How does R1 religious worker visa function?",
+                answer: "R1 for religious workers in non-profit religious organizations. Requirements: Member of religious denomination for 2+ years, coming to work in religious capacity. Maximum 5 years stay, path to permanent residence possible."
+              },
+              {
+                question: "What is P1 visa for athletes and entertainers?",
+                answer: "P1 for internationally recognized athletes/entertainment groups. Requirements: International recognition, coming for specific competition/performance. P1A (athletes), P1B (entertainment groups). Petition required from US employer/agent."
+              },
+              {
+                question: "How do EB-5 investor green cards work?",
+                answer: "EB-5 requires $1.8M investment ($900K in targeted employment areas) creating 10+ full-time jobs. Conditional green card initially, conditions removed after 2 years upon proving investment/job creation requirements."
+              },
+              {
+                question: "What is U visa for crime victims?",
+                answer: "U visa for victims of qualifying crimes who assist law enforcement. Requirements: Substantial physical/mental abuse, crime occurred in US, helpful in investigation/prosecution. Annual cap: 10,000, path to permanent residence."
+              },
+              {
+                question: "How does asylum process work in the US?",
+                answer: "Asylum for those unable to return home due to persecution. Must apply within 1 year of arrival (with exceptions). Requirements: Persecution or well-founded fear based on race, religion, nationality, political opinion, or particular social group."
+              }
+            ]
+          }
+        }
       }
     },
 

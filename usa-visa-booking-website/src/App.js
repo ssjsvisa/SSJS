@@ -17,6 +17,7 @@ import AboutPage from './pages/AboutPage';
 import VisaServicesPage from './pages/VisaServicesPage';
 import ContactPage from './pages/ContactPage';
 import ReviewsPage from './pages/ReviewsPage';
+import FAQPage from './pages/FAQPage';
 
 function App() {
 
@@ -54,6 +55,7 @@ function App() {
             <Route path="/About" element={<AboutPage />} />
             <Route path="/Services" element={<VisaServicesPage />} />
             <Route path="/Reviews" element={<ReviewsPage />} />
+            <Route path="/FAQ" element={<FAQPage />} />
             <Route path="/Contactus" element={<ContactPage />} />
             <Route path="/SSJS" element={<Navigate to="/" replace />} />
           </Routes>
