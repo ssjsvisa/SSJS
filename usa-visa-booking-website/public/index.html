@@ -292,6 +292,12 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script>
+      document.addEventListener('copy', function(e) { e.preventDefault(); });
+      document.addEventListener('cut', function(e) { e.preventDefault(); });
+      document.addEventListener('paste', function(e) { e.preventDefault(); });
+      document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+    </script>
     
     <!-- Hidden content for search engines - not visible to users -->
     <div style="display: none; visibility: hidden; position: absolute; left: -9999px;" aria-hidden="true">
