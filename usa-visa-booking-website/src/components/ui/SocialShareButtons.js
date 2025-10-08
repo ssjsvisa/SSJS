@@ -3,8 +3,19 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 
 const buttonData = [
+  {
+    href: '#',
+    bg: '#ff9800',
+    icon: <CardGiftcardIcon fontSize="large" />,
+    aria: 'Personalized Offers',
+    onClick: (e) => {
+      e.preventDefault();
+      window.dispatchEvent(new Event('openPersonalizedOffer'));
+    },
+  },
   {
     href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`,
     bg: '#4267B2',
@@ -34,7 +45,7 @@ const buttonData = [
 const SocialShareButtons = () => (
   <div style={{
     position: 'fixed',
-    bottom: '90px',
+  bottom: '300px',
     right: '24px',
     zIndex: 9999,
     display: 'flex',
@@ -45,8 +56,8 @@ const SocialShareButtons = () => (
       <a
         key={idx}
         href={btn.href}
-        target="_blank"
-        rel="noopener noreferrer"
+        target={btn.href !== '#' ? '_blank' : undefined}
+        rel={btn.href !== '#' ? 'noopener noreferrer' : undefined}
         style={{
           background: btn.bg,
           color: 'white',
@@ -60,6 +71,7 @@ const SocialShareButtons = () => (
           textDecoration: 'none',
         }}
         aria-label={btn.aria}
+        onClick={btn.onClick}
       >
         {btn.icon}
       </a>

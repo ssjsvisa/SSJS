@@ -1,3 +1,4 @@
+import PersonalizedOfferButton from '../ui/PersonalizedOfferButton';
 import React from 'react';
 import ScrollToTopButton from '../ui/ScrollToTopButton';
 import { Box, CssBaseline } from '@mui/material';
@@ -26,6 +27,7 @@ const Layout = ({ children }) => {
       </Box>
   <Footer />
   <ScrollToTopButton />
+  <PersonalizedOfferButton />
     </Box>
   );
 };
