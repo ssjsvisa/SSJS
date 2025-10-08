@@ -38,8 +38,9 @@ const PersonalizedOfferButton = () => {
       {open && (
         <Box sx={{
           position: 'fixed',
-          right: 24,
-          top: 'calc(300px - 56px - 12px)', // just above gift icon (stack bottom - icon height - gap)
+          left: '50%',
+          top: '50%',
+          transform: 'translate(-50%, -50%)',
           bgcolor: 'background.paper',
           boxShadow: 24,
           p: 2,
@@ -50,6 +51,25 @@ const PersonalizedOfferButton = () => {
           transition: 'box-shadow 0.3s, border 0.3s',
           border: blink ? '3px solid #ff9800' : '3px solid transparent',
           boxShadow: blink ? '0 0 24px 8px #ff9800' : '0 2px 8px rgba(0,0,0,0.15)',
+          animation: 'flyBounceInRightTop 1.4s cubic-bezier(0.23, 1, 0.32, 1)',
+          '@keyframes flyBounceInRightTop': {
+            '0%': {
+              opacity: 0,
+              transform: 'translate(60vw, -40vh) scale(0.7)',
+            },
+            '60%': {
+              opacity: 1,
+              transform: 'translate(-50%, -50%) scale(1.15)',
+            },
+            '80%': {
+              opacity: 1,
+              transform: 'translate(-50%, -50%) scale(0.95)',
+            },
+            '100%': {
+              opacity: 1,
+              transform: 'translate(-50%, -50%) scale(1)',
+            },
+          },
         }}>
           <Typography variant="h5" fontWeight={700} gutterBottom>
             <span role="img" aria-label="offer" style={{marginRight: 8}}>🎉</span>
@@ -72,19 +92,6 @@ const PersonalizedOfferButton = () => {
           <IconButton onClick={() => setOpen(false)} sx={{ position: 'absolute', top: 0, left: 0, m: 0, p: 1 }}>
             ×
           </IconButton>
-          {/* Arrow pointing to gift icon */}
-          <Box sx={{
-            position: 'absolute',
-            right: 24,
-            bottom: -8,
-            width: 0,
-            height: 0,
-            borderLeft: '12px solid transparent',
-            borderRight: '12px solid transparent',
-            borderTop: '16px solid',
-            borderTopColor: 'background.paper',
-            zIndex: 1301,
-          }} />
         </Box>
       )}
     </>
