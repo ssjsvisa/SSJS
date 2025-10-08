@@ -138,6 +138,7 @@ const ReviewsPage = () => {
     oneStarReviews: 0
   };
 
+  // Helper to get initials
   const getInitials = (name) => {
     return name
       .split(' ')
@@ -157,7 +158,23 @@ const ReviewsPage = () => {
       'H-1B Transfer': 'success'
     };
     return colors[visaType] || 'default';
-  };
+};
+
+// Helper to calculate date from relativeTime string
+const getDateFromRelativeTime = (relativeTime) => {
+  if (!relativeTime) return new Date();
+  const now = new Date();
+  const match = relativeTime.match(/(\d+)\s*(week|month|day|year)s?\s*ago/i);
+  if (!match) return now;
+  const value = parseInt(match[1], 10);
+  const unit = match[2].toLowerCase();
+  const date = new Date(now);
+  if (unit === 'day') date.setDate(now.getDate() - value);
+  else if (unit === 'week') date.setDate(now.getDate() - value * 7);
+  else if (unit === 'month') date.setMonth(now.getMonth() - value);
+  else if (unit === 'year') date.setFullYear(now.getFullYear() - value);
+  return date;
+};
 
   return (
     <Box>
@@ -351,7 +368,7 @@ const ReviewsPage = () => {
                         </Typography>
                       </Box>
                       <Typography variant="caption" color="text.secondary">
-                        {new Date(review.date).toLocaleDateString()}
+                        {getDateFromRelativeTime(review.relativeTime).toLocaleDateString()}
                       </Typography>
                     </Box>
                   </CardContent>

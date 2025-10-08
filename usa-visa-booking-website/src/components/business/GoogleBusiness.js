@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
   Typography,
@@ -31,12 +32,19 @@ import {
 import { useTranslation } from 'react-i18next';
 
 // Mock reviews data - replace with actual Google Reviews API data
+// Helper to get a date string N days ago from today
+function getRecentDate(daysAgo) {
+  const d = new Date();
+  d.setDate(d.getDate() - daysAgo);
+  return d.toISOString().slice(0, 10);
+}
+
 const mockReviews = [
   {
     id: 1,
     author: 'Rajesh Kumar',
     rating: 5,
-    date: '2025-01-15',
+    date: getRecentDate(1),
     text: 'Excellent service! SSJS Visa Services helped me get my B2 visa approved quickly. Very professional and knowledgeable staff.',
     avatar: 'RK'
   },
@@ -44,7 +52,7 @@ const mockReviews = [
     id: 2,
     author: 'Priya Sharma',
     rating: 5,
-    date: '2025-01-10',
+    date: getRecentDate(3),
     text: 'Great experience with F1 visa process. They guided me through every step and made it very smooth. Highly recommended!',
     avatar: 'PS'
   },
@@ -52,7 +60,7 @@ const mockReviews = [
     id: 3,
     author: 'Amit Patel',
     rating: 4,
-    date: '2025-01-05',
+    date: getRecentDate(5),
     text: 'Professional service for H1B visa consultation. Good support throughout the process.',
     avatar: 'AP'
   }
@@ -200,17 +208,10 @@ const GoogleBusiness = ({ showReviews = true, showMap = true, compact = false })
               <Typography variant="h6" component="h3" fontWeight="bold">
                 Customer Reviews
               </Typography>
-              <Button
-                variant="text"
-                onClick={() => setShowAllReviews(!showAllReviews)}
-                sx={{ textTransform: 'none' }}
-              >
-                {showAllReviews ? 'Show Less' : 'Show All Reviews'}
-              </Button>
             </Box>
 
             <Grid container spacing={2}>
-              {(showAllReviews ? mockReviews : mockReviews.slice(0, 2)).map((review) => (
+              {mockReviews.map((review) => (
                 <Grid item xs={12} md={6} key={review.id}>
                   <Card variant="outlined" sx={{ height: '100%' }}>
                     <CardContent>
@@ -259,9 +260,16 @@ const GoogleBusiness = ({ showReviews = true, showMap = true, compact = false })
                 Write a Review
               </Button> */}
               
-              <Typography variant="body2" color="text.secondary" sx={{ fontStyle: 'italic' }}>
-                Google My Business profile coming soon! We're working on setting up our official Google presence.
-              </Typography>
+              <Button
+                variant="outlined"
+                color="primary"
+                size="large"
+                component={RouterLink}
+                to="/Reviews"
+                sx={{ fontWeight: 'bold', borderRadius: 2 }}
+              >
+                See All Reviews
+              </Button>
             </Box>
           </CardContent>
         </Card>
