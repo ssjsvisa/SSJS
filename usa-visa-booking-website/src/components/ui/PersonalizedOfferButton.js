@@ -39,7 +39,7 @@ const PersonalizedOfferButton = () => {
         <Box sx={{
           position: 'fixed',
           right: 24,
-          top: 'calc(300px - 56px - 12px - 56px)', // move popup 56px further above
+          top: 'calc(300px - 56px - 12px)', // just above gift icon (stack bottom - icon height - gap)
           bgcolor: 'background.paper',
           boxShadow: 24,
           p: 2,
@@ -69,7 +69,7 @@ const PersonalizedOfferButton = () => {
               🚀 Slots fill up fast — book now! 💼
             </span>
           </Typography>
-          <IconButton onClick={() => setOpen(false)} sx={{ position: 'absolute', top: 8, right: 8 }}>
+          <IconButton onClick={() => setOpen(false)} sx={{ position: 'absolute', top: 0, left: 0, m: 0, p: 1 }}>
             ×
           </IconButton>
           {/* Arrow pointing to gift icon */}

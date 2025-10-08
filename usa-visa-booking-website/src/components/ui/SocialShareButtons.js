@@ -28,12 +28,12 @@ const buttonData = [
     icon: <TwitterIcon fontSize="large" />,
     aria: 'Share on Twitter',
   },
-  {
-    href: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(window.location.href)}&title=US%20Visa%20Consultancy`,
-    bg: '#0077B5',
-    icon: <LinkedInIcon fontSize="large" />,
-    aria: 'Share on LinkedIn',
-  },
+//   {
+//     href: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(window.location.href)}&title=US%20Visa%20Consultancy`,
+//     bg: '#0077B5',
+//     icon: <LinkedInIcon fontSize="large" />,
+//     aria: 'Share on LinkedIn',
+//   },
   {
     href: `https://wa.me/919361696954?text=${encodeURIComponent(window.location.href)}`,
     bg: '#25D366',
