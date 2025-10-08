@@ -1,4 +1,5 @@
 import React from 'react';
+import ScrollToTopButton from '../ui/ScrollToTopButton';
 import { Box, CssBaseline } from '@mui/material';
 import Header from './Header';
 import Footer from './Footer';
@@ -23,7 +24,8 @@ const Layout = ({ children }) => {
       >
         {children}
       </Box>
-      <Footer />
+  <Footer />
+  <ScrollToTopButton />
     </Box>
   );
 };
