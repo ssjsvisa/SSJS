@@ -2,7 +2,7 @@
   "name": "usa-visa-booking-website",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ssjsvisa.github.io/SSJS",
+  "homepage": "https://ssjsus.web.app",
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@emotion/react": "^11.14.0",
