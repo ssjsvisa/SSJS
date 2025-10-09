@@ -45,7 +45,7 @@ const buttonData = [
 const SocialShareButtons = () => (
   <div style={{
     position: 'fixed',
-  bottom: '300px',
+    bottom: '24px',
     right: '24px',
     zIndex: 9999,
     display: 'flex',

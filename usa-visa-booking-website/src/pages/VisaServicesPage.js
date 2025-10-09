@@ -149,38 +149,40 @@ const VisaServicesPage = () => {
               </Box>
             </Grid>
             <Grid item xs={12} md={6}>
-              <Paper elevation={2} sx={{ p: 3, borderRadius: 2, mb: 4 }}>
-                <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, display: 'flex', alignItems: 'center' }}>
-                  <AssignmentIcon sx={{ mr: 1, color: 'primary.main' }} />
-                  {t('services.visaTypes.b1b2.documents.title')}
-                </Typography>
-                <List>
-                  {t('services.visaTypes.b1b2.documents.items', { returnObjects: true }).map((item, index) => (
-                    <RequirementItem key={index} text={item} />
-                  ))}
-                </List>
-              </Paper>
-              <Paper elevation={2} sx={{ p: 3, borderRadius: 2 }}>
-                <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, display: 'flex', alignItems: 'center' }}>
-                  <EventNoteIcon sx={{ mr: 1, color: 'primary.main' }} />
-                  {t('services.visaTypes.b1b2.eligibility.title')}
-                </Typography>
-                <List>
-                  {t('services.visaTypes.b1b2.eligibility.items', { returnObjects: true }).map((item, index) => (
-                    <ProcessItem key={index} number={index + 1} text={item} />
-                  ))}
-                </List>
-                <Button 
-                  variant="contained" 
-                  color="primary" 
-                  endIcon={<ArrowForwardIcon />}
-                  component={RouterLink}
-                  to="/Contactus"
-                  sx={{ mt: 2 }}
-                >
-                  {t('services.learnMore')}
-                </Button>
-              </Paper>
+              <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+                <Paper elevation={2} sx={{ p: 3, borderRadius: 2, flex: 1, minWidth: 260 }}>
+                  <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, display: 'flex', alignItems: 'center' }}>
+                    <AssignmentIcon sx={{ mr: 1, color: 'primary.main' }} />
+                    {t('services.visaTypes.b1b2.documents.title')}
+                  </Typography>
+                  <List>
+                    {t('services.visaTypes.b1b2.documents.items', { returnObjects: true }).map((item, index) => (
+                      <RequirementItem key={index} text={item} />
+                    ))}
+                  </List>
+                </Paper>
+                <Paper elevation={2} sx={{ p: 3, borderRadius: 2, flex: 1, minWidth: 260 }}>
+                  <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, display: 'flex', alignItems: 'center' }}>
+                    <EventNoteIcon sx={{ mr: 1, color: 'primary.main' }} />
+                    {t('services.visaTypes.b1b2.eligibility.title')}
+                  </Typography>
+                  <List>
+                    {t('services.visaTypes.b1b2.eligibility.items', { returnObjects: true }).map((item, index) => (
+                      <ProcessItem key={index} number={index + 1} text={item} />
+                    ))}
+                  </List>
+                  <Button 
+                    variant="contained" 
+                    color="primary" 
+                    endIcon={<ArrowForwardIcon />}
+                    component={RouterLink}
+                    to="/Contactus"
+                    sx={{ mt: 2 }}
+                  >
+                    {t('services.learnMore')}
+                  </Button>
+                </Paper>
+              </Box>
             </Grid>
           </Grid>
         </TabPanel>
@@ -217,38 +219,40 @@ const VisaServicesPage = () => {
               </Box>
             </Grid>
             <Grid item xs={12} md={6}>
-              <Paper elevation={2} sx={{ p: 3, borderRadius: 2, mb: 4 }}>
-                <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, display: 'flex', alignItems: 'center' }}>
-                  <AssignmentIcon sx={{ mr: 1, color: 'primary.main' }} />
-                  {t('services.visaTypes.f1.documents.title')}
-                </Typography>
-                <List>
-                  {t('services.visaTypes.f1.documents.items', { returnObjects: true }).map((item, index) => (
-                    <RequirementItem key={index} text={item} />
-                  ))}
-                </List>
-              </Paper>
-              <Paper elevation={2} sx={{ p: 3, borderRadius: 2 }}>
-                <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, display: 'flex', alignItems: 'center' }}>
-                  <EventNoteIcon sx={{ mr: 1, color: 'primary.main' }} />
-                  {t('services.visaTypes.f1.eligibility.title')}
-                </Typography>
-                <List>
-                  {t('services.visaTypes.f1.eligibility.items', { returnObjects: true }).map((item, index) => (
-                    <ProcessItem key={index} number={index + 1} text={item} />
-                  ))}
-                </List>
-                <Button 
-                  variant="contained" 
-                  color="primary" 
-                  endIcon={<ArrowForwardIcon />}
-                  component={RouterLink}
-                  to="/Contactus"
-                  sx={{ mt: 2 }}
-                >
-                  {t('services.learnMore')}
-                </Button>
-              </Paper>
+              <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+                <Paper elevation={2} sx={{ p: 3, borderRadius: 2, flex: 1, minWidth: 260 }}>
+                  <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, display: 'flex', alignItems: 'center' }}>
+                    <AssignmentIcon sx={{ mr: 1, color: 'primary.main' }} />
+                    {t('services.visaTypes.f1.documents.title')}
+                  </Typography>
+                  <List>
+                    {t('services.visaTypes.f1.documents.items', { returnObjects: true }).map((item, index) => (
+                      <RequirementItem key={index} text={item} />
+                    ))}
+                  </List>
+                </Paper>
+                <Paper elevation={2} sx={{ p: 3, borderRadius: 2, flex: 1, minWidth: 260 }}>
+                  <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, display: 'flex', alignItems: 'center' }}>
+                    <EventNoteIcon sx={{ mr: 1, color: 'primary.main' }} />
+                    {t('services.visaTypes.f1.eligibility.title')}
+                  </Typography>
+                  <List>
+                    {t('services.visaTypes.f1.eligibility.items', { returnObjects: true }).map((item, index) => (
+                      <ProcessItem key={index} number={index + 1} text={item} />
+                    ))}
+                  </List>
+                  <Button 
+                    variant="contained" 
+                    color="primary" 
+                    endIcon={<ArrowForwardIcon />}
+                    component={RouterLink}
+                    to="/Contactus"
+                    sx={{ mt: 2 }}
+                  >
+                    {t('services.learnMore')}
+                  </Button>
+                </Paper>
+              </Box>
             </Grid>
           </Grid>
         </TabPanel>
@@ -285,38 +289,40 @@ const VisaServicesPage = () => {
               </Box>
             </Grid>
             <Grid item xs={12} md={6}>
-              <Paper elevation={2} sx={{ p: 3, borderRadius: 2, mb: 4 }}>
-                <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, display: 'flex', alignItems: 'center' }}>
-                  <AssignmentIcon sx={{ mr: 1, color: 'primary.main' }} />
-                  {t('services.visaTypes.h1b.documents.title')}
-                </Typography>
-                <List>
-                  {t('services.visaTypes.h1b.documents.items', { returnObjects: true }).map((item, index) => (
-                    <RequirementItem key={index} text={item} />
-                  ))}
-                </List>
-              </Paper>
-              <Paper elevation={2} sx={{ p: 3, borderRadius: 2 }}>
-                <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, display: 'flex', alignItems: 'center' }}>
-                  <EventNoteIcon sx={{ mr: 1, color: 'primary.main' }} />
-                  {t('services.visaTypes.h1b.eligibility.title')}
-                </Typography>
-                <List>
-                  {t('services.visaTypes.h1b.eligibility.items', { returnObjects: true }).map((item, index) => (
-                    <ProcessItem key={index} number={index + 1} text={item} />
-                  ))}
-                </List>
-                <Button 
-                  variant="contained" 
-                  color="primary" 
-                  endIcon={<ArrowForwardIcon />}
-                  component={RouterLink}
-                  to="/Contactus"
-                  sx={{ mt: 2 }}
-                >
-                  {t('services.learnMore')}
-                </Button>
-              </Paper>
+              <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+                <Paper elevation={2} sx={{ p: 3, borderRadius: 2, flex: 1, minWidth: 260 }}>
+                  <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, display: 'flex', alignItems: 'center' }}>
+                    <AssignmentIcon sx={{ mr: 1, color: 'primary.main' }} />
+                    {t('services.visaTypes.h1b.documents.title')}
+                  </Typography>
+                  <List>
+                    {t('services.visaTypes.h1b.documents.items', { returnObjects: true }).map((item, index) => (
+                      <RequirementItem key={index} text={item} />
+                    ))}
+                  </List>
+                </Paper>
+                <Paper elevation={2} sx={{ p: 3, borderRadius: 2, flex: 1, minWidth: 260 }}>
+                  <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, display: 'flex', alignItems: 'center' }}>
+                    <EventNoteIcon sx={{ mr: 1, color: 'primary.main' }} />
+                    {t('services.visaTypes.h1b.eligibility.title')}
+                  </Typography>
+                  <List>
+                    {t('services.visaTypes.h1b.eligibility.items', { returnObjects: true }).map((item, index) => (
+                      <ProcessItem key={index} number={index + 1} text={item} />
+                    ))}
+                  </List>
+                  <Button 
+                    variant="contained" 
+                    color="primary" 
+                    endIcon={<ArrowForwardIcon />}
+                    component={RouterLink}
+                    to="/Contactus"
+                    sx={{ mt: 2 }}
+                  >
+                    {t('services.learnMore')}
+                  </Button>
+                </Paper>
+              </Box>
             </Grid>
           </Grid>
         </TabPanel>
@@ -353,38 +359,40 @@ const VisaServicesPage = () => {
               </Box>
             </Grid>
             <Grid item xs={12} md={6}>
-              <Paper elevation={2} sx={{ p: 3, borderRadius: 2, mb: 4 }}>
-                <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, display: 'flex', alignItems: 'center' }}>
-                  <AssignmentIcon sx={{ mr: 1, color: 'primary.main' }} />
-                  {t('services.visaTypes.l1.documents.title')}
-                </Typography>
-                <List>
-                  {t('services.visaTypes.l1.documents.items', { returnObjects: true }).map((item, index) => (
-                    <RequirementItem key={index} text={item} />
-                  ))}
-                </List>
-              </Paper>
-              <Paper elevation={2} sx={{ p: 3, borderRadius: 2 }}>
-                <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, display: 'flex', alignItems: 'center' }}>
-                  <EventNoteIcon sx={{ mr: 1, color: 'primary.main' }} />
-                  {t('services.visaTypes.l1.eligibility.title')}
-                </Typography>
-                <List>
-                  {t('services.visaTypes.l1.eligibility.items', { returnObjects: true }).map((item, index) => (
-                    <ProcessItem key={index} number={index + 1} text={item} />
-                  ))}
-                </List>
-                <Button 
-                  variant="contained" 
-                  color="primary" 
-                  endIcon={<ArrowForwardIcon />}
-                  component={RouterLink}
-                  to="/Contactus"
-                  sx={{ mt: 2 }}
-                >
-                  {t('services.learnMore')}
-                </Button>
-              </Paper>
+              <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+                <Paper elevation={2} sx={{ p: 3, borderRadius: 2, flex: 1, minWidth: 260 }}>
+                  <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, display: 'flex', alignItems: 'center' }}>
+                    <AssignmentIcon sx={{ mr: 1, color: 'primary.main' }} />
+                    {t('services.visaTypes.l1.documents.title')}
+                  </Typography>
+                  <List>
+                    {t('services.visaTypes.l1.documents.items', { returnObjects: true }).map((item, index) => (
+                      <RequirementItem key={index} text={item} />
+                    ))}
+                  </List>
+                </Paper>
+                <Paper elevation={2} sx={{ p: 3, borderRadius: 2, flex: 1, minWidth: 260 }}>
+                  <Typography variant="h5" gutterBottom sx={{ fontWeight: 600, display: 'flex', alignItems: 'center' }}>
+                    <EventNoteIcon sx={{ mr: 1, color: 'primary.main' }} />
+                    {t('services.visaTypes.l1.eligibility.title')}
+                  </Typography>
+                  <List>
+                    {t('services.visaTypes.l1.eligibility.items', { returnObjects: true }).map((item, index) => (
+                      <ProcessItem key={index} number={index + 1} text={item} />
+                    ))}
+                  </List>
+                  <Button 
+                    variant="contained" 
+                    color="primary" 
+                    endIcon={<ArrowForwardIcon />}
+                    component={RouterLink}
+                    to="/Contactus"
+                    sx={{ mt: 2 }}
+                  >
+                    {t('services.learnMore')}
+                  </Button>
+                </Paper>
+              </Box>
             </Grid>
           </Grid>
         </TabPanel>
