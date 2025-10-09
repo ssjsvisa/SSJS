@@ -7,14 +7,14 @@ const NewsPopup = ({ alwaysOpen }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Fetch latest USCIS news for Indian citizens
+  // Fetch latest USCIS news for Indian citizens from backend
   useEffect(() => {
     setLoading(true);
     setError(null);
-    fetch('https://newsapi.org/v2/everything?q=USCIS%20India%20visa%20appointment%20interview%20processing%20fees&sortBy=publishedAt&language=en&apiKey=YOUR_NEWSAPI_KEY')
+    fetch('/api/latest-news')
       .then(res => res.json())
       .then(data => {
-        setNews(data.articles ? data.articles.slice(0, 5) : []);
+        setNews(data.articles ? data.articles : []);
         setLoading(false);
       })
       .catch(err => {
