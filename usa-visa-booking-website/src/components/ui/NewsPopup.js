@@ -7,19 +7,12 @@ const NewsPopup = ({ alwaysOpen }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Fetch latest USCIS news for Indian citizens from backend
+  // Read news from public/latest-news.txt
   useEffect(() => {
-    setLoading(true);
-    setError(null);
-    fetch('/api/latest-news')
-      .then(res => res.json())
-      .then(data => {
-        setNews(data.articles ? data.articles : []);
-        setLoading(false);
-      })
-      .catch(err => {
-        setError('Unable to fetch news.');
-        setLoading(false);
+    fetch('/latest-news.txt')
+      .then(res => res.text())
+      .then(text => {
+        setNews(text.split('\n').filter(line => line.trim() !== ''));
       });
   }, []);
   const [open, setOpen] = useState(false);
@@ -68,23 +61,13 @@ const NewsPopup = ({ alwaysOpen }) => {
             </Typography>
             <AnnouncementIcon sx={{ color: '#1976d2', fontSize: 32 }} />
           </Box>
-          {loading ? (
-            <Typography variant="body2" sx={{ mb: 2 }}>Loading latest news...</Typography>
-          ) : error ? (
-            <Typography variant="body2" sx={{ mb: 2, color: 'error.main' }}>{error}</Typography>
-          ) : news.length === 0 ? (
+          {news.length === 0 ? (
             <Typography variant="body2" sx={{ mb: 2 }}>No recent news found.</Typography>
           ) : (
             <Box component="ul" sx={{ paddingLeft: 2, margin: 0 }}>
-              {news.map((article, idx) => (
+              {news.map((item, idx) => (
                 <li key={idx} style={{ marginBottom: 12 }}>
-                  <Typography variant="body2" sx={{ fontWeight: 'bold', color: 'primary.main' }}>{article.title}</Typography>
-                  <Typography variant="body2" sx={{ mb: 0.5 }}>{article.description}</Typography>
-                  <Typography variant="caption" color="text.secondary">
-                    {new Date(article.publishedAt).toLocaleDateString()} &mdash; 
-                    <a href={article.url} target="_blank" rel="noopener noreferrer">Read more</a>
-                    {article.source && article.source.name ? ` | Source: ${article.source.name}` : ''}
-                  </Typography>
+                  <Typography variant="body2">{item}</Typography>
                 </li>
               ))}
             </Box>
