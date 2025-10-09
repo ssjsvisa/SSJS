@@ -27,9 +27,11 @@ import WorkIcon from '@mui/icons-material/Work';
 import BusinessIcon from '@mui/icons-material/Business';
 import PublicIcon from '@mui/icons-material/Public';
 import SectionTitle from '../components/ui/SectionTitle';
+import NewsPopup from '../components/ui/NewsPopup';
 import { useTranslation } from 'react-i18next';
 
 const FAQPage = () => {
+  // ...existing code...
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const { t } = useTranslation();
@@ -161,6 +163,8 @@ const FAQPage = () => {
             <Stack direction="row" spacing={2} alignItems="center">
               <UpdateIcon sx={{ color: '#1976d2', fontSize: 30 }} />
               <Box>
+                {/* Latest News Icon and Popup (always open on FAQ page) */}
+                <NewsPopup alwaysOpen={true} />
                 <Typography variant="h6" sx={{ color: '#1976d2', fontWeight: 600 }}>
                   Latest Updates for 2025
                 </Typography>

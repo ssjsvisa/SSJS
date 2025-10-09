@@ -4,8 +4,20 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
+import AnnouncementIcon from '@mui/icons-material/Announcement';
+import NewsPopup from './NewsPopup';
 
 const buttonData = [
+  {
+    href: '#',
+    bg: '#1976d2',
+    icon: <AnnouncementIcon fontSize="large" />,
+    aria: 'Latest News',
+    onClick: (e) => {
+      e.preventDefault();
+      window.dispatchEvent(new Event('openNewsPopup'));
+    },
+  },
   {
     href: '#',
     bg: '#ff9800',
@@ -71,6 +83,7 @@ const SocialShareButtons = () => (
           textDecoration: 'none',
         }}
         aria-label={btn.aria}
+        title={btn.aria}
         onClick={btn.onClick}
       >
         {btn.icon}

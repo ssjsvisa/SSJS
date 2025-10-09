@@ -1,4 +1,5 @@
 import SocialShareButtons from './components/ui/SocialShareButtons';
+import NewsPopup from './components/ui/NewsPopup';
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
@@ -66,6 +67,7 @@ function App() {
           </Routes>
         </Layout>
         <SocialShareButtons />
+        <NewsPopup />
       </Router>
     </ThemeProvider>
   );
