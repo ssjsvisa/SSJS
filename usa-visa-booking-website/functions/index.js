@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 
 // NewsAPI endpoint
-app.get('/api/latest-news', async (req, res) => {
+app.get('/latest-news', async (req, res) => {
   try {
     const NEWS_API_KEY = process.env.NEWSAPI_KEY || 'YOUR_NEWSAPI_KEY';
     const query = encodeURIComponent('USCIS OR US visa India OR US visa appointment OR US visa interview OR US visa fees OR US visa processing');
