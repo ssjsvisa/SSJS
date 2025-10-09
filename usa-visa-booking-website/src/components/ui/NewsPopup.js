@@ -45,8 +45,10 @@ const NewsPopup = ({ alwaysOpen }) => {
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            minWidth: 320,
-            maxWidth: 400,
+            minWidth: 400,
+            maxWidth: 600,
+            maxHeight: '90vh',
+            overflow: 'auto',
             p: 4,
             borderRadius: 3,
             boxShadow: '0 20px 40px rgba(0,0,0,0.2)',
@@ -79,7 +81,9 @@ const NewsPopup = ({ alwaysOpen }) => {
                   <Typography variant="body2" sx={{ fontWeight: 'bold', color: 'primary.main' }}>{article.title}</Typography>
                   <Typography variant="body2" sx={{ mb: 0.5 }}>{article.description}</Typography>
                   <Typography variant="caption" color="text.secondary">
-                    {new Date(article.publishedAt).toLocaleDateString()} &mdash; <a href={article.url} target="_blank" rel="noopener noreferrer">Read more</a>
+                    {new Date(article.publishedAt).toLocaleDateString()} &mdash; 
+                    <a href={article.url} target="_blank" rel="noopener noreferrer">Read more</a>
+                    {article.source && article.source.name ? ` | Source: ${article.source.name}` : ''}
                   </Typography>
                 </li>
               ))}
